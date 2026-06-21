@@ -13,14 +13,6 @@ const trustFeatures = [
     { title: "وصول سريع", desc: "في جميع المناطق" },
 ];
 
-const serviceAreas = [
-    "حولي",
-    "السالمية",
-    "الجهراء",
-    "الفروانية",
-    "الأحمدي",
-];
-
 export default function Hero() {
     return (
         <section
@@ -65,16 +57,8 @@ export default function Hero() {
 
                     <div className="mt-6 flex w-full max-w-xl flex-wrap items-center gap-x-2 gap-y-2 text-sm">
                         <span className="font-semibold text-slate-700">
-                            خدمة متوفرة في:
+                            خدمة متوفرة في: جميع المناطق
                         </span>
-                        {serviceAreas.map((area) => (
-                            <span
-                                key={area}
-                                className="rounded-full border border-slate-200 bg-white/70 px-3 py-1 font-medium text-slate-600 shadow-sm"
-                            >
-                                {area}
-                            </span>
-                        ))}
                     </div>
 
                     <ul className="mt-8 grid w-full max-w-xl grid-cols-2 gap-3 sm:gap-4">

@@ -10,6 +10,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/thermal-waterproofing-kuwait", priority: 0.9, changeFrequency: "monthly" },
   { path: "/basement-pump-kuwait", priority: 0.9, changeFrequency: "monthly" },
   { path: "/manhole-installation-kuwait", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/water-tank-cleaning-kuwait", priority: 0.9, changeFrequency: "monthly" },
   { path: "/areas", priority: 0.8, changeFrequency: "monthly" },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
   { path: "/about-us", priority: 0.6, changeFrequency: "yearly" },

@@ -15,6 +15,7 @@ const services = [
     { label: "العزل المائي والحراري", href: "/thermal-waterproofing-kuwait" },
     { label: "تركيب مكينة سرداب", href: "/basement-pump-kuwait" },
     { label: "تركيب منهول الكويت", href: "/manhole-installation-kuwait" },
+    { label: "غسيل تانكي الكويت", href: "/water-tank-cleaning-kuwait" },
 ];
 
 const navLinks = [

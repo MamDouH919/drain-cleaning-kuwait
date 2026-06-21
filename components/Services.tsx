@@ -73,6 +73,17 @@ const services = [
       </svg>
     ),
   },
+  {
+    title: "غسيل تانكي الكويت",
+    description:
+      "تنظيف وتعقيم خزانات المياه من الرواسب والطحالب لضمان مياه نظيفة وصحية لمنزلك.",
+    href: "/water-tank-cleaning-kuwait",
+    Icon: ({ className }: IconProps) => (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M5 3h14a1 1 0 0 1 1 1v15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a1 1 0 0 1 1-1Zm1 2v3h12V5H6Zm12 5H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9Zm-6 2c1.7 1.9 3 3.5 3 5a3 3 0 0 1-6 0c0-1.5 1.3-3.1 3-5Z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Services() {
