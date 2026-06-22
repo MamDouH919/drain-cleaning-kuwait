@@ -65,6 +65,8 @@ export type ServiceConfig = {
   serviceType: string;
   keywordEn: string;
   theme: "sky" | "emerald";
+  coverImage: string;
+  coverAlt: (area: string) => string;
   h1: (area: string) => string;
   metaTitle: (area: string) => string;
   metaDescription: (area: string) => string;
@@ -88,8 +90,10 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
     serviceType: "تسليك مجاري وفتح انسدادات",
     keywordEn: "drain cleaning Kuwait",
     theme: "sky",
+    coverImage: "/drain-cleaning/تسليك-مجاري.webp",
+    coverAlt: (area) => `تسليك مجاري ${area} بدون تكسير`,
     h1: (area) => `تسليك مجاري ${area}`,
-    metaTitle: (area) => `تسليك مجاري ${area} | فتح انسدادات بدون تكسير 24 ساعة`,
+    metaTitle: (area) => `تسليك مجاري ${area} | فتح انسدادات 24 ساعة`,
     metaDescription: (area) =>
       `خدمة تسليك مجاري ${area} بدون تكسير على مدار 24 ساعة، فتح الانسدادات وحل مشاكل الصرف بأحدث الأجهزة وسرعة وصول وأسعار مناسبة في ${area} الكويت.`,
     intro: (area, nearby) =>
@@ -170,6 +174,8 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
     serviceType: "عزل مائي وحراري للأسطح",
     keywordEn: "roof waterproofing Kuwait",
     theme: "emerald",
+    coverImage: "/roof-waterproofing/عزل-اسطح.webp",
+    coverAlt: (area) => `عزل أسطح ${area} مائي وحراري`,
     h1: (area) => `عزل أسطح ${area}`,
     metaTitle: (area) => `عزل أسطح ${area} | عزل مائي وحراري وفوم بضمان`,
     metaDescription: (area) =>

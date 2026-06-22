@@ -84,6 +84,17 @@ const services = [
       </svg>
     ),
   },
+  {
+    title: "عزل أسطح جيتاروف",
+    description:
+      "عزل الأسطح بمادة الجيتاروف القوية المقاومة للماء والحرارة لحماية طويلة الأمد للمباني.",
+    href: "/gitaroof-insulation-kuwait",
+    Icon: ({ className }: IconProps) => (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M12 2 2 9h2v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9h2L12 2Zm-5 9h10a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2Zm0 4h10a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2Z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Services() {

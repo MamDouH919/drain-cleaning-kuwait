@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import Image from "next/image";
 
-function getPortfolioImages() {
-  const dir = path.join(process.cwd(), "public/portfolio");
+function getImages(folder: string) {
+  const dir = path.join(process.cwd(), "public", folder);
   let files: string[] = [];
   try {
     files = fs.readdirSync(dir).filter((f) => /\.(webp|avif|jpe?g|png)$/i.test(f));
@@ -11,13 +11,25 @@ function getPortfolioImages() {
     return [];
   }
   return files.sort().map((file) => ({
-    src: `/portfolio/${file}`,
+    src: `/${folder}/${file}`,
     alt: file.replace(/\.(webp|avif|jpe?g|png)$/i, "").replace(/[-_]/g, " "),
   }));
 }
 
-export default function Gallery() {
-  const images = getPortfolioImages();
+type GalleryProps = {
+  folder?: string;
+  title?: string;
+  description?: string;
+  badge?: string;
+};
+
+export default function Gallery({
+  folder = "portfolio",
+  title = "نماذج من أعمالنا في الكويت",
+  description = "صور حقيقية من خدمات تسليك المجاري وعزل الأسطح والصيانة المنزلية التي نفّذناها في مختلف مناطق الكويت.",
+  badge = "معرض أعمالنا",
+}: GalleryProps) {
+  const images = getImages(folder);
   if (images.length === 0) return null;
 
   return (
@@ -30,17 +42,16 @@ export default function Gallery() {
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700">
-            معرض أعمالنا
+            {badge}
           </span>
           <h2
             id="gallery-heading"
             className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
           >
-            نماذج من أعمالنا في الكويت
+            {title}
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            صور حقيقية من خدمات تسليك المجاري وعزل الأسطح والصيانة المنزلية التي
-            نفّذناها في مختلف مناطق الكويت.
+            {description}
           </p>
         </div>
 

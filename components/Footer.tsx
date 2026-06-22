@@ -21,6 +21,7 @@ const services = [
   { label: "تركيب مكينة سرداب", href: "/basement-pump-kuwait" },
   { label: "تركيب منهول الكويت", href: "/manhole-installation-kuwait" },
   { label: "غسيل تانكي الكويت", href: "/water-tank-cleaning-kuwait" },
+  { label: "عزل أسطح جيتاروف", href: "/gitaroof-insulation-kuwait" },
 ];
 
 const localBusinessSchema = {

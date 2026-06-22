@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Gallery from "@/components/Gallery";
 import {
   SITE_URL,
   BUSINESS_NAME,
@@ -58,13 +60,13 @@ export async function generateMetadata({
       title,
       description,
       siteName: BUSINESS_NAME,
-      images: [{ url: "/hero-service.svg", width: 720, height: 720, alt: title }],
+      images: [{ url: service.coverImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/hero-service.svg"],
+      images: [service.coverImage],
     },
   };
 }
@@ -109,6 +111,7 @@ export default async function AreaServicePage({
         name: `${service.shortName} ${area.name}`,
         serviceType: service.serviceType,
         url,
+        image: `${SITE_URL}${service.coverImage}`,
         areaServed: [
           { "@type": "City", name: area.name },
           { "@type": "Country", name: "الكويت" },
@@ -186,6 +189,18 @@ export default async function AreaServicePage({
               تواصل واتساب
             </a>
           </div>
+
+          <div className="relative mx-auto mt-12 max-w-3xl overflow-hidden rounded-3xl border border-white/60 bg-white shadow-2xl shadow-slate-300/50 ring-1 ring-slate-900/5">
+            <Image
+              src={service.coverImage}
+              alt={service.coverAlt(area.name)}
+              width={1200}
+              height={750}
+              preload
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="h-auto w-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -210,6 +225,13 @@ export default async function AreaServicePage({
           </div>
         </div>
       </section>
+
+      <Gallery
+        folder={service.id}
+        badge="معرض أعمالنا"
+        title={`نماذج من أعمال ${service.shortName}`}
+        description={`صور حقيقية من خدمات ${service.shortName} والصيانة التي نفّذناها في ${area.name} ومناطق الكويت.`}
+      />
 
       <section className="w-full bg-white">
         <div className="mx-auto max-w-5xl px-6 py-14 sm:px-8 lg:py-20">
