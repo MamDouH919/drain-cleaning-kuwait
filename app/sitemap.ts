@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, allAreaPageSlugs } from "@/lib/areas";
 import { blogPosts } from "@/lib/blog";
+import { articles } from "@/lib/articles";
 
 const staticRoutes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "", priority: 1, changeFrequency: "weekly" },
@@ -14,6 +15,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/gitaroof-insulation-kuwait", priority: 0.9, changeFrequency: "monthly" },
   { path: "/areas", priority: 0.8, changeFrequency: "monthly" },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/articles", priority: 0.7, changeFrequency: "weekly" },
   { path: "/about-us", priority: 0.6, changeFrequency: "yearly" },
   { path: "/contact-us", priority: 0.6, changeFrequency: "yearly" },
 ];
@@ -42,5 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...areaEntries, ...blogEntries];
+  const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${SITE_URL}/articles/${article.slug}`,
+    lastModified: new Date(article.dateModified),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...areaEntries, ...blogEntries, ...articleEntries];
 }

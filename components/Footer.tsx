@@ -9,8 +9,10 @@ const WHATSAPP_URL = "https://wa.me/96598890031";
 const quickLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "خدماتنا", href: "/#services" },
-  { label: "المناطق", href: "/#areas" },
-  { label: "الأسئلة الشائعة", href: "/#faq" },
+  { label: "المناطق", href: "/areas" },
+  { label: "المقالات", href: "/articles" },
+  { label: "من نحن", href: "/about-us" },
+  { label: "تواصل معنا", href: "/contact-us" },
 ];
 
 const services = [

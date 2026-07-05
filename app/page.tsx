@@ -4,7 +4,7 @@ import Gallery from "@/components/Gallery";
 import ServiceAreas from "@/components/ServiceAreas";
 import About from "@/components/About";
 import Faq from "@/components/Faq";
-import LatestArticles from "@/components/LatestArticles";
+import ArticlesSection from "@/components/ArticlesSection";
 import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <ServiceAreas />
       <About />
       <Faq />
-      <LatestArticles />
+      <ArticlesSection />
       <StructuredData />
     </main>
   );
