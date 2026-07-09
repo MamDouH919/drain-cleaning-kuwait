@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
 import Social from "@/components/social";
+import Script from "next/script";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -92,6 +93,24 @@ export default function RootLayout({
       className={`${cairo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-20 lg:pb-0">
+        {/* Google tag (gtag.js) */}
+        <Script
+          id="gtag-src"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-KF32PKDXHV"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-KF32PKDXHV');
+            `,
+          }}
+        />
         <Navbar />
         <Social />
         {children}

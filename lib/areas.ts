@@ -8,52 +8,80 @@ export type Area = {
   slug: string;
   name: string;
   nearby: string[];
+  sub: string;
+  subPos: "pre" | "post";
 };
 
 export const areas: Area[] = [
-  { slug: "hawalli", name: "حولي", nearby: ["salmiya", "jabriya", "salwa"] },
-  { slug: "salmiya", name: "السالمية", nearby: ["hawalli", "bayan", "jabriya"] },
-  { slug: "farwaniya", name: "الفروانية", nearby: ["jleeb-al-shuyoukh", "ardhiya", "jahra"] },
-  { slug: "jahra", name: "الجهراء", nearby: ["sulaibikhat", "farwaniya", "ardhiya"] },
-  { slug: "ahmadi", name: "الأحمدي", nearby: ["fahaheel", "mangaf", "abu-halifa"] },
-  { slug: "mubarak-kabeer", name: "مبارك الكبير", nearby: ["sabah-al-salem", "salwa", "mishref"] },
-  { slug: "fahaheel", name: "الفحيحيل", nearby: ["mangaf", "abu-halifa", "ahmadi"] },
-  { slug: "mangaf", name: "المنقف", nearby: ["fahaheel", "abu-halifa", "ahmadi"] },
-  { slug: "abu-halifa", name: "أبو حليفة", nearby: ["mangaf", "fahaheel", "ahmadi"] },
-  { slug: "sabah-al-salem", name: "صباح السالم", nearby: ["mubarak-kabeer", "salwa", "mishref"] },
-  { slug: "jleeb-al-shuyoukh", name: "جليب الشيوخ", nearby: ["farwaniya", "ardhiya", "jahra"] },
-  { slug: "sharq", name: "شرق", nearby: ["kaifan", "shuwaikh", "sulaibikhat"] },
-  { slug: "jabriya", name: "الجابرية", nearby: ["salwa", "hawalli", "mishref"] },
-  { slug: "salwa", name: "سلوى", nearby: ["jabriya", "mishref", "bayan"] },
-  { slug: "mishref", name: "مشرف", nearby: ["bayan", "salwa", "jabriya"] },
-  { slug: "bayan", name: "بيان", nearby: ["mishref", "salwa", "salmiya"] },
-  { slug: "sulaibikhat", name: "الصليبخات", nearby: ["jahra", "shuwaikh", "kaifan"] },
-  { slug: "ardhiya", name: "العارضية", nearby: ["farwaniya", "jleeb-al-shuyoukh", "jahra"] },
-  { slug: "shuwaikh", name: "الشويخ", nearby: ["kaifan", "sharq", "sulaibikhat"] },
-  { slug: "kaifan", name: "كيفان", nearby: ["shuwaikh", "sharq", "sulaibikhat"] },
-  { slug: "fintas", name: "الفنطاس", nearby: ["mahboula", "abu-halifa", "mangaf"] },
-  { slug: "mahboula", name: "المهبولة", nearby: ["fintas", "abu-halifa", "fahaheel"] },
-  { slug: "egaila", name: "العقيلة", nearby: ["fahaheel", "mangaf", "fintas"] },
-  { slug: "riqqa", name: "الرقة", nearby: ["fahaheel", "ahmadi", "hadiya"] },
-  { slug: "hadiya", name: "هدية", nearby: ["riqqa", "ahmadi", "sabahiya"] },
-  { slug: "sabahiya", name: "الصباحية", nearby: ["ahmadi", "fahaheel", "hadiya"] },
-  { slug: "rumaithiya", name: "الرميثية", nearby: ["salmiya", "hawalli", "bayan"] },
-  { slug: "shaab", name: "الشعب", nearby: ["salmiya", "rumaithiya", "hawalli"] },
-  { slug: "qadsiya", name: "القادسية", nearby: ["kaifan", "daiya", "mansouriya"] },
-  { slug: "daiya", name: "الدعية", nearby: ["kaifan", "sharq", "qadsiya"] },
-  { slug: "mansouriya", name: "المنصورية", nearby: ["qadsiya", "faiha", "daiya"] },
-  { slug: "faiha", name: "الفيحاء", nearby: ["mansouriya", "shamiya", "qadsiya"] },
-  { slug: "shamiya", name: "الشامية", nearby: ["faiha", "kaifan", "khaldiya"] },
-  { slug: "khaldiya", name: "الخالدية", nearby: ["adailiya", "qortuba", "shamiya"] },
-  { slug: "adailiya", name: "العديلية", nearby: ["khaldiya", "kaifan", "faiha"] },
-  { slug: "qortuba", name: "قرطبة", nearby: ["khaldiya", "surra", "yarmouk"] },
-  { slug: "surra", name: "السرة", nearby: ["qortuba", "yarmouk", "jabriya"] },
-  { slug: "yarmouk", name: "اليرموك", nearby: ["surra", "qortuba", "khaldiya"] },
-  { slug: "omariya", name: "العمرية", nearby: ["ardhiya", "farwaniya", "rabiya"] },
-  { slug: "rabiya", name: "الرابية", nearby: ["farwaniya", "ardhiya", "omariya"] },
+  { slug: "hawalli", name: "حولي", nearby: ["salmiya", "jabriya", "salwa"], sub: "اشطر", subPos: "pre" },
+  { slug: "salmiya", name: "السالمية", nearby: ["hawalli", "bayan", "jabriya"], sub: "أفضل", subPos: "pre" },
+  { slug: "farwaniya", name: "الفروانية", nearby: ["jleeb-al-shuyoukh", "ardhiya", "jahra"], sub: "أرخص", subPos: "pre" },
+  { slug: "jahra", name: "الجهراء", nearby: ["sulaibikhat", "farwaniya", "ardhiya"], sub: "أسرع", subPos: "pre" },
+  { slug: "ahmadi", name: "الأحمدي", nearby: ["fahaheel", "mangaf", "abu-halifa"], sub: "أحسن", subPos: "pre" },
+  { slug: "mubarak-kabeer", name: "مبارك الكبير", nearby: ["sabah-al-salem", "salwa", "mishref"], sub: "أمهر", subPos: "pre" },
+  { slug: "fahaheel", name: "الفحيحيل", nearby: ["mangaf", "abu-halifa", "ahmadi"], sub: "ممتاز", subPos: "post" },
+  { slug: "mangaf", name: "المنقف", nearby: ["fahaheel", "abu-halifa", "ahmadi"], sub: "مضمون", subPos: "post" },
+  { slug: "abu-halifa", name: "أبو حليفة", nearby: ["mangaf", "fahaheel", "ahmadi"], sub: "سريع", subPos: "post" },
+  { slug: "sabah-al-salem", name: "صباح السالم", nearby: ["mubarak-kabeer", "salwa", "mishref"], sub: "محترف", subPos: "post" },
+  { slug: "jleeb-al-shuyoukh", name: "جليب الشيوخ", nearby: ["farwaniya", "ardhiya", "jahra"], sub: "بأسعار مناسبة", subPos: "post" },
+  { slug: "sharq", name: "شرق", nearby: ["kaifan", "shuwaikh", "sulaibikhat"], sub: "موثوق", subPos: "post" },
+  { slug: "jabriya", name: "الجابرية", nearby: ["salwa", "hawalli", "mishref"], sub: "معتمد", subPos: "post" },
+  { slug: "salwa", name: "سلوى", nearby: ["jabriya", "mishref", "bayan"], sub: "مجرب", subPos: "post" },
+  { slug: "mishref", name: "مشرف", nearby: ["bayan", "salwa", "jabriya"], sub: "متميز", subPos: "post" },
+  { slug: "bayan", name: "بيان", nearby: ["mishref", "salwa", "salmiya"], sub: "فوري", subPos: "post" },
+  { slug: "sulaibikhat", name: "الصليبخات", nearby: ["jahra", "shuwaikh", "kaifan"], sub: "شاطر", subPos: "post" },
+  { slug: "ardhiya", name: "العارضية", nearby: ["farwaniya", "jleeb-al-shuyoukh", "jahra"], sub: "درجة أولى", subPos: "post" },
+  { slug: "shuwaikh", name: "الشويخ", nearby: ["kaifan", "sharq", "sulaibikhat"], sub: "أشهر", subPos: "pre" },
+  { slug: "kaifan", name: "كيفان", nearby: ["shuwaikh", "sharq", "sulaibikhat"], sub: "رخيص", subPos: "post" },
+  { slug: "fintas", name: "الفنطاس", nearby: ["mahboula", "abu-halifa", "mangaf"], sub: "أجود", subPos: "pre" },
+  { slug: "mahboula", name: "المهبولة", nearby: ["fintas", "abu-halifa", "fahaheel"], sub: "أقرب", subPos: "pre" },
+  { slug: "egaila", name: "العقيلة", nearby: ["fahaheel", "mangaf", "fintas"], sub: "بضمان", subPos: "post" },
+  { slug: "riqqa", name: "الرقة", nearby: ["fahaheel", "ahmadi", "hadiya"], sub: "على مدار الساعة", subPos: "post" },
+  { slug: "hadiya", name: "هدية", nearby: ["riqqa", "ahmadi", "sabahiya"], sub: "سريع", subPos: "post" },
+  { slug: "sabahiya", name: "الصباحية", nearby: ["ahmadi", "fahaheel", "hadiya"], sub: "مضمون", subPos: "post" },
+  { slug: "rumaithiya", name: "الرميثية", nearby: ["salmiya", "hawalli", "bayan"], sub: "أفضل", subPos: "pre" },
+  { slug: "shaab", name: "الشعب", nearby: ["salmiya", "rumaithiya", "hawalli"], sub: "ممتاز", subPos: "post" },
+  { slug: "qadsiya", name: "القادسية", nearby: ["kaifan", "daiya", "mansouriya"], sub: "محترف", subPos: "post" },
+  { slug: "daiya", name: "الدعية", nearby: ["kaifan", "sharq", "qadsiya"], sub: "موثوق", subPos: "post" },
+  { slug: "mansouriya", name: "المنصورية", nearby: ["qadsiya", "faiha", "daiya"], sub: "معتمد", subPos: "post" },
+  { slug: "faiha", name: "الفيحاء", nearby: ["mansouriya", "shamiya", "qadsiya"], sub: "مجرب", subPos: "post" },
+  { slug: "shamiya", name: "الشامية", nearby: ["faiha", "kaifan", "khaldiya"], sub: "متميز", subPos: "post" },
+  { slug: "khaldiya", name: "الخالدية", nearby: ["adailiya", "qortuba", "shamiya"], sub: "فوري", subPos: "post" },
+  { slug: "adailiya", name: "العديلية", nearby: ["khaldiya", "kaifan", "faiha"], sub: "شاطر", subPos: "post" },
+  { slug: "qortuba", name: "قرطبة", nearby: ["khaldiya", "surra", "yarmouk"], sub: "أرخص", subPos: "pre" },
+  { slug: "surra", name: "السرة", nearby: ["qortuba", "yarmouk", "jabriya"], sub: "أسرع", subPos: "pre" },
+  { slug: "yarmouk", name: "اليرموك", nearby: ["surra", "qortuba", "khaldiya"], sub: "درجة أولى", subPos: "post" },
+  { slug: "omariya", name: "العمرية", nearby: ["ardhiya", "farwaniya", "rabiya"], sub: "بأسعار مناسبة", subPos: "post" },
+  { slug: "rabiya", name: "الرابية", nearby: ["farwaniya", "ardhiya", "omariya"], sub: "بضمان", subPos: "post" },
+  { slug: "qairawan", name: "القيروان", nearby: ["gharb-sulaibikhat", "sulaibikhat", "doha"], sub: "اشطر", subPos: "pre" },
+  { slug: "doha", name: "الدوحة", nearby: ["sulaibikhat", "gharb-sulaibikhat", "qairawan"], sub: "أفضل", subPos: "pre" },
+  { slug: "mutlaa", name: "المطلاع", nearby: ["jahra", "sulaibiya", "qairawan"], sub: "أسرع", subPos: "pre" },
+  { slug: "ishbiliya", name: "اشبيلية", nearby: ["ardhiya", "rabiya", "andalous"], sub: "رخيص", subPos: "post" },
+  { slug: "shuhada", name: "الشهداء", nearby: ["zahra", "salwa", "mubarak-kabeer"], sub: "ممتاز", subPos: "post" },
+  { slug: "siddiq", name: "صديق", nearby: ["zahra", "shuhada", "surra"], sub: "محترف", subPos: "post" },
+  { slug: "zahra", name: "الزهراء", nearby: ["shuhada", "siddiq", "salwa"], sub: "مضمون", subPos: "post" },
+  { slug: "firdous", name: "الفردوس", nearby: ["andalous", "omariya", "farwaniya"], sub: "سريع", subPos: "post" },
+  { slug: "andalous", name: "الأندلس", nearby: ["firdous", "ishbiliya", "farwaniya"], sub: "موثوق", subPos: "post" },
+  { slug: "sulaibiya", name: "الصليبية", nearby: ["jahra", "gharb-sulaibikhat", "sulaibikhat"], sub: "أرخص", subPos: "pre" },
+  { slug: "gharb-sulaibikhat", name: "غرب الصليبخات", nearby: ["sulaibikhat", "doha", "qairawan"], sub: "مجرب", subPos: "post" },
+  { slug: "nahda", name: "النهضة", nearby: ["sulaibikhat", "gharb-sulaibikhat", "kaifan"], sub: "معتمد", subPos: "post" },
+  { slug: "jaber-al-ali", name: "جابر العلي", nearby: ["egaila", "riqqa", "sabahiya"], sub: "متميز", subPos: "post" },
+  { slug: "abu-fatira", name: "أبو فطيرة", nearby: ["mubarak-kabeer", "fintas", "sabah-al-salem"], sub: "فوري", subPos: "post" },
+  { slug: "fahad-al-ahmad", name: "فهد الأحمد", nearby: ["ahmadi", "hadiya", "riqqa"], sub: "شاطر", subPos: "post" },
+  { slug: "jaber-al-ahmad", name: "جابر الأحمد", nearby: ["jahra", "sulaibiya", "qairawan"], sub: "أحسن", subPos: "pre" },
+  { slug: "sabah-al-nasser", name: "صباح الناصر", nearby: ["farwaniya", "jleeb-al-shuyoukh", "ardhiya"], sub: "درجة أولى", subPos: "post" },
+  { slug: "riggae", name: "الرقعي", nearby: ["ardhiya", "omariya", "rabiya"], sub: "بأسعار مناسبة", subPos: "post" },
 ];
 
 export const areaBySlug = new Map(areas.map((a) => [a.slug, a]));
+
+export function subKeyword(
+  service: { shortName: string },
+  area: Area
+): string {
+  const base = `${service.shortName} ${area.name}`;
+  return area.subPos === "pre" ? `${area.sub} ${base}` : `${base} ${area.sub}`;
+}
 
 export type ServiceId = "drain-cleaning" | "roof-waterproofing";
 
@@ -67,7 +95,7 @@ export type ServiceConfig = {
   theme: "sky" | "emerald";
   coverImage: string;
   coverAlt: (area: string) => string;
-  h1: (area: string) => string;
+  h1: (subKeyword: string) => string;
   metaTitle: (area: string) => string;
   metaDescription: (area: string) => string;
   intro: (area: string, nearby: string) => string;
@@ -92,7 +120,7 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
     theme: "sky",
     coverImage: "/drain-cleaning/تسليك-مجاري.webp",
     coverAlt: (area) => `تسليك مجاري ${area} بدون تكسير`,
-    h1: (area) => `تسليك مجاري ${area}`,
+    h1: (subKw) => `${subKw} — خدمة فورية 24 ساعة بالكويت`,
     metaTitle: (area) => `تسليك مجاري ${area} | فتح انسدادات 24 ساعة`,
     metaDescription: (area) =>
       `خدمة تسليك مجاري ${area} بدون تكسير على مدار 24 ساعة، فتح الانسدادات وحل مشاكل الصرف بأحدث الأجهزة وسرعة وصول وأسعار مناسبة في ${area} الكويت.`,
@@ -176,7 +204,7 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
     theme: "emerald",
     coverImage: "/roof-waterproofing/عزل-اسطح.webp",
     coverAlt: (area) => `عزل أسطح ${area} مائي وحراري`,
-    h1: (area) => `عزل أسطح ${area}`,
+    h1: (subKw) => `${subKw} — عزل مائي وحراري بضمان`,
     metaTitle: (area) => `عزل أسطح ${area} | عزل مائي وحراري وفوم بضمان`,
     metaDescription: (area) =>
       `خدمة عزل أسطح ${area} ضد الحرارة وتسرب المياه بأفضل مواد العزل المائي والحراري والفوم، فريق متخصص وضمان على الخدمة وأسعار مناسبة في ${area} الكويت.`,

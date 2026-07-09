@@ -13,6 +13,7 @@ import {
   parseAreaSlug,
   allAreaPageSlugs,
   serviceConfigs,
+  subKeyword,
 } from "@/lib/areas";
 
 export const dynamicParams = false;
@@ -35,12 +36,14 @@ export async function generateMetadata({
   const url = `${SITE_URL}${path}`;
   const title = service.metaTitle(area.name);
   const description = service.metaDescription(area.name);
+  const subKw = subKeyword(service, area);
 
   return {
     metadataBase: new URL(SITE_URL),
     title,
     description,
     keywords: [
+      subKw,
       `${service.shortName} ${area.name}`,
       `${service.shortName} الكويت`,
       `خدمات ${area.name}`,
@@ -81,6 +84,7 @@ export default async function AreaServicePage({
   if (!parsed) notFound();
 
   const { service, area } = parsed;
+  const subKw = subKeyword(service, area);
   const path = `/${slug}`;
   const url = `${SITE_URL}${path}`;
   const other =
@@ -165,7 +169,7 @@ export default async function AreaServicePage({
             خدمة 24 ساعة في {area.name} وجميع مناطق الكويت
           </span>
           <h1 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            {service.h1(area.name)}
+            {service.h1(subKw)}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
             {service.shortName} في {area.name} بأحدث المعدات وسرعة استجابة وخدمة
@@ -223,6 +227,45 @@ export default async function AreaServicePage({
               {service.problems(area.name)}
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            {subKw} — لماذا نحن الاختيار الأول؟
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            يبحث الكثير من سكان {area.name} عن {subKw}، ونحن نوفر ذلك فعلاً:
+            فريق {service.shortName} لدينا يصل إلى {area.name} خلال وقت قصير
+            مجهزاً بأحدث المعدات، وينهي العمل من أول زيارة في أغلب الحالات مع
+            ضمان حقيقي على الخدمة وسعر واضح قبل البدء.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            كما أن تعاملنا اليومي مع أهالي {area.name} والمناطق المجاورة أكسبنا
+            معرفة دقيقة بطبيعة المباني فيها، وهو ما يجعل تشخيصنا أسرع وحلولنا
+            أدق وأكثر ثباتاً، سواء كنت في منزل أو شقة أو فيلا أو محل تجاري داخل{" "}
+            {area.name}.
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            أسعار {service.shortName} في {area.name}
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تختلف أسعار {service.shortName} في {area.name} حسب حجم المشكلة
+            وموقعها، لكننا نلتزم دائماً بتقديم تقييم وسعر واضح قبل بدء العمل
+            بدون أي رسوم خفية، مع عروض خاصة على الصيانة الدورية للمنازل
+            والشركات في {area.name}.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            احصل على سعر فوري الآن عبر الاتصال أو واتساب، وسيؤكد لك الفني
+            التكلفة النهائية بعد المعاينة مباشرة وقبل أي خطوة تنفيذ — بدون أي
+            التزام منك.
+          </p>
         </div>
       </section>
 
@@ -380,7 +423,7 @@ export default async function AreaServicePage({
             بأسرع وقت بأسعار مناسبة وضمان على الخدمة.
           </p>
           <ul className="mt-8 flex flex-wrap gap-3">
-            {service.searchTerms(area.name).map((term) => (
+            {[subKw, ...service.searchTerms(area.name)].map((term) => (
               <li
                 key={term}
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600"
