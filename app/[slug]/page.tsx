@@ -14,6 +14,14 @@ import {
   allAreaPageSlugs,
   serviceConfigs,
   subKeyword,
+  heroLead,
+  whyUsPrimary,
+  whyUsSecondary,
+  pricingPrimary,
+  pricingSecondary,
+  coveragePara,
+  closingPara,
+  ctaSubtitle,
 } from "@/lib/areas";
 
 export const dynamicParams = false;
@@ -172,8 +180,7 @@ export default async function AreaServicePage({
             {service.h1(subKw)}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-            {service.shortName} في {area.name} بأحدث المعدات وسرعة استجابة وخدمة
-            طوارئ على مدار الساعة مع أسعار مناسبة وضمان على الخدمة.
+            {heroLead(service.shortName, area.name)}
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a
@@ -236,16 +243,10 @@ export default async function AreaServicePage({
             {subKw} — لماذا نحن الاختيار الأول؟
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            يبحث الكثير من سكان {area.name} عن {subKw}، ونحن نوفر ذلك فعلاً:
-            فريق {service.shortName} لدينا يصل إلى {area.name} خلال وقت قصير
-            مجهزاً بأحدث المعدات، وينهي العمل من أول زيارة في أغلب الحالات مع
-            ضمان حقيقي على الخدمة وسعر واضح قبل البدء.
+            {whyUsPrimary(service.shortName, area.name, subKw)}
           </p>
           <p className="mt-4 text-lg leading-relaxed text-slate-600">
-            كما أن تعاملنا اليومي مع أهالي {area.name} والمناطق المجاورة أكسبنا
-            معرفة دقيقة بطبيعة المباني فيها، وهو ما يجعل تشخيصنا أسرع وحلولنا
-            أدق وأكثر ثباتاً، سواء كنت في منزل أو شقة أو فيلا أو محل تجاري داخل{" "}
-            {area.name}.
+            {whyUsSecondary(area.name)}
           </p>
         </div>
       </section>
@@ -256,15 +257,10 @@ export default async function AreaServicePage({
             أسعار {service.shortName} في {area.name}
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            تختلف أسعار {service.shortName} في {area.name} حسب حجم المشكلة
-            وموقعها، لكننا نلتزم دائماً بتقديم تقييم وسعر واضح قبل بدء العمل
-            بدون أي رسوم خفية، مع عروض خاصة على الصيانة الدورية للمنازل
-            والشركات في {area.name}.
+            {pricingPrimary(service.shortName, area.name)}
           </p>
           <p className="mt-4 text-lg leading-relaxed text-slate-600">
-            احصل على سعر فوري الآن عبر الاتصال أو واتساب، وسيؤكد لك الفني
-            التكلفة النهائية بعد المعاينة مباشرة وقبل أي خطوة تنفيذ — بدون أي
-            التزام منك.
+            {pricingSecondary(area.name)}
           </p>
         </div>
       </section>
@@ -355,8 +351,7 @@ export default async function AreaServicePage({
             نخدم {area.name} والمناطق المجاورة
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            بالإضافة إلى {area.name}، نقدم خدمة {service.shortName} في المناطق
-            المجاورة مثل {nearbyNames} وجميع مناطق الكويت بنفس سرعة الاستجابة.
+            {coveragePara(service.shortName, area.name, nearbyNames)}
           </p>
           <ul className="mt-8 flex flex-wrap gap-3">
             {nearbyAreas.map((n) => (
@@ -418,9 +413,7 @@ export default async function AreaServicePage({
             {service.shortName} {area.name} — خدمة قريبة منك
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            نوفر خدمة {service.shortName} في {area.name} لكل من يبحث عن حل سريع
-            وموثوق. اتصل بنا أو راسلنا واتساب في أي وقت، ونصل إليك في {area.name}
-            بأسرع وقت بأسعار مناسبة وضمان على الخدمة.
+            {closingPara(service.shortName, area.name)}
           </p>
           <ul className="mt-8 flex flex-wrap gap-3">
             {[subKw, ...service.searchTerms(area.name)].map((term) => (
@@ -486,9 +479,7 @@ export default async function AreaServicePage({
               {service.ctaTitle} في {area.name}
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-sky-50/90 sm:text-lg">
-              اتصل بنا الآن واحصل على خدمة {service.shortName} احترافية وسريعة في
-              {" "}
-              {area.name}.
+              {ctaSubtitle(service.shortName, area.name)}
             </p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
               <a
