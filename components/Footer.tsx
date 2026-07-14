@@ -24,6 +24,13 @@ const services = [
   { label: "تركيب منهول الكويت", href: "/manhole-installation-kuwait" },
   { label: "غسيل تانكي الكويت", href: "/water-tank-cleaning-kuwait" },
   { label: "عزل أسطح جيتاروف", href: "/gitaroof-insulation-kuwait" },
+  { label: "اسعار تسليك مجاري الكويت", href: "/drain-cleaning-prices-kuwait" },
+  { label: "اسعار عزل اسطح الكويت", href: "/roof-insulation-prices-kuwait" },
+];
+
+const legalLinks = [
+  { label: "سياسة الخصوصية", href: "/privacy-policy" },
+  { label: "الشروط والأحكام", href: "/terms-conditions" },
 ];
 
 const localBusinessSchema = {
@@ -235,9 +242,25 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-6 text-center text-sm text-slate-500 sm:px-8">
-          © {new Date().getFullYear()} {BUSINESS_NAME} — جميع الحقوق محفوظة.
-          خدمات تسليك مجاري الكويت وعزل أسطح الكويت.
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 py-6 text-center text-sm text-slate-500 sm:px-8 lg:flex-row lg:justify-between lg:text-right">
+          <p>
+            © {new Date().getFullYear()} {BUSINESS_NAME} — جميع الحقوق محفوظة.
+            خدمات تسليك مجاري الكويت وعزل أسطح الكويت.
+          </p>
+          <nav aria-label="روابط قانونية">
+            <ul className="flex items-center gap-4">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-400 transition-colors hover:text-sky-400"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

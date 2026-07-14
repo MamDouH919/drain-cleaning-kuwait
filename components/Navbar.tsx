@@ -17,6 +17,8 @@ const services = [
     { label: "تركيب منهول الكويت", href: "/manhole-installation-kuwait" },
     { label: "غسيل تانكي الكويت", href: "/water-tank-cleaning-kuwait" },
     { label: "عزل أسطح جيتاروف", href: "/gitaroof-insulation-kuwait" },
+    { label: "اسعار تسليك مجاري الكويت", href: "/drain-cleaning-prices-kuwait" },
+    { label: "اسعار عزل اسطح الكويت", href: "/roof-insulation-prices-kuwait" },
 ];
 
 const navLinks = [
