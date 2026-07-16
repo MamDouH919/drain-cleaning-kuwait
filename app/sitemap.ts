@@ -17,6 +17,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/roof-insulation-prices-kuwait", priority: 0.8, changeFrequency: "monthly" },
   { path: "/areas", priority: 0.8, changeFrequency: "monthly" },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/blog/drain-cleaning-kuwait", priority: 0.8, changeFrequency: "monthly" },
   { path: "/articles", priority: 0.7, changeFrequency: "weekly" },
   { path: "/about-us", priority: 0.6, changeFrequency: "yearly" },
   { path: "/contact-us", priority: 0.6, changeFrequency: "yearly" },
