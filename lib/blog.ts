@@ -1060,10 +1060,34 @@ export type BlogSummary = Pick<
   "slug" | "title" | "excerpt" | "category" | "cover" | "datePublished" | "readingMinutes"
 >;
 
+// مقالات لها صفحاتها الخاصة (تصميم مستقل) تُعرض في قائمة المدونة فقط،
+// ولا تمر عبر مسار [slug] لأن لها ملف page.tsx خاص بها.
+export const customBlogPages: BlogSummary[] = [
+  {
+    slug: "drain-cleaning-in-kuwait",
+    title: "تسليك المجاري في الكويت: الدليل الكامل وخدمة 24 ساعة",
+    excerpt:
+      "دليل شامل لتسليك المجاري في الكويت: العلامات والأسباب وطرق الفتح والأسعار ونصائح الوقاية، مع خدمة فني 24 ساعة بدون تكسير.",
+    category: "تسليك المجاري",
+    cover: "/تسليك-مجاري-الكويت.webp",
+    datePublished: "2026-07-16",
+    readingMinutes: 12,
+  },
+  {
+    slug: "drain-cleaning-kuwait",
+    title: "تسليك مجاري الكويت: الدليل الشامل وخدمة 24 ساعة",
+    excerpt:
+      "كل ما تحتاجه عن تسليك مجاري الكويت: العلامات والأسباب وطرق التسليك والأسعار ونصائح الوقاية بدون تكسير.",
+    category: "تسليك المجاري",
+    cover: "/تسليك-مجاري-الكويت.webp",
+    datePublished: "2026-07-15",
+    readingMinutes: 11,
+  },
+];
+
 export function getBlogSummaries(): BlogSummary[] {
-  return [...blogPosts]
-    .sort((a, b) => (a.datePublished < b.datePublished ? 1 : -1))
-    .map(({ slug, title, excerpt, category, cover, datePublished, readingMinutes }) => ({
+  const posts: BlogSummary[] = blogPosts.map(
+    ({ slug, title, excerpt, category, cover, datePublished, readingMinutes }) => ({
       slug,
       title,
       excerpt,
@@ -1071,7 +1095,12 @@ export function getBlogSummaries(): BlogSummary[] {
       cover,
       datePublished,
       readingMinutes,
-    }));
+    })
+  );
+
+  return [...posts, ...customBlogPages].sort((a, b) =>
+    a.datePublished < b.datePublished ? 1 : -1
+  );
 }
 
 export function getRelatedPosts(slug: string, limit = 3): BlogSummary[] {

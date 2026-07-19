@@ -78,6 +78,50 @@ const steps = [
   { title: "اختبار الخدمة", desc: "نتأكد من انسياب الصرف تماماً قبل المغادرة." },
 ];
 
+const manualMethods = [
+  {
+    title: "الثعبان اليدوي",
+    desc: "قد تستخدم الشركة ثعبان تسليك أو السوستة لإزالة الانسدادات يدوياً من البالوعة، ويتضمن ذلك إدخال كابل مرن طويل في البالوعة وتدويره لتفكيك السدادة وإزالتها.",
+  },
+  {
+    title: "مايكنة ضغط الماء",
+    desc: "تتضمن هذه الطريقة استخدام الماء عالي الضغط لطرد الحطام والشحوم وغيرها من العوائق من الصرف عبر فوهة متخصصة تقوم برش الماء في جميع الاتجاهات مما يؤدي إلى تسليك البالوعة بشكل فعال.",
+  },
+  {
+    title: "التدوير اليدوي",
+    desc: "تتضمن هذه الطريقة دفع قضيب مرن يدوياً عبر البالوعة لإزالة الانسدادات، ويمكن إدخاله في المواسير لتنظيفها وإزالة الانسدادات.",
+  },
+  {
+    title: "تنظيف الصرف",
+    desc: "قد تستخدم الشركة فرشاً أو أجهزة غسيل متخصصة لتسليك الجزء الداخلي من أنابيب الصرف يدوياً وإزالة أي حطام متراكم أو شحوم أو عوائق أخرى.",
+  },
+  {
+    title: "فحص الصرف",
+    desc: "قبل وبعد عملية التسليك قد تستخدم الشركة كاميرات التسليك أو أدوات الفحص لفحص أنابيب الصرف بصرياً، مما يساعد في تحديد أي مشكلات رئيسية ومدى الانسداد والتأكد من إزالة التسليك بالكامل.",
+  },
+];
+
+const features2 = [
+  "نحن نقدم أسعار منخفضة ونتائج ممتازة في وقت قياسي.",
+  "لدينا أفضل أنواع الشاحنات المتخصصة في شفط المياه داخل البواليع",
+  "نعتمد على المركبات المخصصة لنقل المعدات ونقوم بالعمل في جميع مناطق الدولة لمعالجة انسدادات المجاري",
+  "لدينا شهادات تضمن لك متابعة مجانية للمكان حتى لا تتعرض لمشكلة انسداد البواليع مرة أخرى",
+  "يمكننا تعقيم وتطهير المكان ورش المبيدات الحشرية داخل البالوعة قبل إغلاقها للقضاء على الفيروسات والجراثيم والحشرات",
+  "نحن نوفر فنيين محترفين مدربين على استخدام المعدات المتطورة والتقنيات الحديثة للوصول إلى الانسدادات والتخلص منها",
+  "ننضم إلى الفرق الباكستانية والفلبينية التي يرغب جميع العملاء في الحصول على خدماتها",
+  "نقوم بتحديد مواقع وأحجام الإنسدادات خلال دقائق معدودة شركة تسليك بواليع الكويت",
+  "لا نعرض المكان للتشقق ونكشف عن أماكن التسرب وأسباب انسداد المجاري",
+];
+
+const reasons = [
+  "لدينا فريق من المهنيين ذوي المهارات العالية والخبرة الذين هم خبراء في تسليك المجاري وهي مجهزة بأحدث الأدوات والمعدات لحل أي مشكلة تسليك مجاري بشكل فعال كما",
+  "نعطي الأولوية لرضا العملاء ونسعى جاهدين لتقديم خدمات من الدرجة الأولى نحن نتفهم الإزعاج والمتاعب التي تسببها المصارف المحظورة لذلك نعمل بكفاءة لمعالجة المشكلة على الفور وضمان حل سريع",
+  "نحن نفخر على خدمة العملاء الممتازة موظفينا ودية والمهنية ودائما على استعداد لمساعدة العملاء مع مخاوف الصرف الصحي نستمع إلى احتياجات عملائنا وتقديم حلول مخصصة وفقا لذلك",
+  "من المعروف شركتنا لموثوقيتها والجدارة بالثقة نحن نؤمن بالشفافية والصدق ويمكن لعملائنا الاعتماد علينا لتقديم تقييمات دقيقة وأسعار عادلة",
+  "نحن نسعى باستمرار للابتكار والتحسين في خدماتنا نبقى على اطلاع بأحدث اتجاهات وتقنيات الصناعة لتقديم الحلول الأكثر كفاءة وفعالية",
+  "نحن أفضل شركة تسليك مجاري الكويت بسبب فريقنا الماهر والالتزام برضا العملاء وخدمة العملاء الممتازة والموثوقية والتحسين المستمر",
+];
+
 const areas = [
   { name: "حولي", slug: "hawalli" },
   { name: "السالمية", slug: "salmiya" },
@@ -194,19 +238,13 @@ export default function DrainCleaningKuwaitPage() {
         />
         <div className="relative mx-auto max-w-5xl px-6 py-16 text-center sm:px-8 lg:py-24">
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm backdrop-blur">
-            خدمة طوارئ 24 ساعة في جميع مناطق الكويت
+            خدمة 24 ساعة في محافاظات الكويت
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-            تسليك مجاري الكويت
+            تسليك مجاري الكويت 98890031
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-xl font-bold text-slate-700 sm:text-2xl">
-            أحسن تسليك مجاري بالكويت — فتح انسدادات بدون تكسير 24 ساعة
-          </p>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
-            تسليك مجاري الكويت وفتح المجاري وحل الانسدادات بأحدث الأجهزة وبدون
-            تكسير، مع سرعة استجابة وخدمة طوارئ على مدار الساعة يصل إليك في جميع
-            مناطق الكويت. نقدم لك أحسن تسليك مجاري بالكويت بخبرة ميدانية وأسعار
-            مناسبة وضمان على الخدمة.
+            أفضل شركة <strong>تسليك مجاري</strong> و <strong>تنظيف بيارات</strong> و <strong>تسليك غرف تفتيش</strong> و <strong>تنظيف البواليع</strong> بأرخص سعر في الكويت
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a
@@ -242,6 +280,65 @@ export default function DrainCleaningKuwaitPage() {
       </section>
 
       <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            تسليك مجاري الكويت
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تعد شركة تسليك مجاري الكويت هي من اعرق الشركات على مستوى الكويت التي تستخدم افضل الادوات والمعدات في اعمال تسليك المجاري وتنظيف الصرف الصحي والتخلص من جميع مشاكل الانسدادات بواسطة فنيين تسليك مجاري متخصصين في اعمال تسليك المجاري وتفتيت جميع انواع الدهون والرواسب المتراكمة باستخدام ادواتنا الحديثة وفنيين متخصصين لهم خبرة في مجال تسليك المجاري منذ اكثر من 15 عاما فخدمات تسليك المجاري في الكويت
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            التي تبحث عنها سوف تجدها لدينا واكثر عن طريق التواصل معنا عبر رقم شركة تسليك مجاري الكويت فنظرا لان مشكلة انسداد المجاري تتطلب خبرة للتعامل معها فهي تعد من المشاكل التي تظهر فجأة بدون اي انذار وتسبب الكثير من المشاكل مثل الرائحة وانتشار الحشرات وتسرب المياه الغير نظيفة فالحل هذه المشاكل واكثر ننصح بالتواصل معنا والحصول على استشارة لمعرفة الحلول المتاحة لك حاليا فما عليك سواء تقوم بالاتصال بنا لطلب الخدمة
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            تسليك مجاري
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            اذا كنت تريد ان تحصل على خدمات تسليك المجاري الكويت باقل الاسعار وبأعلى جودة داخل دولة الكويت ما عليك سواء تقوم بالاتصال بنا لأننا شركة متخصصة في اعمال تسليك المجاري في دولة الكويت فخدماتنا تتكلم عن نفسها لأننا من افضل 10 شركات تسليك مجاري داخل دولة الكويت بشهادة العملاء الذين تعملوا معنا لأننا من الشركات التي تقدم احدث المعدات والادوات وايضا نوفر خدمات شفط البيارات بواسطة تنكر تسليك مجاري
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            خدماتنا هي من الخدمات الاحترافية التي لن تجد مثلها ولن تخطر على بالك على الاطلاق فبحث عن موقعنا تسليك مجاري الكويت على جوجل فنحن معروفون ولنا خبرة كبيرة في هذا المجال ولدينا فنيين متخصصين وما يميزنا عن غيرنا من الشركات هو اننا نقدم قيمة مقابل سعر فقيمة خدماتنا عالية مقابل سعر مناسب عزيزي العميل حيث ان سعرنا الافضل داخل الكويت
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            فني تسليك مجاري
+          </h2>
+          <figure className="mx-auto max-w-2xl px-6 py-6 sm:px-8">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+              <Image
+                src="/portfolio/تسليك.webp"
+                alt="فني تسليك مجاري"
+                width={600}
+                height={450}
+                sizes="(max-width: 600px) 100vw, 600px"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-slate-500">
+              فني تسليك مجاري
+            </figcaption>
+          </figure>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            نحن نوفر لكم فني تسليك مجاري متخصص يعمل على تسليك المجاري باستخدام احدث التقنيات والمواد المخصصة لأعمال تسليك المجاري يحل لك جميع المشاكل الصعبة فيما يخص مجاله حيث ان الافضل من ناحية الجودة والكفاءة والخبرة فهم متخصص في اعمال تسليك البواليع وتسليك مجاري المطبخ وتسليك مجاري الحمام فان تسليك مجاري المطبخ يحتاج الى فني شاطر فان يقوم بإزالة الشعر المتساقط في المواسير او التراكمات الدهنية في مواسير المطبخ
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            وغيرها من التراكمات التي تتواجد في المواسير التي تسبب انسدادها فنحن نعمل باستخدام افضل المواد التي تقوم بحل المشكلة نهائيا مثل تسليك المجاري باستخدام
+            <a href="https://ar.wikipedia.org/wiki/%D8%AD%D9%85%D8%B6" target="_blank" rel="nofollow noopener" className="text-blue-500"> الحمض الاسيد </a>
+            وتسليك المجاري باستخدام الضغط سواء ضغط الماء او ضغط الهواء وايضا تقوم بتسليك المجاري باستخدام السوستة او ثعبان المجاري فماذا تنتظر تواصل معنا الان لطلب الخدمة
+          </p>
+        </div>
+      </section>
+
+      {/* <section className="w-full bg-white">
         <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
             أهمية تسليك المجاري في الكويت
@@ -303,35 +400,211 @@ export default function DrainCleaningKuwaitPage() {
             ))}
           </ul>
         </div>
+      </section> */}
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            شركة تسليك مجاري
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            شركة تسليك مجاري الكويت هي المقدم الاول لخدمات تسليك المجاري في الكويت مع النمو السكاني السريع والتنمية الحضرية تعد أنظمة المجاري الفعالة ضرورية للحفاظ على معايير النظافة والنظافة تلعب هذه الشركة دورا في ضمان التدفق السلس لمياه المجاري من المناطق السكنية والتجارية والصناعية تشمل إحدى خدماتهم المتخصصة تسليك صرف المطبخ وهو أمر مهم بشكل خاص لأن المطبخ منطقة رئيسية معرضة للانسداد والانسداد توظف الشركة محترفين ذوي خبرة ومجهزين بأدوات وتقنيات متقدمة لتنظيف وصيانة خطوط المجاري بأمان وفعالية مما يضمن حسن سير نظام المجاري
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            بالإضافة إلى تسليك مجاري المطبخ تركز شركة تتسليك مجاري الكويت أيضا على تنظيف بالوعات الكويت البيارات هو المصطلح العربي لمحطات معالجة مياه المجاري حيث يتم جمع مياه المجاري ومعالجتها للتخلص منها بشكل آمن أو إعادة استخدامها يعد تنظيف وصيانة محطات المعالجة هذه أمرًا بالغ الأهمية لحماية البيئة ومنع تلوث مصادر المياه تتبع شركة تسليك مجاري الكويت إرشادات وبروتوكولات صارمة لضمان عمل آبار المياه في الكويت بكفاءة وبما يتوافق مع اللوائح البيئية
+          </p>
+        </div>
       </section>
 
       <section className="w-full bg-slate-50">
         <div className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            خدمات تسليك المجاري التي نقدمها
+            ماهي خدمات تسليك مجاري التي نقدمها ؟
           </h2>
-          <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
+          <h3 className="text-xl mt-5 font-extrabold text-slate-900 sm:text-2xl">
+            1- تسليك مجاري بالضغط
+          </h3>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تعتبر خدمات تسليك الضغط التي تقدمها شركة تسليك مجاري الكويت ضرورية للحفاظ على نظام سباكة صحي وعملي عندما يتعلق الأمر بفك انسداد المصارف والأنابيب فإن التعاقد مع شركة متخصصة تقدم خدمات تسليك عالية الضغط أمر بالغ الأهمية تستخدم هذه الشركات معدات وتقنيات متطورة لمعالجة حتى أكثر العوائق عنادا بشكل فعال تتضمن خدمات تسليك المجاري بالضغط العالي استخدام آلات قوية تولد ضغط الماء لطرد وطرد الحطام والشحوم ومواد الانسداد الأخرى من نظام تسليك المجاري هذه الطريقة فعالة للغاية في إزالة العوائق مثل جذور الأشجار والمقاييس والرواسب التي يمكن أن تتراكم بمرور الوقت وتسبب انسدادا شديدا
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تتمثل إحدى المزايا الرئيسية لخدمات تسليك المجاري بالضغط العالي في قدرتها على الوصول إلى قباقيب عميقة الجذور لا تستطيع الطرق التقليدية الوصول إليها يمكن لطائرة المياه بالضغط العالي اختراق حتى أضيق الأنابيب وإزاحة أي نفايات متراكمة واستعادة التدفق المناسب للمياه بالإضافة إلى ذلك فإن هذه التقنية غير جراحية ولا تتطلب أي حفر أو حفر مما يجعلها حلا فعالا من حيث التكلفة وموفرا للوقت
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            فائدة أخرى لخدمات تسليك المجاري بالضغط العالي هي قدرتها على تسليك الأنابيب تماما لا يزيل نفاث الماء عالي الضغط الانسداد فحسب بل يزيل أيضا أي تراكم للأوساخ والأوساخ والبكتيريا وهذا يساعد على تحسين النظافة العامة ومنع السدادات في المستقبل وضمان نظام السباكة طويلة الأمد وفعالة تعد خدمات تسليك المجاري بالضغط العالي حلا ضروريا لإزالة انسداد المصارف والحفاظ على نظام سباكة صحي تستخدم هذه شركات تسليك مجاري الكويت المتخصصة تقنيات ومعدات متقدمة لإزالة العوائق وتسليك الأنابيب بشكل فعال وضمان تدفق المياه بشكل صحيح ومنع مشاكل السباكة في المستقبل
+          </p>
+          <h3 className="text-xl mt-5 font-extrabold text-slate-900 sm:text-2xl">
+            2- تسليك مجاري بالاسيد
+          </h3>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تقدم شركة تسليك مجاري الكويت متخصصة خدمات تسليك الاسيد بهدف حل المشكلات المتعلقة بانسداد المصارف بشكل فعال تستخدم هذه الخدمات المحاليل الحمضية لإذابة المواد العنيدة بما في ذلك الشحوم والشعر والحطام التي تتراكم داخل الأنابيب وتسبب انسدادا تتضمن عملية إزالة التسليك الحمضي صب <a href="https://ar.wikipedia.org/wiki/%D8%AD%D9%85%D8%B6" target="_blank" rel="nofollow noopener" className="text-blue-500">حمض الاسيد</a> مباشرة في البالوعة المصابة مما يسمح لها بتحطيم الانسداد وتسليك الممر هذه الطريقة فعالة للغاية لأنها تلغي الحاجة إلى التدخل اليدوي أو الأدوات الميكانيكية التقليدية
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            كما توفر خدمات تطهير الصرف الحمضي حلا طويل الأمد مما يمنع السدادات المستقبلية ويحافظ على التدفق المناسب لمياه الصرف الصحي يتم تدريب المهنيين المهرة في الشركة على التعامل مع المنتجات القائمة على الاسيد بأمان مما يضمن التسليك الفعال والآمن للمصارف دون التسبب في أي ضرر لنظام السباكة بشكل عام من خلال اختيار خدمات إزالة التسليك الحمضي من شركة متخصصة يمكن للعملاء الاستمتاع بحل خال من المتاعب وموثوق لمشاكل انسداد التسليك
+          </p>
+          <h3 className="text-xl mt-5 font-extrabold text-slate-900 sm:text-2xl">
+            3- تسليك مجاري بالطريقة اليدوية
+          </h3>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            فيما يلي بعض طرق تسليك الصرف اليدوي التي قد تقدمها شركة تسليك مجاري الكويت:
+          </p>
+          <ul className="mt-6 space-y-4">
+            {manualMethods.map((method) => (
               <li
-                key={feature}
-                className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm ring-1 ring-slate-900/5"
+                key={method.title}
+                className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-5 shadow-sm ring-1 ring-slate-900/5"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                  <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5" aria-hidden="true">
+                <span
+                  aria-hidden="true"
+                  className="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-emerald-100 text-emerald-700"
+                >
+                  <svg
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
                     <path
                       fillRule="evenodd"
-                      d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.32a1 1 0 0 1-1.42.001l-3.75-3.77a1 1 0 0 1 1.418-1.41l3.04 3.057 6.541-6.605a1 1 0 0 1 1.415-.006Z"
+                      d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.3 3.3 6.8-6.8a1 1 0 0 1 1.4 0Z"
                       clipRule="evenodd"
                     />
                   </svg>
                 </span>
-                <span className="text-base font-bold text-slate-800">{feature}</span>
+                <div>
+                  <h4 className="font-bold text-slate-900">{method.title}</h4>
+                  <p className="mt-1 leading-relaxed text-slate-600">
+                    {method.desc}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            من المهم ملاحظة أن هذه الطرق قد تختلف اعتمادا على الممارسات المحددة التي تقدمها شركة تسليك مجاري الكويت
+          </p>
+          <h3 className="text-xl mt-5 font-extrabold text-slate-900 sm:text-2xl">
+            4- تسليك بواليع الحمام والمطبخ
+          </h3>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">عندما تحتاج إلى شركة تسليك بواليع بأسعار مناسبة يمكنك الاعتماد على شركتنا&nbsp;<a href="https://taslikmajarikuwait.com/drain-cleaning-abdullah-mubarak" target="_blank" rel="noopener" className="text-blue-500">
+            تسليك مجاري عبدالله مبارك</a>&nbsp;التي تعتبر من أرخص الشركات المتخصصة في أعمال تسليك بواليع وخزانات المجاري وذلك لأنها شركة تسليك مجاري الكويت معروفة وتحرص على تقديم الخصومات المناسبة لجميع العملاء توفر العروض المستمرة والصالحة طوال العام يتم تقديم أسعار تنافسية وخصومات عالية للعملاء القدامى والجدد
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            هناك العديد من المزايا التي تبحث عنها ستجدها في شركتنا تسليك بواليع المتميزة ومن أبرز هذه المزايا:
+          </p>
+          <ul className="mt-6 space-y-4">
+            {features2.map((method, i) => (
+              <li
+                key={i}
+                className="list-disc pl-5 marker:text-indigo-500 marker:text-xl"
+              >
+                <p className="leading-relaxed text-slate-600 pr-1">
+                  {method}
+                </p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            شركة تسليك مجاري بالكويت
+          </h2>
+          <figure className="mx-auto max-w-2xl px-6 py-6 sm:px-8">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+              <Image
+                src="/portfolio/شركة تسليك مجاري بالكويت.webp"
+                alt="شركة تسليك مجاري بالكويت"
+                width={600}
+                height={450}
+                sizes="(max-width: 600px) 100vw, 600px"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-slate-500">
+              شركة تسليك مجاري بالكويت
+            </figcaption>
+          </figure>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تقدم شركة تسليك مجاري بالكويت خدمات شاملة بما في ذلك فحص وإصلاح وصيانة خطوط المجاري ومحطات ضخ المجاري يستخدمون التكنولوجيا المتقدمة مثل كاميرات الدوائر التلفزيونية المغلقة لتحديد أي مشاكل أو انسدادات محتملة داخل نظام المجاري يساعد هذا النهج الاستباقي على منع حدوث اضطرابات كبيرة ويضمن التشغيل السلس لنظام المجاري وبشكل عام فإن الخدمات التي تقدمها شركة تسليك مجاري هي جزء لا يتجزأ من أعمال المجاري والنظافة العامة في المدينة إن خبرتهم وتفانيهم في الحفاظ على نظام مجاري فعال يساهم في رفاهية ونوعية الحياة للمقيمين والشركات في الكويت
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">ويتميز بالعديد من الخصائص التي لم تجدها في شركات&nbsp;
+            <a href="https://www.taslikmajarikuwait.com/drain-cleaning-hawalli" target="_blank" rel="noopener" className="text-blue-500">تسليك مجاري حولي</a>
+            &nbsp;الأخرى مثل سرعته في إزالة الانسدادات التي تعاني منها المجاري والتعرض لأحواض المجاري وشفط جميع الرواسب الموجودة داخل المجاري واستخدام المعدات والأدوات والمواد الحديثة القادرة على تفتيت الكتل الصلبة حيث أنها شركة تهتم باستخدام الأساليب الحديثة وتقديم الخدمات بأسعار تنافسية وتسهل على العملاء الحصول على الخدمات من خلال الاتصال بأرقامهم وحجز الخدمات خلال وقت قياسي
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            لماذا نحن أفضل شركة تسليك مجاري بالكويت ؟
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            نحن أفضل شركة تسليك مجاري الكويت لعدة أسباب :
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            بالإضافة إلى تسليك مجاري المطبخ تركز شركة تتسليك مجاري الكويت أيضا على تنظيف بالوعات الكويت البيارات هو المصطلح العربي لمحطات معالجة مياه المجاري حيث يتم جمع مياه المجاري ومعالجتها للتخلص منها بشكل آمن أو إعادة استخدامها يعد تنظيف وصيانة محطات المعالجة هذه أمرًا بالغ الأهمية لحماية البيئة ومنع تلوث مصادر المياه تتبع شركة تسليك مجاري الكويت إرشادات وبروتوكولات صارمة لضمان عمل آبار المياه في الكويت بكفاءة وبما يتوافق مع اللوائح البيئية
+          </p>
+          <ul className="mt-6 space-y-4">
+            {reasons.map((method, i) => (
+              <li
+                key={i}
+                className="list-disc pl-5 marker:text-indigo-500 marker:text-xl"
+              >
+                <p className="leading-relaxed text-slate-600 pr-1">
+                  {method}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            خدمات&nbsp;<a href="https://www.taslikmajarikuwait.com/drain-cleaning-adan" target="_blank" rel="noopener" className="text-blue-500">تسليك مجاري العدان</a>&nbsp;استثنائية فحسب بل تقدم أيضا خيارات أسعار تنافسية إنهم يسعون جاهدين لتقديم خدمات عالية الجودة بأسعار معقولة مما يضمن رضا العملاء في كل خطوة على الطريق ولا تدع انسداد الصرف يعطل روتينك اليومي استفد من خيارات الاتصال المريحة التي توفرها تسليك مجاري الكويت واجعل المجاري تتدفق بسلاسة مرة أخرى اتصل بهم اليوم عبر الهاتف أو واتساب لتجربة خدمات تسليك مجاري باحدث الطرق
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            رقم فني تسليك مجاري
+          </h2>
+          <figure className="mx-auto max-w-2xl px-6 py-6 sm:px-8">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+              <Image
+                src="/portfolio/رقم فني تسليك مجاري.webp"
+                alt="رقم فني تسليك مجاري"
+                width={600}
+                height={450}
+                sizes="(max-width: 600px) 100vw, 600px"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-slate-500">
+              رقم فني تسليك مجاري
+            </figcaption>
+          </figure>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            إذا كنت تواجه مشكلة انسداد المجاري فعليك بالاتصال بشركة تسليك مجاري بالكويت المهنية أمر بالغ الأهمية إحدى الشركات الموصى بها بشدة هي تسليم مجاري الكويت المتخصصة في خدمات تسليك مجاري مع مجرد مكالمة هاتفية سريعة أو رسالة واتس اب يمكنك بسهولة طلب خدماتها عند الاتصال برقم فني تسليك مجاري الكويت بهذه الشركة ذات السمعة الطيبة سيقوم ممثل خدمة العملاء الودود والمعرفة بإرشادك خلال العملية يمكنك مناقشة تفاصيل مشكلة التسليك مجاري المسدودة وتزويدهم بالمعلومات ذات الصلة مثل موقعك وأي مخاوف إضافية قد تكون لديك
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            ستقوم شركة&nbsp;<a href="https://www.taslikmajarikuwait.com/drain-cleaning-jahra" target="_blank" rel="noopener" className="text-blue-500">تسليك مجاري الجهراء</a>&nbsp;بعد ذلك بجدولة موعد مناسب مع أحد الفنيين ذوي الخبرة تم تجهيز هؤلاء المهنيين بأحدث الأدوات والمعدات مما يمكنهم من تحديد وحل أنواع مختلفة من قباقيب الصرف بكفاءة لديهم معرفة واسعة بأفضل الطرق لاستخدامها من أجل معالجة العوائق المختلفة مما يضمن حلا طويل الأمد
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            كيفية التواصل مع شركة تسليك مجاري :
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            التواصل معنا هو من أسهل ما يكون حيث اننا نوفر طرق عديدة للتواصل مع شركة تسليك مجاري الكويت حيث أنك إذا كنت ترغب في الحصول على خدمات تسليك المجاري التي نقدمها فنحن نقوم بتقديم العديد والعديد من خدمات تسليك المجاري داخل دولة الكويت حيث ان خدماتنا هي خدمات استثنائية للغاية نظرا لأننا نقوم بالتواصل مع أفضل فنيين تسليك المجاري داخل الكويت حيث ان الاتقان هو ما يميزنا فان كنت ترغب في التواصل معنا فان أفضل خيار لك هو الاتصال المباشر على رقم شركة تسليك مجاري الكويت او التواصل معنا عن طريق الواتساب او صفحة <a href="https://www.taslikmajarikuwait.com/contact-us" className="text-blue-500">اتصل بنا</a> المتواجدة علي موقعنا
+          </p>
+        </div>
+      </section>
+      {/* 
       <section className="w-full bg-white">
         <div className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
@@ -471,9 +744,9 @@ export default function DrainCleaningKuwaitPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="w-full bg-white">
+      {/* <section className="w-full bg-white">
         <div className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:py-20">
           <div className="overflow-hidden rounded-3xl bg-gradient-to-bl from-sky-700 via-sky-800 to-emerald-700 p-8 text-center shadow-xl sm:p-12">
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
@@ -503,7 +776,7 @@ export default function DrainCleaningKuwaitPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
