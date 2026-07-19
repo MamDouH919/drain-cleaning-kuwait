@@ -417,7 +417,7 @@ export default function RoofInsulationPricesKuwaitPage() {
             {areas.map((area) => (
               <li key={area.slug}>
                 <Link
-                  href={`/roof-insulation-${area.slug}`}
+                  href={`/roof-waterproofing-${area.slug}`}
                   className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-bold text-slate-700 transition hover:bg-emerald-600 hover:text-white"
                 >
                   عزل أسطح {area.name}
