@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SocialMediaLinks, { SocialMediaLink } from "./SocialMedia";
 
 const BUSINESS_NAME = "خدمات الكويت";
 const PHONE_NUMBER = "+96598890031";
@@ -35,12 +36,24 @@ const legalLinks = [
 // The `#business` LocalBusiness node lives in `lib/schema.ts` and is rendered
 // site-wide from the root layout — do not redefine it here.
 
+
+const socialLinks: SocialMediaLink[] = [
+  { code: "FACEBOOK", link: "https://www.facebook.com/profile.php?id=61591488496952" },
+  { code: "INSTAGRAM", link: "https://www.instagram.com/novaslash1/" },
+  { code: "LINKEDIN", link: "https://www.linkedin.com/in/novaslash/" },
+  { code: "YOUTUBE", link: "https://www.youtube.com/@novaslash1" },
+  { code: "X", link: "https://x.com/novaslash1s" },
+];
+
 export default function Footer() {
   return (
     <footer
       dir="rtl"
       className="relative w-full bg-gradient-to-bl from-slate-950 via-slate-900 to-slate-950 text-slate-300"
     >
+      <div className="mx-auto max-w-7xl px-6 py-8 text-center sm:px-8 lg:flex-row lg:justify-between lg:text-right">
+        <SocialMediaLinks links={socialLinks} />
+      </div>
       <div className="overflow-hidden border-b border-white/10 bg-gradient-to-l from-sky-700 to-emerald-700">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 py-8 text-center sm:px-8 lg:flex-row lg:justify-between lg:text-right">
           <p className="text-lg font-extrabold text-white sm:text-xl">
