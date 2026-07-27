@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
 import Social from "@/components/social";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import Script from "next/script";
 
 const cairo = Cairo({
@@ -17,11 +18,11 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "تسليك مجاري وعزل أسطح في الكويت 24 ساعة | اتصل 98890031",
+    default: "خدمات تسليك مجاري الكويت وعزل الأسطح بجميع المناطق | 98890031",
     template: "%s | اتصل 98890031",
   },
   description:
-    "خدمات تسليك المجاري وشفط البيارات وعزل الأسطح المائي والحراري في الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص مع ضمان على الخدمة وسرعة استجابة.",
+    "خدمات تسليك مجاري الكويت وشفط البيارات وعزل الأسطح المائي والحراري في جميع مناطق الكويت على مدار 24 ساعة، تسليك المجاري بدون تكسير بضمان وسرعة استجابة.",
   keywords: [
     "تسليك مجاري الكويت",
     "عزل أسطح الكويت",
@@ -54,9 +55,9 @@ export const metadata: Metadata = {
     locale: "ar_KW",
     url: SITE_URL,
     siteName: "خدمات الكويت",
-    title: "تسليك مجاري وعزل أسطح في الكويت 24 ساعة",
+    title: "خدمات تسليك مجاري الكويت وعزل الأسطح 24 ساعة",
     description:
-      "خدمات تسليك المجاري وعزل الأسطح والصيانة المنزلية في الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص.",
+      "خدمات تسليك مجاري الكويت وعزل الأسطح والصيانة المنزلية في جميع مناطق الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص.",
     images: [
       {
         url: "/تسليك-مجاري-الكويت.webp",
@@ -68,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "تسليك مجاري وعزل أسطح في الكويت 24 ساعة",
+    title: "خدمات تسليك مجاري الكويت وعزل الأسطح 24 ساعة",
     description:
-      "خدمات تسليك المجاري وعزل الأسطح والصيانة المنزلية في الكويت على مدار 24 ساعة.",
+      "خدمات تسليك مجاري الكويت وعزل الأسطح والصيانة المنزلية في جميع مناطق الكويت على مدار 24 ساعة.",
     images: ["/تسليك-مجاري-الكويت.webp"],
   },
 };
@@ -93,6 +94,7 @@ export default function RootLayout({
       className={`${cairo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-20 lg:pb-0">
+        <LocalBusinessSchema />
         {/* Google tag (gtag.js) */}
         <Script
           id="gtag-src"

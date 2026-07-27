@@ -502,31 +502,6 @@ const jsonLd = {
       },
     },
     {
-      "@type": "LocalBusiness",
-      "@id": `${SITE_URL}/#business`,
-      name: "خدمات الكويت لتسليك المجاري",
-      url: SITE_URL,
-      image: `${SITE_URL}${COVER_IMAGE}`,
-      telephone: PHONE_NUMBER,
-      priceRange: "$$",
-      areaServed: { "@type": "Country", name: "الكويت" },
-      address: { "@type": "PostalAddress", addressCountry: "KW" },
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: "00:00",
-        closes: "23:59",
-      },
-    },
-    {
       "@type": "FAQPage",
       "@id": `${PAGE_URL}/#faq`,
       mainEntity: faqs.map((faq) => ({

@@ -127,7 +127,7 @@ export default function Services() {
             id="services-heading"
             className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
           >
-            خدماتنا الرئيسية
+            خدمات تسليك مجاري الكويت وعزل الأسطح
           </h2>
 
           <p className="mt-5 text-lg leading-relaxed text-slate-600">

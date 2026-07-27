@@ -81,7 +81,7 @@ export default function Navbar() {
                             width={100}
                             height={100}
                             className="h-full w-full object-contain"
-                            preload
+                            loading="eager"
                         />
                     </Link>
 
@@ -110,8 +110,12 @@ export default function Navbar() {
                                 <ul className="overflow-hidden rounded-2xl border border-slate-100 bg-white p-2 shadow-xl ring-1 ring-slate-900/5">
                                     {services.map((service) => (
                                         <li key={service.href}>
+                                            {/* prefetch disabled: these links are duplicated in the
+                                                mobile menu, footer and services grid — prefetching
+                                                every copy fires one RSC request per copy. */}
                                             <Link
                                                 href={service.href}
+                                                prefetch={false}
                                                 className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-600 transition-colors hover:bg-sky-50 hover:text-sky-700"
                                             >
                                                 {service.label}
@@ -192,6 +196,7 @@ export default function Navbar() {
                             <li key={service.href}>
                                 <Link
                                     href={service.href}
+                                    prefetch={false}
                                     onClick={() => setMenuOpen(false)}
                                     className="block rounded-xl px-4 py-3 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-50"
                                 >
@@ -204,6 +209,7 @@ export default function Navbar() {
                             <li key={link.href}>
                                 <Link
                                     href={link.href}
+                                    prefetch={false}
                                     onClick={() => setMenuOpen(false)}
                                     className="block rounded-xl px-4 py-3 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-50"
                                 >

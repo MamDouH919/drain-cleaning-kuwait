@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { SITE_URL } from "@/lib/areas";
 
 const BUSINESS_NAME = "خدمات الكويت";
 const PHONE_NUMBER = "+96598890031";
@@ -33,49 +32,8 @@ const legalLinks = [
   { label: "الشروط والأحكام", href: "/terms-conditions" },
 ];
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${SITE_URL}/#business`,
-  name: BUSINESS_NAME,
-  url: SITE_URL,
-  telephone: PHONE_NUMBER,
-  image: `${SITE_URL}/hero-service.svg`,
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "KW",
-    addressRegion: "الكويت",
-  },
-  areaServed: {
-    "@type": "Country",
-    name: "الكويت",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "00:00",
-    closes: "23:59",
-  },
-  makesOffer: [
-    {
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: "تسليك مجاري الكويت" },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: "عزل أسطح الكويت" },
-    },
-  ],
-};
+// The `#business` LocalBusiness node lives in `lib/schema.ts` and is rendered
+// site-wide from the root layout — do not redefine it here.
 
 export default function Footer() {
   return (
@@ -83,11 +41,6 @@ export default function Footer() {
       dir="rtl"
       className="relative w-full bg-gradient-to-bl from-slate-950 via-slate-900 to-slate-950 text-slate-300"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
-
       <div className="overflow-hidden border-b border-white/10 bg-gradient-to-l from-sky-700 to-emerald-700">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 py-8 text-center sm:px-8 lg:flex-row lg:justify-between lg:text-right">
           <p className="text-lg font-extrabold text-white sm:text-xl">
@@ -161,6 +114,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-sm text-slate-400 transition-colors hover:text-sky-400"
                   >
                     {link.label}
@@ -177,6 +131,7 @@ export default function Footer() {
                 <li key={service.href}>
                   <Link
                     href={service.href}
+                    prefetch={false}
                     className="text-sm text-slate-400 transition-colors hover:text-sky-400"
                   >
                     {service.label}
@@ -253,6 +208,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-slate-400 transition-colors hover:text-sky-400"
                   >
                     {link.label}
