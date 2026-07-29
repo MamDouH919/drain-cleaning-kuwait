@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/lib/areas";
+import {
+  SITE_URL,
+  BUSINESS_NAME,
+  PHONE_NUMBER,
+  PHONE_DISPLAY,
+  WHATSAPP_URL,
+  areas,
+} from "@/lib/areas";
 
 const PAGE_PATH = "/manhole-installation-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
@@ -46,35 +53,78 @@ export const metadata: Metadata = {
 };
 
 const features = [
-  "توريد أغطية المناهل بجميع المقاسات",
-  "تركيب مناهل الصرف الصحي",
-  "تركيب أغطية حديد ومنيهول دائري",
+  "تركيب غطاء منهول حديد",
+  "تركيب غطاء منهول بلاستيك مقوى",
+  "تركيب غطاء منهول ألومنيوم",
   "صيانة وإصلاح المناهل القديمة",
   "رفع وتعديل مستوى المناهل",
 ];
 
-const whyUs = [
-  { title: "فنيون متخصصون", desc: "خبرة في تركيب المناهل وشبكات الصرف الصحي." },
-  { title: "مواد عالية الجودة", desc: "أغطية ومناهل معتمدة تتحمل الأحمال والضغط." },
-  { title: "تركيب آمن ومتقن", desc: "تثبيت دقيق يمنع الاهتزاز والروائح والتسرب." },
-  { title: "ضمان على الخدمة", desc: "ضمان على التركيب والمواد لراحة بالك." },
-];
+type Step = {
+  title: string;
+  image?: string;
+  alt?: string;
+  items: string[];
+};
 
-const steps = [
-  { title: "المعاينة", desc: "نعاين الموقع ونحدد مقاس ونوع المنهول المناسب." },
-  { title: "تجهيز الفتحة", desc: "نجهّز فتحة المنهول ومستوى التركيب بدقة." },
-  { title: "التركيب", desc: "نركّب المنهول والغطاء بإحكام ومواد مثبتة." },
-  { title: "ضبط المستوى", desc: "نضبط مستوى الغطاء مع سطح الأرض لمنع الاهتزاز." },
-  { title: "الاختبار والتسليم", desc: "نتأكد من ثبات المنهول وأمانه قبل التسليم." },
+const steps: Step[] = [
+  {
+    title: "الخطوة الأولى",
+    image: "/drain-cleaning/تسليك-منازل.webp",
+    alt: "فحص وقياس المنهول قبل التركيب",
+    items: [
+      "فحص شامل للمنهول الحالي وقياس أبعاده بدقة من الداخل والخارج.",
+      "تحديد نوع غطاء منهول مناسب للأحمال التي ستمر فوقه.",
+      "تحضير الأدوات اللازمة مثل متر القياس الليزري والكاميرا المخصصة للتفتيش.",
+      "المدة: حوالي 30 دقيقة.",
+    ],
+  },
+  {
+    title: "الخطوة الثانية",
+    image: "/drain-cleaning/تسليك-مجاري.webp",
+    alt: "إزالة غطاء المنهول القديم وتنظيفه",
+    items: [
+      "إزالة الغطاء القديم بحرص شديد.",
+      "تنظيف المنطقة المحيطة باستخدام مواد تنظيف ومعدات مخصصة.",
+      "فحص حالة الإطار المعدني لمعرفة مدى تحمله للغطاء الجديد باستخدام معدات رفع آمنة.",
+      "المدة: حوالي 45 دقيقة.",
+    ],
+  },
+  {
+    title: "الخطوة الثالثة",
+    items: [
+      "تسوية سطح المنهول ووضع مواد عازلة إذا لزم الأمر.",
+      "فحص نظام الصرف وضمان إغلاق محكم.",
+      "استخدام أحدث معدات التسوية.",
+      "المدة: 60 دقيقة.",
+    ],
+  },
+  {
+    title: "الخطوة الرابعة",
+    items: [
+      "تركيب غطاء المنهول الجديد وضبطه بإحكام.",
+      "اختبار سهولة فتح الغطاء أو إغلاقه لضمان سهولة صيانة المنهول مستقبلًا.",
+      "استخدام مفاتيح ربط هيدروليكية عالية الجودة وأجهزة لضبط مستوى المنهول.",
+      "المدة: 45 دقيقة.",
+    ],
+  },
+  {
+    title: "الخطوة الخامسة",
+    items: [
+      "فحص شامل لكل جزء من أجزاء المنهول.",
+      "تسليم العميل الضمان وكتيب تعليمات الصيانة.",
+      "المدة: 30 دقيقة (المدة الإجمالية للمهمة: 3 ساعات ونصف).",
+    ],
+  },
 ];
 
 const searchTerms = [
-  "شركة تركيب منهول الكويت",
-  "أفضل تركيب منهول الكويت",
-  "أسعار تركيب منهول",
-  "أغطية مناهل الكويت",
-  "صيانة مناهل الصرف",
-  "فني تركيب منهول الكويت",
+  "تركيب غطاء منهول الكويت",
+  "غطاء منهول حديد",
+  "غطاء منهول بلاستيك",
+  "غطاء منهول ألومنيوم",
+  "أسعار تركيب غطاء منهول",
+  "صيانة منهول الكويت",
 ];
 
 const faqs = [
@@ -148,6 +198,19 @@ const jsonLd = {
   ],
 };
 
+function ArticleImage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={600}
+      height={338}
+      sizes="(max-width: 640px) 100vw, 600px"
+      className="mx-auto my-8 aspect-[16/9] w-full max-w-[600px] rounded-2xl border border-slate-100 object-cover shadow-md ring-1 ring-slate-900/5"
+    />
+  );
+}
+
 export default function ManholeInstallationKuwaitPage() {
   return (
     <main className="flex-1" dir="rtl">
@@ -211,109 +274,338 @@ export default function ManholeInstallationKuwaitPage() {
 
       <section className="w-full bg-white">
         <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
-          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            أهمية تركيب المناهل في الكويت
+          <p className="text-lg leading-relaxed text-slate-600">
+            تقدم شركة {BUSINESS_NAME} خدمة{" "}
+            <strong className="font-bold text-slate-900">تركيب غطاء منهول</strong>{" "}
+            في الكويت وذلك بجميع أنواعه مثل غطاء منهول زهر، البلاستيك المقوى،
+            وأيضًا الخرساني، كلًا يتم تركيبه حسب المكان ومدى تحمله للأوزان.
+            تستخدم شركتنا أحدث التقنيات المعتمدة لضمان تركيب غطاء منهول آمن
+            ومتوافق مع مواصفات بلدية الكويت.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            كما تستخدم شركتنا أفضل الطرق الحديثة في التركيب، وأحدث المواد
+            والمعدات عالية الجودة، وذلك على يد فريق عمل ذو خبرة وكفاءة، ومدرب على
+            كافة الأساليب الحديثة التي تضمن تركيب غطاء منهول احترافي. كما تسعى
+            شركتنا لإرضاء عملائها بتقديم أرخص الأسعار وخصومات وعروض مميزة على
+            الخدمات المختلفة.
+          </p>
+
+          <blockquote className="mt-8 rounded-2xl border-r-4 border-sky-500 bg-sky-50/70 p-6 text-lg leading-relaxed text-slate-700">
+            <p>
+              توفر{" "}
+              <Link href="/" className="font-bold text-sky-700 underline-offset-4 hover:underline">
+                شركة {BUSINESS_NAME}
+              </Link>{" "}
+              خدمة تركيب غطاء المنهول في الكويت لجميع الأماكن والمنازل والشوارع،
+              باستخدام أفضل المواد وأحدث المعدات لضمان المتانة والأمان. احصل على
+              تركيب احترافي سريع مع ضمان جودة العمل. للحجز والاستفسار اتصل الآن
+              على{" "}
+              <a
+                href={`tel:${PHONE_NUMBER}`}
+                className="font-bold text-emerald-700 underline-offset-4 hover:underline"
+              >
+                {PHONE_DISPLAY}
+              </a>
+              .
+            </p>
+          </blockquote>
+
+          <ArticleImage
+            src="/portfolio/تركيب-منهول-الكويت.webp"
+            alt="تركيب غطاء منهول في الكويت باحترافية"
+          />
+
+          <h2 className="mt-4 text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            نبذة عن الخدمة المقدمة
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            تُعد المناهل جزءاً أساسياً من شبكة الصرف الصحي، فهي توفر نقاط وصول
-            للصيانة والتفتيش وتمنع تجمع المياه والروائح. ويتطلب تركيب المنهول دقة
-            في اختيار المقاس المناسب وتثبيت الغطاء بإحكام لتحمّل الأحمال ومنع
-            الاهتزاز والإزعاج عند المرور. نقوم بتوريد وتركيب جميع أنواع المناهل
-            وأغطيتها من الحديد والخرسانة بمختلف المقاسات والأحمال، سواء للمنازل
-            والفلل أو المنشآت التجارية والممرات ومواقف السيارات. كما نوفر خدمة
-            رفع وتعديل مستوى المناهل القديمة لتتساوى مع سطح الأرض، وصيانة وإصلاح
-            الأغطية التالفة ومعالجة مشاكل الروائح والتسرب، مع ضمان على جودة
-            التركيب والمواد.
+            غطاء المنهول هو غطاء يستخدم لإغلاق فتحات غرف التفتيش الخاصة بشبكات
+            الصرف الصحي أو المياه أو الكابلات، ويوضع على سطح الأرض لحماية الفتحة.
+            استطاعت شركتنا أن تلفت أنظار العديد من العملاء الراغبين في تركيب غطاء
+            منهول بشكل احترافي، وذلك بفضل خبرتها الكبيرة في هذا المجال وامتلاكها
+            فريق عمل مدرب على اختيار وتركيب غطاء منهول مناسب وباحترافية شديدة،
+            مستخدمًا أفضل المواد والمعدات الحديثة.
           </p>
-          <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50/60 p-5">
-            <h3 className="text-base font-bold text-slate-900">
-              متى تحتاج إلى تركيب أو صيانة منهول؟
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              غطاء منهول مكسور أو مهتز، أو منهول غاطس تحت مستوى الأرض، أو روائح
-              صادرة من المنهول، أو الحاجة لنقطة وصول جديدة لشبكة الصرف.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <section className="w-full bg-slate-50">
-        <div className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:py-20">
-          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            خدمات المناهل التي نقدمها
-          </h2>
-          <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
+          <ArticleImage
+            src="/drain-cleaning/تركيب-منهول-الكويت.webp"
+            alt="ما هو غطاء المنهول واستخداماته"
+          />
+
+          <p className="text-lg leading-relaxed text-slate-600">
+            يتم اختيار غطاء المنهول المناسب حسب مكان غرفة التفتيش المراد تغطيتها:
+          </p>
+          <ul className="mt-5 flex flex-col gap-3">
+            {[
+              {
+                place: "في الشوارع ومدخل الجراجات والطرق العامة:",
+                desc: "نحتاج إلى غطاء منهول مصنوع من الحديد ليتحمل أوزان السيارات والأحمال الثقيلة.",
+              },
+              {
+                place: "في المنازل والحدائق وعلى الأسطح:",
+                desc: "يتم استخدام غطاء منهول مصنوع من البلاستيك، حيث لا توجد أحمال ثقيلة.",
+              },
+              {
+                place: "في الفلل والكمبوندات والمولات:",
+                desc: "يستخدم غطاء منهول ألومنيوم للأماكن التي تحتاج إلى شكل جمالي، وفي نفس الوقت يتحمل أحمال متوسطة.",
+              },
+            ].map((item) => (
               <li
-                key={feature}
-                className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm ring-1 ring-slate-900/5"
+                key={item.place}
+                className="rounded-2xl border border-slate-100 bg-slate-50/60 p-5 text-base leading-relaxed text-slate-600 ring-1 ring-slate-900/5"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                  <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5" aria-hidden="true">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.32a1 1 0 0 1-1.42.001l-3.75-3.77a1 1 0 0 1 1.418-1.41l3.04 3.057 6.541-6.605a1 1 0 0 1 1.415-.006Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <span className="text-base font-bold text-slate-800">{feature}</span>
+                <strong className="font-bold text-slate-900">{item.place}</strong>{" "}
+                {item.desc}
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      <section className="w-full bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:py-20">
-          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            لماذا تختارنا لتركيب المناهل؟
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {whyUs.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-100 bg-slate-50/60 p-6 shadow-sm ring-1 ring-slate-900/5"
-              >
-                <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            لابد من اختيار النوع المناسب للحفاظ على الأمان ومنع تعرض غطاء المنهول
+            للكسر أو التلف. لذلك تقدم شركتنا خدمة تركيب غطاء منهول وفقًا
+            للمواصفات القياسية الموضوعة من قِبل بلدية الكويت، وذلك بأفضل الأسعار.
+          </p>
         </div>
       </section>
 
       <section className="w-full bg-slate-50">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:px-8 lg:py-20">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            خطوات تركيب المنهول
+            أنواع أغطية المنهول التي نوفرها في الكويت
           </h2>
-          <ol className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {steps.map((step, index) => (
-              <li
-                key={step.title}
-                className="relative rounded-2xl border border-slate-100 bg-white p-6 shadow-sm ring-1 ring-slate-900/5"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-bl from-sky-600 to-emerald-600 text-base font-extrabold text-white shadow-md">
-                  {index + 1}
-                </span>
-                <h3 className="mt-4 text-base font-bold text-slate-900">{step.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-slate-600">{step.desc}</p>
-              </li>
-            ))}
-          </ol>
+
+          <h3 className="mt-8 text-xl font-extrabold text-slate-900 sm:text-2xl">
+            غطاء منهول حديد
+          </h3>
+          <ArticleImage
+            src="/drain-cleaning/تسليك-بلوعات.webp"
+            alt="غطاء منهول حديد للشوارع والمداخل"
+          />
+          <p className="text-lg leading-relaxed text-slate-600">
+            يُعد{" "}
+            <strong className="font-bold text-slate-900">غطاء المنهول الحديد</strong>{" "}
+            من أقوى وأكثر الأنواع استخدامًا في الكويت، خاصة في الشوارع الرئيسية،
+            ومداخل الجراجات، والطرق التي تمر فوقها السيارات والمركبات الثقيلة
+            بشكل يومي. يتميز هذا النوع بقدرته العالية على تحمل الأوزان والضغط دون
+            أن يتعرض للكسر أو التشقق مع مرور الوقت.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            نحرص على{" "}
+            <strong className="font-bold text-slate-900">
+              تركيب غطاء منهول حديد مطابق لمواصفات بلدية الكويت
+            </strong>
+            ، مع تثبيته بإحكام داخل الإطار المعدني لمنع الاهتزاز أو الصوت المزعج
+            أثناء مرور المركبات، مما يوفر أعلى درجات الأمان والسلامة في الأماكن
+            العامة.
+          </p>
+          <p className="mt-5 rounded-2xl bg-white p-5 text-base leading-relaxed text-slate-600 ring-1 ring-slate-900/5">
+            <span aria-hidden="true">🔹</span>{" "}
+            <strong className="font-bold text-slate-900">أماكن الاستخدام:</strong>
+            <br />
+            الشوارع – الطرق العامة – مداخل الجراجات – المناطق الصناعية.
+          </p>
+
+          <h3 className="mt-10 text-xl font-extrabold text-slate-900 sm:text-2xl">
+            غطاء منهول بلاستيك مقوى
+          </h3>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            يُستخدم{" "}
+            <strong className="font-bold text-slate-900">
+              غطاء المنهول البلاستيك المقوى
+            </strong>{" "}
+            في الأماكن التي لا تتعرض لأحمال ثقيلة، مثل المنازل، الحدائق، الأسطح،
+            والمناطق السكنية الخاصة. ويتميز هذا النوع بخفة وزنه وسهولة تركيبه،
+            إلى جانب مقاومته العالية للرطوبة والصدأ والعوامل الجوية.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            نوفر خدمة{" "}
+            <strong className="font-bold text-slate-900">
+              تركيب غطاء منهول بلاستيك في الكويت
+            </strong>{" "}
+            بأسعار مناسبة، مع ضمان تثبيته بشكل محكم لمنع انبعاث الروائح الكريهة
+            أو دخول الحشرات، خاصة بعد أعمال{" "}
+            <Link
+              href="/drain-cleaning-kuwait"
+              className="font-bold text-sky-700 underline-offset-4 hover:underline"
+            >
+              تنظيف جورة الكويت
+            </Link>{" "}
+            أو صيانة شبكات الصرف الصحي داخل المنازل.
+          </p>
+          <p className="mt-5 rounded-2xl bg-white p-5 text-base leading-relaxed text-slate-600 ring-1 ring-slate-900/5">
+            <span aria-hidden="true">🔹</span>{" "}
+            <strong className="font-bold text-slate-900">أماكن الاستخدام:</strong>
+            <br />
+            المنازل – الحدائق – الأسطح – الفلل السكنية.
+          </p>
+
+          <h3 className="mt-10 text-xl font-extrabold text-slate-900 sm:text-2xl">
+            غطاء منهول ألومنيوم
+          </h3>
+          <ArticleImage
+            src="/drain-cleaning/تنظيف-جورة.webp"
+            alt="غطاء منهول ألومنيوم"
+          />
+          <p className="text-lg leading-relaxed text-slate-600">
+            يُفضل{" "}
+            <strong className="font-bold text-slate-900">
+              غطاء المنهول الألومنيوم
+            </strong>{" "}
+            في الأماكن التي تجمع بين الشكل الجمالي والتحمل المتوسط، مثل الفلل،
+            الكمبوندات، المولات التجارية، والمداخل الراقية. يتميز هذا النوع
+            بمظهره الأنيق وخفة وزنه مقارنة بالحديد، مع قدرته على تحمل الاستخدام
+            اليومي دون مشاكل.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            نقوم بتركيب{" "}
+            <strong className="font-bold text-slate-900">
+              غطاء منهول ألومنيوم في الكويت
+            </strong>{" "}
+            بعناية فائقة، مع ضبط مستوى الغطاء ليتماشى مع الأرضية المحيطة، مما
+            يعطي مظهرًا جماليًا راقيًا دون التأثير على عامل الأمان أو سهولة
+            الصيانة مستقبلًا.
+          </p>
+          <p className="mt-5 rounded-2xl bg-white p-5 text-base leading-relaxed text-slate-600 ring-1 ring-slate-900/5">
+            <span aria-hidden="true">🔹</span>{" "}
+            <strong className="font-bold text-slate-900">أماكن الاستخدام:</strong>
+            <br />
+            الفلل – الكمبوندات – المولات – المباني التجارية.
+          </p>
         </div>
       </section>
 
       <section className="w-full bg-white">
         <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            تركيب منهول الكويت — خدمة قريبة منك
+            ما الذي يميز شركتنا؟
+          </h2>
+          <ArticleImage
+            src="/portfolio/شركة تسليك مجاري بالكويت.webp"
+            alt="ما يميز شركتنا في تركيب أغطية المناهل"
+          />
+          <p className="text-lg leading-relaxed text-slate-600">
+            تتميز شركة {BUSINESS_NAME} المتخصصة في تركيب غطاء المنهول بجميع أنواعه
+            بأن لديها مجموعة من العمال المدربين على استخدام أحدث التقنيات عند
+            تركيب غطاء منهول بلاستيك، ألومنيوم، أو حديد، لضمان الأمان على الأطفال
+            والكبار من الوقوع في البلاعات المنتشرة في الشوارع أو المنازل أو
+            الأماكن العامة.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            كما يساعد تركيب الغطاء على منع تسرب الروائح الغير مرغوب فيها وانتشار
+            الحشرات في المكان، بالإضافة إلى استخدام أفضل مواد تنظيف فتحات غرف
+            التفتيش، وأفضل معدات تركيب تضمن طول عمر الغطاء وثباته في مكانه بصورة
+            احترافية ودقيقة.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تتميز شركتنا أيضًا بالالتزام التام في المواعيد، والأسعار التنافسية
+            التي لا تقارن، بالإضافة إلى التعامل الراقي مع جميع العملاء والحرص على
+            كسب ثقتهم. تقدم الشركة جميع خدمات الصرف الصحي للمنازل والشركات
+            والكمبوندات وجميع الأماكن العامة، مع خصم 20% على الخدمة الثانية،
+            وصيانة مجانية لمدة 6 أشهر، واستشارة فنية مجانية عند الحاجة، وخدمة
+            الطوارئ على مدار اليوم.
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            حلولنا وخدماتنا
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            إذا كنت تبحث عن خدمة تركيب منهول الكويت موثوقة، فنحن نوفر توريد وتركيب
-            وصيانة المناهل بأسعار مناسبة وضمان على الخدمة. اتصل بنا أو راسلنا
-            واتساب ونصل إليك في أي منطقة بالكويت.
+            تسعى شركة {BUSINESS_NAME} لتقديم خدماتها الصحية بأعلى جودة وأفضل سعر
+            مقارنة مع غيرها من الشركات، وهو ما جعلها من أفضل شركات صحية في
+            المنطقة. من أهم خدماتنا:{" "}
+            <strong className="font-bold text-slate-900">تركيب غطاء منهول</strong>.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            يتم تركيب غطاء المنهول بجميع أنواعه وفي أي مكانٍ كان من خلال خطوات
+            ثابتة تجعل المهمة تتم في وقت قصير وبأعلى مستوى من الحرفية.
+          </p>
+
+          {steps.map((step) => (
+            <div key={step.title}>
+              <h3 className="mt-10 text-xl font-extrabold text-slate-900 sm:text-2xl">
+                {step.title}
+              </h3>
+              {step.image ? (
+                <ArticleImage src={step.image} alt={step.alt ?? step.title} />
+              ) : null}
+              <ul className="mt-5 flex flex-col gap-3">
+                {step.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-4 text-base leading-relaxed text-slate-600 ring-1 ring-slate-900/5"
+                  >
+                    <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                      <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.32a1 1 0 0 1-1.42.001l-3.75-3.77a1 1 0 0 1 1.418-1.41l3.04 3.057 6.541-6.605a1 1 0 0 1 1.415-.006Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            خبرات فريق العمل
+          </h2>
+          <ArticleImage
+            src="/drain-cleaning/تسليك-حمامات.webp"
+            alt="فنيون متخصصون في تركيب أغطية المنهول"
+          />
+          <p className="text-lg leading-relaxed text-slate-600">
+            إذا أردت تركيب{" "}
+            <b className="font-bold text-slate-900">غطاء المنهول</b> الخاص
+            بمنطقتك أو منزلك أو أيًا من الأماكن العامة بالمواصفات القياسية
+            الموضوعة من قِبل البلدية الكويتية، فعليك الاستعانة بخبرات فريق العمل
+            الخاص بشركتنا، حيث أنهم يستطيعون تركيب{" "}
+            <b className="font-bold text-slate-900">غطاء منهول ألومنيوم،</b>{" "}
+            <b className="font-bold text-slate-900">وغطاء منهول بلاستيك،</b>{" "}
+            <b className="font-bold text-slate-900">غطاء منهول حديد</b> كلًا حسب
+            المكان المطلوب، فهم لديهم خبرة كبيرة في اختيار غطاء منهول مناسب، كما
+            أنهم مستعدون لإنجاز جميع المهام في وقت قياسي، كما لديهم خبرة كبيرة في{" "}
+            <b className="font-bold text-slate-900">صيانة منهول</b> متواجد في
+            الشارع أو في الأماكن العامة أو فوق الأسطح، وتركيب أدوات الصرف الصحي،
+            وتسليك المجاري وغيرها من المهام التي تحتاج إلى مجهود كبير والتزام.
+          </p>
+
+          <h2 className="mt-12 text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            تجارب وآراء العملاء
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            جاءت آراء العملاء عن تجاربهم لخدماتنا مرضية للغاية، حيث أشاد الكثيرين
+            بمدى اهتمام الشركة بعملائها، وذلك من خلال اختيار أفضل المواد والمعدات
+            عند تركيب غطاء المنهول، وعند تسليك المجاري أيضًا، بالإضافة تقديمها
+            للعديد من الخدمات الأخرى مثل{" "}
+            <b className="font-bold text-slate-900">تصليح غطاء منهول</b> وتصليح
+            الشفاطات والسخانات، كما أنها تعتمد على أحدث التقنيات المتطورة في
+            الكشف عن تسربات المياه وتنظيف المواسير والبيارات، كل ذلك على يد أمهر
+            العمال والفنيين المدربين، الذين يستطيعون إنجاز جميع المهام في وقت
+            قياسي بمهارة واحترافية، مع تقديم ضمان ضد عيوب التركيب أو الصناعة، كما
+            أن الأسعار مناسبة للجميع.
+          </p>
+
+          <h2 className="mt-12 text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            اطلب خدمتك الآن
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            اطلب الآن الخدمات الصحية التي ترغب بها من شركتنا أفضل شركة صرف صحي
+            وتسليك مجاري في الكويت، وذلك بفضل اهتمامها بجميع التفاصيل الصغيرة عند
+            تركيب غطاء منهول أو تسليك المجاري أو أي خدمة من الخدمات التي تقدمها
+            لعملائها الكرام، وتحرص على تقديم الخدمات في وقت قياسي دون إحداث فوضى
+            أو تكسير، والآن تواصل معنا من خلال أرقامنا، أو من خلال خدمة الواتس
+            آب، واحصل على أفضل العروض والخصومات التي تقدمها شركتنا لعملائها؛
+            حرصًا منها على كسب ثقتهم ورضاهم.
           </p>
           <ul className="mt-8 flex flex-wrap gap-3">
             {searchTerms.map((term) => (
@@ -338,11 +630,21 @@ export default function ManholeInstallationKuwaitPage() {
       <section className="w-full bg-slate-50">
         <div className="mx-auto max-w-5xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            نخدم جميع مناطق الكويت
+            أماكن تواجدنا
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            نصل إليك أينما كنت داخل الكويت لتركيب وصيانة المناهل في حولي
-            والسالمية والفروانية والجهراء والأحمدي ومبارك الكبير وجميع المناطق.
+            شركتنا العريقة لها العديد من الفروع حول الكويت، وذلك لتقديم خدماتها
+            لأكبر عدد من العملاء، حيث أنها لا تقدم خدمات{" "}
+            <b className="font-bold text-slate-900">تركيب غطاء منهول</b> أو{" "}
+            <b className="font-bold text-slate-900">صيانة منهول</b> فحسب بل تقدم
+            مجموعة من أفضل خدمات الصرف الصحي، حيث يمكنها تركيب محابس وتغيير أدوات
+            الصرف الصحي بجميع أنواعها بغيرها من الأنواع الأصلية، كما تقدم خدمة
+            تسليك المجاري ومواسير الصرف وتنظيفها، وأيضًا تصليح سخانات وشفاطات،
+            وتنظيف البلاعات، تمديد بايبات وتركيب رداد مجاري وغيرها من الخدمات
+            الصحية باحترافية شديدة.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            تواصل مع أقرب فرع للاستفادة من خدماتنا المميزة.
           </p>
           <ul className="mt-8 flex flex-wrap gap-3">
             {areas.map((area) => (
