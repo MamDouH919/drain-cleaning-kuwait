@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ArticleSidebar from "@/components/ArticleSidebar";
+import DrainArticle from "@/components/DrainArticle";
 import Gallery from "@/components/Gallery";
 import {
   SITE_URL,
@@ -160,12 +162,32 @@ export default async function AreaServicePage({
     ],
   };
 
+  const structuredData = (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+
+  if (service.id === "drain-cleaning") {
+    return (
+      <main className="flex-1" dir="rtl">
+        {structuredData}
+        <div className="single-layout">
+          <DrainArticle
+            area={area}
+            service={service}
+            imageUrl={`${SITE_URL}${service.coverImage}`}
+          />
+          <ArticleSidebar area={area} />
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="flex-1" dir="rtl">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {structuredData}
 
       <section className={`relative w-full overflow-hidden bg-gradient-to-bl ${heroFrom} via-white ${heroTo}`}>
         <div

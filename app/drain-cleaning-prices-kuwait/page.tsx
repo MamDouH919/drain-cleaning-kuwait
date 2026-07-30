@@ -15,9 +15,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "اسعار تسليك مجاري الكويت | أسعار فتح المجاري 2026 بدون رسوم خفية",
   description:
-    "اسعار تسليك مجاري الكويت وأسعار فتح المجاري وحل الانسدادات بدون تكسير، تقييم وسعر واضح قبل بدء العمل بدون رسوم خفية مع خدمة طوارئ 24 ساعة في جميع مناطق الكويت.",
+    "اسعار تسليك مجاري الكويت وأسعار فتح المجاري وحل الانسدادات بدون تكسير، تقييم وسعر واضح قبل بدء العمل بدون رسوم خفية مع خدمة تسليك مجاري الكويت طوارئ 24 ساعة في جميع المناطق.",
   keywords: [
     "اسعار تسليك مجاري الكويت",
+    "تسليك مجاري الكويت",
     "أسعار تسليك المجاري الكويت",
     "سعر تسليك المجاري في الكويت",
     "كم سعر تسليك المجاري",
@@ -79,6 +80,25 @@ const priceList = [
     service: "خدمة طوارئ 24 ساعة",
     desc: "استجابة سريعة في أي وقت داخل الكويت ليلاً ونهاراً.",
     price: "سعر واضح قبل البدء",
+  },
+];
+
+const pricingSteps = [
+  {
+    title: "المعاينة والتشخيص",
+    desc: "نستمع لوصف المشكلة ثم نعاين نقطة الانسداد لتحديد سببه وعمقه بدقة.",
+  },
+  {
+    title: "اختيار الطريقة والمعدات",
+    desc: "نحدد بين سلك الضغط أو ضخ المياه بضغط عالٍ أو كاميرا الفحص حسب الحالة.",
+  },
+  {
+    title: "عرض السعر النهائي",
+    desc: "نخبرك بالتكلفة الكاملة قبل البدء، وتبقى الكلمة الأخيرة لك بالموافقة.",
+  },
+  {
+    title: "التنفيذ والاختبار",
+    desc: "ننفذ العمل بدون تكسير ثم نختبر انسياب الصرف ونترك المكان نظيفاً.",
   },
 ];
 
@@ -209,8 +229,8 @@ export default function DrainCleaningPricesKuwaitPage() {
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
             نوفر لك أسعار تسليك مجاري الكويت بشفافية كاملة، مع تقييم وسعر واضح
             قبل بدء العمل وبدون رسوم خفية. تختلف الأسعار حسب درجة الانسداد ومكانه
-            ونوع العقار، ونحرص دائماً على تقديم خدمة احترافية بأسعار مناسبة وخدمة
-            طوارئ على مدار الساعة في جميع مناطق الكويت.
+            ونوع العقار، ونحرص على تقديم خدمة تسليك مجاري الكويت باحترافية
+            وبأسعار مناسبة، مع فريق طوارئ يصلك على مدار الساعة في جميع المناطق.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a
@@ -251,14 +271,19 @@ export default function DrainCleaningPricesKuwaitPage() {
             كم تكلفة تسليك المجاري في الكويت؟
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            من أكثر الأسئلة التي تصلنا: كم سعر تسليك المجاري في الكويت؟ والإجابة
-            الصادقة أن السعر لا يمكن تحديده برقم واحد ثابت، لأنه يعتمد على عدة
-            عوامل مثل درجة الانسداد ومكانه ونوع العقار والمعدات المطلوبة. لكننا
-            نلتزم بمبدأ واضح: لا نبدأ أي عمل قبل أن نخبرك بالسعر النهائي وتوافق
-            عليه، بدون أي رسوم خفية أو مفاجآت. نحرص على أن تكون أسعار تسليك
-            المجاري لدينا مناسبة ومنافسة مقابل جودة الخدمة والسرعة والضمان،
-            ونقدم لك تقييماً واضحاً للمشكلة قبل البدء حتى تكون على علم كامل
-            بالتكلفة المتوقعة.
+            من أكثر الأسئلة التي تصلنا يومياً: كم سعر تسليك المجاري في الكويت؟
+            والإجابة الصادقة أن السعر لا يمكن اختصاره في رقم واحد ثابت، لأنه
+            يعتمد على درجة الانسداد ومكانه ونوع العقار والمعدات المطلوبة لفتحه.
+            فالانسداد البسيط في حوض المطبخ لا يحتاج نفس الجهد والوقت الذي يحتاجه
+            انسداد المجرى الرئيسي لفيلا كاملة، ومن غير المنطقي أن يحملا السعر
+            نفسه.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            لذلك نعتمد في خدمة تسليك مجاري الكويت مبدأً واحداً واضحاً: لا نبدأ أي
+            عمل قبل أن نخبرك بالسعر النهائي وتوافق عليه، بدون رسوم خفية أو مفاجآت
+            بعد انتهاء الخدمة. نقدم لك تقييماً دقيقاً للمشكلة أولاً، ثم سعراً
+            يشمل العمالة والمعدات واختبار الصرف بعد الانتهاء، حتى تكون على علم
+            كامل بالتكلفة قبل أن يبدأ الفني عمله داخل منزلك.
           </p>
         </div>
       </section>
@@ -298,10 +323,43 @@ export default function DrainCleaningPricesKuwaitPage() {
       </section>
 
       <section className="w-full bg-white">
+        <div className="mx-auto max-w-5xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            كيف نحدد سعر تسليك مجاري الكويت؟
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            نتبع خطوات ثابتة للوصول إلى سعر عادل لكل حالة، فلا يوجد تخمين ولا
+            مبالغة في التسعير:
+          </p>
+          <ol className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {pricingSteps.map((step, index) => (
+              <li
+                key={step.title}
+                className="flex items-start gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-5 shadow-sm ring-1 ring-slate-900/5"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-600 text-base font-extrabold text-white">
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">{step.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{step.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="w-full bg-slate-50">
         <div className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
             ما العوامل التي تحدد سعر تسليك المجاري؟
           </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            فهم هذه العوامل يساعدك على تقدير تكلفة فتح المجاري في الكويت قبل الاتصال
+            بنا، ويجعلك قادراً على المقارنة بين العروض بشكل عادل بدلاً من الاكتفاء
+            بالسعر الأقل الذي قد يخفي وراءه خدمة ناقصة أو حلاً مؤقتاً لا يدوم.
+          </p>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {priceFactors.map((item) => (
               <div
@@ -316,17 +374,22 @@ export default function DrainCleaningPricesKuwaitPage() {
         </div>
       </section>
 
-      <section className="w-full bg-slate-50">
+      <section className="w-full bg-white">
         <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
             لماذا أسعارنا هي الأنسب في الكويت؟
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            نجمع بين الأسعار المناسبة وجودة الخدمة العالية، فلا تدفع مقابل خدمة
-            غير مكتملة ولا تفاجأ برسوم إضافية. نقدم لك سعراً واضحاً قبل البدء،
-            ونستخدم أحدث الأجهزة التي تفتح الانسداد بدون تكسير مما يوفر عليك
-            تكاليف الترميم. كما نمنحك ضماناً على الخدمة واختباراً كاملاً لانسياب
-            الصرف قبل المغادرة، لتحصل على أفضل قيمة مقابل ما تدفعه.
+            نجمع بين السعر المناسب وجودة الخدمة العالية، فلا تدفع مقابل خدمة غير
+            مكتملة ولا تفاجأ برسوم إضافية في النهاية. نستخدم أحدث الأجهزة التي
+            تفتح الانسداد بدون تكسير، وهو ما يوفر عليك تكاليف الترميم والبلاط
+            والدهان التي قد تتجاوز تكلفة التسليك نفسها.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            كما نمنحك ضماناً على الخدمة واختباراً كاملاً لانسياب الصرف قبل مغادرة
+            الموقع، فأرخص عرض ليس دائماً هو الأوفر؛ الأوفر حقاً هو الحل الذي لا
+            يعود بعده الانسداد بعد أيام قليلة. لهذا يختار العملاء خدمة تسليك
+            مجاري الكويت لدينا مرة بعد مرة ويرشحوننا لأقاربهم وجيرانهم.
           </p>
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
@@ -352,6 +415,27 @@ export default function DrainCleaningPricesKuwaitPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="w-full bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+            نصائح تقلل تكلفة تسليك المجاري
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            يمكنك خفض فاتورة التسليك بخطوات بسيطة: لا تنتظر حتى يتوقف الصرف
+            تماماً، فالتدخل المبكر عند بطء تصريف المياه أسهل وأقل تكلفة من معالجة
+            انسداد كامل يحتاج معدات ثقيلة.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            تجنب سكب الزيوت والدهون في حوض المطبخ، وركّب مصافي على البلاعات لحجز
+            الشعر وبقايا الطعام، وابتعد عن المواد الكيماوية القوية التي تضر
+            المواسير وتضاعف التكلفة لاحقاً. وأخيراً اطلب صيانة دورية للشبكة مرة
+            كل عام، خاصة في الفلل والمباني ذات الاستخدام الكثيف. وإذا تكرر
+            الانسداد في النقطة نفسها أكثر من مرة، فالمشكلة غالباً في الشبكة
+            وليست سطحية، وفحصها بالكاميرا مبكراً يوفر عليك تكاليف متكررة.
+          </p>
         </div>
       </section>
 
@@ -405,8 +489,9 @@ export default function DrainCleaningPricesKuwaitPage() {
             أسعار تسليك المجاري في جميع مناطق الكويت
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            نقدم أسعاراً مناسبة لخدمة تسليك المجاري في جميع مناطق الكويت مثل
-            حولي والسالمية والفروانية والجهراء والأحمدي ومبارك الكبير.
+            نغطي جميع محافظات الكويت بنفس سياسة التسعير الواضحة، فالسعر يعتمد على
+            حالة الانسداد لا على المنطقة التي تسكن فيها. اختر منطقتك للاطلاع على
+            تفاصيل خدمة تسليك مجاري الكويت فيها والحصول على سعر مبدئي خلال دقائق.
           </p>
           <ul className="mt-8 flex flex-wrap gap-3">
             {areas.map((area) => (
@@ -423,7 +508,7 @@ export default function DrainCleaningPricesKuwaitPage() {
         </div>
       </section>
 
-      <section className="w-full bg-slate-50">
+      <section className="w-full bg-white">
         <div className="mx-auto max-w-4xl px-6 py-14 sm:px-8 lg:py-20">
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
             الأسئلة الشائعة عن أسعار تسليك المجاري
@@ -460,7 +545,7 @@ export default function DrainCleaningPricesKuwaitPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white">
+      <section className="w-full bg-slate-50">
         <div className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:py-20">
           <div className="overflow-hidden rounded-3xl bg-gradient-to-bl from-sky-700 via-sky-800 to-emerald-700 p-8 text-center shadow-xl sm:p-12">
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
