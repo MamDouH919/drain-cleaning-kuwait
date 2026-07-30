@@ -9,6 +9,7 @@ import {
   serviceConfigs,
 } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/areas";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
@@ -55,6 +56,8 @@ const roof = serviceConfigs["roof-waterproofing"];
 export default function AreasPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "المناطق" }]} />
+
       <section className="relative w-full overflow-hidden bg-gradient-to-bl from-sky-50 via-white to-emerald-50">
         <div
           aria-hidden="true"

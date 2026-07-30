@@ -26,6 +26,7 @@ import {
   ctaSubtitle,
 } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -155,7 +156,12 @@ export default async function AreaServicePage({
         "@id": `${url}/#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "الرئيسية", item: SITE_URL },
-          { "@type": "ListItem", position: 2, name: "المناطق", item: `${SITE_URL}/areas` },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: service.hubLabel,
+            item: `${SITE_URL}${service.hubHref}`,
+          },
           { "@type": "ListItem", position: 3, name: `${service.shortName} ${area.name}`, item: url },
         ],
       },
@@ -172,6 +178,8 @@ export default async function AreaServicePage({
   if (service.id === "drain-cleaning") {
     return (
       <main className="flex-1" dir="rtl">
+        <Breadcrumbs items={[{ label: service.hubLabel, href: service.hubHref }, { label: `${service.shortName} ${area.name}` }]} />
+
         {structuredData}
         <div className="single-layout">
           <DrainArticle
@@ -187,6 +195,8 @@ export default async function AreaServicePage({
 
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: service.hubLabel, href: service.hubHref }, { label: `${service.shortName} ${area.name}` }]} />
+
       {structuredData}
 
       <section className={`relative w-full overflow-hidden bg-gradient-to-bl ${heroFrom} via-white ${heroTo}`}>

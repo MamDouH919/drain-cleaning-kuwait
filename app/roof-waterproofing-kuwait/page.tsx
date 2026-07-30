@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/roof-waterproofing-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const PHONE_NUMBER = "+96598890031";
@@ -175,6 +176,8 @@ const searchTerms = [
 export default function RoofWaterproofingKuwaitPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "عزل أسطح الكويت" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

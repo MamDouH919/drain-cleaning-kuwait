@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/water-tank-cleaning-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/services/غسيل-تانكي-الكويت.webp";
@@ -151,6 +152,8 @@ const jsonLd = {
 export default function WaterTankCleaningKuwaitPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "غسيل تانكي الكويت" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/roof-insulation-prices-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/services/عازل-اسطح-الكويت.webp";
@@ -186,6 +187,8 @@ const searchTerms = [
 export default function RoofInsulationPricesKuwaitPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "اسعار عزل اسطح الكويت" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
 import { articles } from "@/lib/articles";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/articles";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
@@ -36,6 +37,8 @@ function formatDate(iso: string) {
 export default function ArticlesPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "المقالات" }]} />
+
       <section className="relative w-full overflow-hidden bg-gradient-to-bl from-sky-50 via-white to-emerald-50">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center sm:px-8 lg:py-20">
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm backdrop-blur">

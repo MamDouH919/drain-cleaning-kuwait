@@ -8,6 +8,7 @@ import {
   WHATSAPP_URL,
 } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/blog/drain-cleaning-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/تسليك-مجاري-الكويت.webp";
@@ -511,6 +512,8 @@ function CheckIcon({ className }: { className: string }) {
 export default function DrainCleaningKuwaitBlogPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "المدونة", href: "/blog" }, { label: "تسليك مجاري الكويت" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

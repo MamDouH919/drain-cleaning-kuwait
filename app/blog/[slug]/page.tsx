@@ -10,6 +10,8 @@ import {
   getRelatedPosts,
 } from "@/lib/blog";
 
+import ArticleSidebar from "@/components/ArticleSidebar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -121,14 +123,15 @@ export default async function BlogPostPage({
 
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "المدونة", href: "/blog" }, { label: post.title }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article>
-        <header className="w-full bg-gradient-to-bl from-sky-50 via-white to-emerald-50">
-          <div className="mx-auto max-w-4xl px-6 py-12 sm:px-8 lg:py-16">
+      <header className="w-full bg-gradient-to-bl from-sky-50 via-white to-emerald-50">
+        <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:py-16">
             <nav aria-label="مسار التنقل" className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
               <Link href="/" className="hover:text-sky-700">الرئيسية</Link>
               <span aria-hidden="true">/</span>
@@ -151,8 +154,9 @@ export default async function BlogPostPage({
           </div>
         </header>
 
-        <div className="mx-auto max-w-4xl px-6 sm:px-8">
-          <div className="relative -mt-2 mb-10 aspect-[16/9] overflow-hidden rounded-3xl border border-white/60 bg-white shadow-xl ring-1 ring-slate-900/5">
+      <div className="single-layout">
+        <article className="single-card">
+          <div className="relative mb-10 aspect-[16/9] overflow-hidden rounded-3xl border border-white/60 bg-white shadow-xl ring-1 ring-slate-900/5">
             <Image
               src={post.cover}
               alt={post.title}
@@ -163,9 +167,7 @@ export default async function BlogPostPage({
               className="object-cover"
             />
           </div>
-        </div>
 
-        <div className="mx-auto max-w-4xl px-6 pb-16 sm:px-8">
           <nav
             aria-label="محتويات المقال"
             className="mb-10 rounded-2xl border border-slate-100 bg-slate-50/60 p-6"
@@ -300,8 +302,10 @@ export default async function BlogPostPage({
               تواصل معنا
             </Link>
           </section>
-        </div>
-      </article>
+        </article>
+
+        <ArticleSidebar excludeBlogSlug={post.slug} />
+      </div>
 
       {related.length > 0 && (
         <section className="w-full border-t border-slate-100 bg-slate-50">

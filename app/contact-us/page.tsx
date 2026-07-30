@@ -3,6 +3,7 @@ import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import { SITE_URL } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/contact-us";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const BUSINESS_NAME = "خدمات الكويت";
@@ -143,6 +144,8 @@ const jsonLd = {
 export default function ContactUsPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "اتصل بنا" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

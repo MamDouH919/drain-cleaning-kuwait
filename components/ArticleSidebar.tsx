@@ -4,6 +4,7 @@ import {
   PHONE_NUMBER,
   PHONE_DISPLAY,
   WHATSAPP_URL,
+  areas,
   areaBySlug,
   type Area,
 } from "@/lib/areas";
@@ -21,19 +22,41 @@ const servicePages = [
   { label: "العزل المائي والحراري", href: "/thermal-waterproofing-kuwait" },
 ];
 
-export default function ArticleSidebar({ area }: { area: Area }) {
-  const posts = getBlogSummaries().slice(0, 5);
-  const guides = articles.slice(0, 6);
-  const nearby = area.nearby
-    .map((slug) => areaBySlug.get(slug))
-    .filter((a): a is Area => Boolean(a));
+// `area` is optional: area service pages pass it to get area-aware copy and
+// nearby-area links; blog and article pages render the generic variant.
+export default function ArticleSidebar({
+  area,
+  excludeBlogSlug,
+  excludeArticleSlug,
+  children,
+}: {
+  area?: Area;
+  excludeBlogSlug?: string;
+  excludeArticleSlug?: string;
+  children?: React.ReactNode;
+}) {
+  const posts = getBlogSummaries()
+    .filter((p) => p.slug !== excludeBlogSlug)
+    .slice(0, 5);
+  const guides = articles
+    .filter((a) => a.slug !== excludeArticleSlug)
+    .slice(0, 6);
+  const nearby = area
+    ? area.nearby
+        .map((slug) => areaBySlug.get(slug))
+        .filter((a): a is Area => Boolean(a))
+    : areas.slice(0, 6);
 
   return (
     <aside className="single-sidebar" aria-label="روابط وصفحات أخرى">
+      {children}
+
       <section className="sidebar-card sidebar-cta">
         <h2 className="sidebar-title">تحتاج فني الآن؟</h2>
         <p className="sidebar-cta-text">
-          خدمة تسليك مجاري {area.name} على مدار 24 ساعة، وصول سريع وسعر واضح قبل التنفيذ.
+          {area
+            ? `خدمة تسليك مجاري ${area.name} على مدار 24 ساعة، وصول سريع وسعر واضح قبل التنفيذ.`
+            : "خدمة تسليك المجاري وعزل الأسطح في كل مناطق الكويت على مدار 24 ساعة، وصول سريع وسعر واضح قبل التنفيذ."}
         </p>
         <a className="sidebar-cta-btn" href={`tel:${PHONE_NUMBER}`} aria-label="اتصل الآن">
           {PHONE_DISPLAY} | اتصل الآن
@@ -105,7 +128,7 @@ export default function ArticleSidebar({ area }: { area: Area }) {
       </section>
 
       <section className="sidebar-card">
-        <h2 className="sidebar-title">مناطق قريبة</h2>
+        <h2 className="sidebar-title">{area ? "مناطق قريبة" : "مناطق الخدمة"}</h2>
         <ul className="sidebar-tags">
           {nearby.map((a) => (
             <li key={a.slug}>

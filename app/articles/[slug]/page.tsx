@@ -18,6 +18,8 @@ import {
   type Block,
 } from "@/lib/articles";
 
+import ArticleSidebar from "@/components/ArticleSidebar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -265,6 +267,8 @@ export default async function ArticlePage({
 
   return (
     <main className="flex-1 bg-white" dir="rtl">
+      <Breadcrumbs items={[{ label: "المقالات", href: "/articles" }, { label: article.title }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -320,7 +324,7 @@ export default async function ArticlePage({
           </div>
         </header>
 
-        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="min-w-0">
             {toc.length > 0 && (
               <details className="mb-8 rounded-2xl border border-slate-100 bg-slate-50/60 p-5 lg:hidden" open>
@@ -378,10 +382,10 @@ export default async function ArticlePage({
             )}
           </div>
 
-          {toc.length > 0 && (
-            <aside className="hidden lg:block">
-              <div className="sticky top-28 rounded-2xl border border-slate-100 bg-slate-50/60 p-5">
-                <h2 className="text-base font-bold text-slate-900">محتويات المقال</h2>
+          <ArticleSidebar excludeArticleSlug={article.slug}>
+            {toc.length > 0 && (
+              <div className="sidebar-card hidden lg:block">
+                <h2 className="sidebar-title">محتويات المقال</h2>
                 <ol className="mt-4 space-y-2.5">
                   {toc.map((item) => (
                     <li key={item.id} className={item.level === 3 ? "pr-4" : ""}>
@@ -392,8 +396,8 @@ export default async function ArticlePage({
                   ))}
                 </ol>
               </div>
-            </aside>
-          )}
+            )}
+          </ArticleSidebar>
         </div>
       </article>
     </main>

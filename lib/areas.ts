@@ -459,6 +459,8 @@ export type ServiceConfig = {
   id: ServiceId;
   prefix: string;
   hubHref: string;
+  /** Label used for this service in visible breadcrumb trails. */
+  hubLabel: string;
   shortName: string;
   serviceType: string;
   keywordEn: string;
@@ -485,6 +487,7 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
     id: "drain-cleaning",
     prefix: "drain-cleaning-",
     hubHref: "/drain-cleaning-kuwait",
+    hubLabel: "خدمات تسليك المجاري",
     shortName: "تسليك مجاري",
     serviceType: "تسليك مجاري وفتح انسدادات",
     keywordEn: "drain cleaning Kuwait",
@@ -587,6 +590,7 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
     id: "roof-waterproofing",
     prefix: "roof-waterproofing-",
     hubHref: "/roof-waterproofing-kuwait",
+    hubLabel: "خدمات عزل الأسطح",
     shortName: "عزل أسطح",
     serviceType: "عزل مائي وحراري للأسطح",
     keywordEn: "roof waterproofing Kuwait",

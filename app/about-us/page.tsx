@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/about-us";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const BUSINESS_NAME = "خدمات الكويت";
@@ -160,6 +161,8 @@ const jsonLd = {
 export default function AboutUsPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "من نحن" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

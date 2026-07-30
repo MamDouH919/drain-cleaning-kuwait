@@ -10,6 +10,7 @@ import {
   areas,
 } from "@/lib/areas";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/manhole-installation-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/services/تركيب-منهول-الكويت.webp";
@@ -214,6 +215,8 @@ function ArticleImage({ src, alt }: { src: string; alt: string }) {
 export default function ManholeInstallationKuwaitPage() {
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "تركيب منهول الكويت" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

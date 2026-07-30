@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BlogList from "@/components/BlogList";
 import { SITE_URL, getBlogSummaries, blogPosts } from "@/lib/blog";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/blog";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
@@ -66,6 +67,8 @@ export default function BlogPage() {
 
   return (
     <main className="flex-1" dir="rtl">
+      <Breadcrumbs items={[{ label: "المدونة" }]} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
