@@ -42,8 +42,8 @@ export default function NotFound() {
           <Link href="/areas" className="font-bold text-slate-700 underline-offset-4 hover:underline">
             المناطق
           </Link>
-          <Link href="/blog" className="font-bold text-slate-700 underline-offset-4 hover:underline">
-            المدونة
+          <Link href="/articles" className="font-bold text-slate-700 underline-offset-4 hover:underline">
+            المقالات
           </Link>
         </nav>
       </div>

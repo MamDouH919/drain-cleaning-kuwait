@@ -3,11 +3,11 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { blogCategories, type BlogSummary } from "@/lib/blog";
+import { articleCategories, type ArticleSummary } from "@/lib/articles";
 
 const PER_PAGE = 6;
 
-const filters = ["الكل", ...blogCategories] as const;
+const filters = ["الكل", ...articleCategories] as const;
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("ar-KW", {
@@ -17,7 +17,7 @@ function formatDate(iso: string) {
   });
 }
 
-export default function BlogList({ posts }: { posts: BlogSummary[] }) {
+export default function ArticleList({ posts }: { posts: ArticleSummary[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<(typeof filters)[number]>("الكل");
   const [page, setPage] = useState(1);
@@ -50,11 +50,11 @@ export default function BlogList({ posts }: { posts: BlogSummary[] }) {
               />
             </svg>
           </span>
-          <label htmlFor="blog-search" className="sr-only">
+          <label htmlFor="article-search" className="sr-only">
             ابحث في المقالات
           </label>
           <input
-            id="blog-search"
+            id="article-search"
             type="search"
             value={query}
             onChange={(e) => {
@@ -96,12 +96,12 @@ export default function BlogList({ posts }: { posts: BlogSummary[] }) {
           {visible.map((post) => (
             <li key={post.slug}>
               <Link
-                href={`/blog/${post.slug}`}
+                href={`/articles/${post.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
               >
                 <span className="relative block aspect-[16/10] overflow-hidden bg-slate-100">
                   <Image
-                    src={post.cover}
+                    src={post.featuredImage}
                     alt={post.title}
                     fill
                     unoptimized

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
+import ArticleList from "@/components/ArticleList";
 import { SITE_URL } from "@/lib/areas";
-import { articles } from "@/lib/articles";
+import { getArticleSummaries } from "@/lib/articles";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/articles";
@@ -26,23 +25,55 @@ export const metadata: Metadata = {
   },
 };
 
-function formatDate(iso: string) {
-  return new Intl.DateTimeFormat("ar-KW", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(new Date(iso));
-}
-
 export default function ArticlesPage() {
+  const posts = getArticleSummaries();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${PAGE_URL}/#webpage`,
+        name: "المقالات",
+        url: PAGE_URL,
+        inLanguage: "ar",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${PAGE_URL}/#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "الرئيسية", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "المقالات", item: PAGE_URL },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${PAGE_URL}/#list`,
+        itemListElement: posts.map((post, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: post.title,
+          url: `${SITE_URL}/articles/${post.slug}`,
+        })),
+      },
+    ],
+  };
+
   return (
     <main className="flex-1" dir="rtl">
       <Breadcrumbs items={[{ label: "المقالات" }]} />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <section className="relative w-full overflow-hidden bg-gradient-to-bl from-sky-50 via-white to-emerald-50">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center sm:px-8 lg:py-20">
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm backdrop-blur">
-            المدونة
+            المقالات
           </span>
           <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             مقالات ونصائح الصيانة في الكويت
@@ -56,41 +87,7 @@ export default function ArticlesPage() {
 
       <section className="w-full bg-white">
         <div className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:py-20">
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {articles.map((article) => (
-              <li key={article.slug}>
-                <Link
-                  href={`/articles/${article.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={article.featuredImage}
-                      alt={article.featuredAlt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition duration-500 group-hover:scale-105"
-                    />
-                    <span className="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-sky-700 backdrop-blur">
-                      {article.category}
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h2 className="text-lg font-bold text-slate-900 transition-colors group-hover:text-sky-700">
-                      {article.title}
-                    </h2>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
-                      {article.excerpt}
-                    </p>
-                    <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
-                      <time dateTime={article.datePublished}>{formatDate(article.datePublished)}</time>
-                      <span>{article.readingMinutes} دقائق قراءة</span>
-                    </div>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ArticleList posts={posts} />
         </div>
       </section>
     </main>

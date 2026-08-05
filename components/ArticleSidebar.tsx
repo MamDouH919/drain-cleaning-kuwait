@@ -8,8 +8,7 @@ import {
   areaBySlug,
   type Area,
 } from "@/lib/areas";
-import { getBlogSummaries } from "@/lib/blog";
-import { articles } from "@/lib/articles";
+import { articles, getArticleSummaries } from "@/lib/articles";
 
 const servicePages = [
   { label: "تسليك مجاري الكويت", href: "/drain-cleaning-kuwait" },
@@ -23,23 +22,21 @@ const servicePages = [
 ];
 
 // `area` is optional: area service pages pass it to get area-aware copy and
-// nearby-area links; blog and article pages render the generic variant.
+// nearby-area links; article pages render the generic variant.
 export default function ArticleSidebar({
   area,
-  excludeBlogSlug,
-  excludeArticleSlug,
+  excludeSlug,
   children,
 }: {
   area?: Area;
-  excludeBlogSlug?: string;
-  excludeArticleSlug?: string;
+  excludeSlug?: string;
   children?: React.ReactNode;
 }) {
-  const posts = getBlogSummaries()
-    .filter((p) => p.slug !== excludeBlogSlug)
+  const posts = getArticleSummaries()
+    .filter((p) => p.slug !== excludeSlug)
     .slice(0, 5);
   const guides = articles
-    .filter((a) => a.slug !== excludeArticleSlug)
+    .filter((a) => a.slug !== excludeSlug && !posts.some((p) => p.slug === a.slug))
     .slice(0, 6);
   const nearby = area
     ? area.nearby
@@ -84,14 +81,14 @@ export default function ArticleSidebar({
       </section>
 
       <section className="sidebar-card">
-        <h2 className="sidebar-title">أحدث المدونة</h2>
+        <h2 className="sidebar-title">أحدث المقالات</h2>
         <ul className="sidebar-posts">
           {posts.map((post) => (
             <li key={post.slug}>
-              <Link className="sidebar-post" href={`/blog/${post.slug}`}>
+              <Link className="sidebar-post" href={`/articles/${post.slug}`}>
                 <span className="sidebar-post-thumb">
                   <Image
-                    src={post.cover}
+                    src={post.featuredImage}
                     alt={post.title}
                     width={96}
                     height={96}
@@ -108,8 +105,8 @@ export default function ArticleSidebar({
             </li>
           ))}
         </ul>
-        <Link className="sidebar-more" href="/blog">
-          كل المدونة
+        <Link className="sidebar-more" href="/articles">
+          كل المقالات
         </Link>
       </section>
 

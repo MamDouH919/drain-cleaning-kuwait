@@ -12,10 +12,16 @@ const slugRedirects: { from: string; to: string }[] = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return slugRedirects.flatMap(({ from, to }) => [
-      { source: from, destination: to, permanent: true },
-      { source: encodeURI(from), destination: to, permanent: true },
-    ]);
+    return [
+      ...slugRedirects.flatMap(({ from, to }) => [
+        { source: from, destination: to, permanent: true },
+        { source: encodeURI(from), destination: to, permanent: true },
+      ]),
+      // دمج /blog في /articles — كانت نفس المقالات منشورة على المسارين،
+      // ما جعل جوجل يعتبرها صفحات مكررة ويسقط أحدها من الفهرس.
+      { source: "/blog", destination: "/articles", permanent: true },
+      { source: "/blog/:slug", destination: "/articles/:slug", permanent: true },
+    ];
   },
 };
 

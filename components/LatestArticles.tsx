@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getBlogSummaries } from "@/lib/blog";
+import { getArticleSummaries } from "@/lib/articles";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("ar-KW", {
@@ -11,7 +11,7 @@ function formatDate(iso: string) {
 }
 
 export default function LatestArticles() {
-  const posts = getBlogSummaries().slice(0, 3);
+  const posts = getArticleSummaries().slice(0, 3);
   if (posts.length === 0) return null;
 
   return (
@@ -38,7 +38,7 @@ export default function LatestArticles() {
             </p>
           </div>
           <Link
-            href="/blog"
+            href="/articles"
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
           >
             كل المقالات
@@ -61,12 +61,12 @@ export default function LatestArticles() {
           {posts.map((post) => (
             <li key={post.slug}>
               <Link
-                href={`/blog/${post.slug}`}
+                href={`/articles/${post.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
               >
                 <span className="relative block aspect-[16/10] overflow-hidden bg-slate-100">
                   <Image
-                    src={post.cover}
+                    src={post.featuredImage}
                     alt={post.title}
                     fill
                     unoptimized

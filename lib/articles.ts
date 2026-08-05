@@ -1,4 +1,15 @@
 import articlesJson from "@/content/articles.json";
+import { SITE_URL } from "@/lib/areas";
+
+export { SITE_URL };
+
+export const articleCategories = [
+  "تسليك المجاري",
+  "عزل الأسطح",
+  "نصائح الصيانة المنزلية",
+] as const;
+
+export type ArticleCategory = (typeof articleCategories)[number];
 
 export type Block =
   | { type: "lead"; text: string }
@@ -58,4 +69,68 @@ export function buildToc(blocks: Block[]): TocItem[] {
 export function getFaqs(blocks: Block[]) {
   const faqBlock = blocks.find((b) => b.type === "faq");
   return faqBlock && faqBlock.type === "faq" ? faqBlock.items : [];
+}
+
+export type ArticleSummary = Pick<
+  Article,
+  | "slug"
+  | "title"
+  | "excerpt"
+  | "category"
+  | "featuredImage"
+  | "datePublished"
+  | "readingMinutes"
+>;
+
+// مقالات لها صفحاتها الخاصة (تصميم مستقل) تُعرض في قائمة المقالات فقط،
+// ولا تمر عبر مسار [slug] لأن لها ملف page.tsx خاص بها.
+export const customArticlePages: ArticleSummary[] = [
+  {
+    slug: "drain-cleaning-in-kuwait",
+    title: "تسليك المجاري في الكويت: الدليل الكامل وخدمة 24 ساعة",
+    excerpt:
+      "دليل شامل لتسليك المجاري في الكويت: العلامات والأسباب وطرق الفتح والأسعار ونصائح الوقاية، مع خدمة فني 24 ساعة بدون تكسير.",
+    category: "تسليك المجاري",
+    featuredImage: "/تسليك-مجاري-الكويت.webp",
+    datePublished: "2026-07-16",
+    readingMinutes: 12,
+  },
+  {
+    slug: "drain-cleaning-kuwait",
+    title: "تسليك مجاري الكويت: الدليل الشامل وخدمة 24 ساعة",
+    excerpt:
+      "كل ما تحتاجه عن تسليك مجاري الكويت: العلامات والأسباب وطرق التسليك والأسعار ونصائح الوقاية بدون تكسير.",
+    category: "تسليك المجاري",
+    featuredImage: "/تسليك-مجاري-الكويت.webp",
+    datePublished: "2026-07-15",
+    readingMinutes: 11,
+  },
+];
+
+/** كل المقالات — مقالات المحتوى بالإضافة إلى الصفحات ذات التصميم المستقل. */
+export function getArticleSummaries(): ArticleSummary[] {
+  const summaries: ArticleSummary[] = articles.map(
+    ({ slug, title, excerpt, category, featuredImage, datePublished, readingMinutes }) => ({
+      slug,
+      title,
+      excerpt,
+      category,
+      featuredImage,
+      datePublished,
+      readingMinutes,
+    })
+  );
+
+  return [...summaries, ...customArticlePages].sort((a, b) =>
+    a.datePublished < b.datePublished ? 1 : -1
+  );
+}
+
+export function getRelatedArticles(slug: string, limit = 3): ArticleSummary[] {
+  const current = articleBySlug.get(slug);
+  if (!current) return [];
+  const all = getArticleSummaries().filter((a) => a.slug !== slug);
+  const sameCategory = all.filter((a) => a.category === current.category);
+  const others = all.filter((a) => a.category !== current.category);
+  return [...sameCategory, ...others].slice(0, limit);
 }

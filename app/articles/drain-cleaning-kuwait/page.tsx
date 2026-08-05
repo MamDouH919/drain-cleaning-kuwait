@@ -9,7 +9,7 @@ import {
 } from "@/lib/areas";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
-const PAGE_PATH = "/blog/drain-cleaning-kuwait";
+const PAGE_PATH = "/articles/drain-cleaning-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/تسليك-مجاري-الكويت.webp";
 const COVER_ALT = "تسليك مجاري الكويت بأحدث الأجهزة وبدون تكسير";
@@ -490,7 +490,7 @@ const jsonLd = {
       "@id": `${PAGE_URL}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "الرئيسية", item: SITE_URL },
-        { "@type": "ListItem", position: 2, name: "المدونة", item: `${SITE_URL}/blog` },
+        { "@type": "ListItem", position: 2, name: "المقالات", item: `${SITE_URL}/articles` },
         { "@type": "ListItem", position: 3, name: "تسليك مجاري الكويت", item: PAGE_URL },
       ],
     },
@@ -512,7 +512,7 @@ function CheckIcon({ className }: { className: string }) {
 export default function DrainCleaningKuwaitBlogPage() {
   return (
     <main className="flex-1" dir="rtl">
-      <Breadcrumbs items={[{ label: "المدونة", href: "/blog" }, { label: "تسليك مجاري الكويت" }]} />
+      <Breadcrumbs items={[{ label: "المقالات", href: "/articles" }, { label: "تسليك مجاري الكويت" }]} />
 
       <script
         type="application/ld+json"
@@ -530,7 +530,7 @@ export default function DrainCleaningKuwaitBlogPage() {
             <nav aria-label="مسار التنقل" className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
               <Link href="/" className="hover:text-sky-700">الرئيسية</Link>
               <span aria-hidden="true">/</span>
-              <Link href="/blog" className="hover:text-sky-700">المدونة</Link>
+              <Link href="/articles" className="hover:text-sky-700">المقالات</Link>
               <span aria-hidden="true">/</span>
               <span className="font-semibold text-slate-700">تسليك المجاري</span>
             </nav>
@@ -1068,8 +1068,8 @@ export default function DrainCleaningKuwaitBlogPage() {
             <Link href="/drain-cleaning-prices-kuwait" className="font-bold text-sky-700 underline-offset-4 hover:underline">
               أسعار تسليك المجاري
             </Link>
-            <Link href="/blog" className="font-bold text-slate-700 underline-offset-4 hover:underline">
-              المدونة
+            <Link href="/articles" className="font-bold text-slate-700 underline-offset-4 hover:underline">
+              المقالات
             </Link>
             <Link href="/contact-us" className="font-bold text-slate-700 underline-offset-4 hover:underline">
               تواصل معنا

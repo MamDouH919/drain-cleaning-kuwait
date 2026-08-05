@@ -382,7 +382,7 @@ export default async function ArticlePage({
             )}
           </div>
 
-          <ArticleSidebar excludeArticleSlug={article.slug}>
+          <ArticleSidebar excludeSlug={article.slug}>
             {toc.length > 0 && (
               <div className="sidebar-card hidden lg:block">
                 <h2 className="sidebar-title">محتويات المقال</h2>
