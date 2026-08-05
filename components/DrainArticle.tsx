@@ -53,8 +53,11 @@ export default function DrainArticle({ area, service, imageUrl }: DrainArticlePr
       itemType="https://schema.org/Article"
     >
       <div className="single-article">
-        {/* Microdata (keeps schema correct even though header is outside this <article>) */}
-        <meta itemProp="headline" content={heroAlt} />
+        <h1 className="article-title" itemProp="headline">
+          {heroAlt}
+        </h1>
+
+        {/* Microdata */}
         <meta itemProp="datePublished" content={ARTICLE_PUBLISHED} />
         <meta itemProp="dateModified" content={ARTICLE_MODIFIED} />
         <meta itemProp="author" content={ARTICLE_AUTHOR} />
