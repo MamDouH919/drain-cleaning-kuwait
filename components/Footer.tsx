@@ -38,10 +38,11 @@ const legalLinks = [
 
 
 const socialLinks: SocialMediaLink[] = [
-  { code: "FACEBOOK", link: "https://www.facebook.com/MamDouHxMohammeD" },
-  { code: "INSTAGRAM", link: "https://www.instagram.com/mamdouh919" },
-  // { code: "YOUTUBE", link: "https://www.youtube.com/@novaslash1" },
-  // { code: "X", link: "https://x.com/novaslash1s" },
+  { code: "FACEBOOK", link: "https://www.facebook.com/profile.php?id=61591488496952" },
+  { code: "INSTAGRAM", link: "https://www.instagram.com/novaslash1/" },
+  { code: "LINKEDIN", link: "https://www.linkedin.com/in/novaslash/" },
+  { code: "YOUTUBE", link: "https://www.youtube.com/@novaslash1" },
+  { code: "X", link: "https://x.com/novaslash1s" },
 ];
 
 export default function Footer() {
