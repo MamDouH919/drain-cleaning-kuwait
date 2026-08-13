@@ -11,6 +11,7 @@ const slugRedirects: { from: string; to: string }[] = [
 ];
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   async redirects() {
     return [
       ...slugRedirects.flatMap(({ from, to }) => [
