@@ -9,7 +9,7 @@ import {
 } from "@/lib/areas";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
-const PAGE_PATH = "/articles/drain-cleaning-in-kuwait";
+const PAGE_PATH = "/blogs/drain-cleaning-in-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/تسليك-مجاري-الكويت.webp";
 const COVER_ALT = "تسليك المجاري في الكويت بأحدث أجهزة الضغط والكاميرات وبدون تكسير";
@@ -516,7 +516,7 @@ const jsonLd = {
       "@id": `${PAGE_URL}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "الرئيسية", item: SITE_URL },
-        { "@type": "ListItem", position: 2, name: "المقالات", item: `${SITE_URL}/articles` },
+        { "@type": "ListItem", position: 2, name: "المدونة", item: `${SITE_URL}/blogs` },
         { "@type": "ListItem", position: 3, name: "تسليك المجاري في الكويت", item: PAGE_URL },
       ],
     },
@@ -565,7 +565,7 @@ function Callout({
 export default function DrainCleaningInKuwaitBlogPage() {
   return (
     <main className="flex-1" dir="rtl">
-      <Breadcrumbs items={[{ label: "المقالات", href: "/articles" }, { label: "تسليك المجاري في الكويت" }]} />
+      <Breadcrumbs items={[{ label: "المدونة", href: "/blogs" }, { label: "تسليك المجاري في الكويت" }]} />
 
       <script
         type="application/ld+json"
@@ -583,7 +583,7 @@ export default function DrainCleaningInKuwaitBlogPage() {
             <nav aria-label="مسار التنقل" className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
               <Link href="/" className="hover:text-sky-700">الرئيسية</Link>
               <span aria-hidden="true">/</span>
-              <Link href="/articles" className="hover:text-sky-700">المقالات</Link>
+              <Link href="/blogs" className="hover:text-sky-700">المدونة</Link>
               <span aria-hidden="true">/</span>
               <span className="font-semibold text-slate-700">تسليك المجاري في الكويت</span>
             </nav>
@@ -780,7 +780,7 @@ export default function DrainCleaningInKuwaitBlogPage() {
             </div>
             <p className="mt-6 text-base leading-relaxed text-slate-600">
               لمزيد من التفصيل حول هذه الأسباب وكيفية تفاديها، اطّلع على مقالنا عن{" "}
-              <Link href="/articles/drain-blockage-causes-kuwait" className="font-bold text-sky-700 underline-offset-4 hover:underline">
+              <Link href="/blogs/drain-blockage-causes-kuwait" className="font-bold text-sky-700 underline-offset-4 hover:underline">
                 أسباب انسداد المجاري في الكويت
               </Link>
               .
@@ -1034,7 +1034,7 @@ export default function DrainCleaningInKuwaitBlogPage() {
             </div>
             <p className="mt-6 text-base leading-relaxed text-slate-600">
               ولمزيد من الإرشادات الدورية، اطّلع على مقال{" "}
-              <Link href="/articles/drainage-maintenance-tips" className="font-bold text-sky-700 underline-offset-4 hover:underline">
+              <Link href="/blogs/drainage-maintenance-tips" className="font-bold text-sky-700 underline-offset-4 hover:underline">
                 نصائح صيانة شبكة الصرف
               </Link>
               . وللتعرف على النظام العام للصرف الصحي في الكويت يمكنك زيارة موقع{" "}
@@ -1287,11 +1287,11 @@ export default function DrainCleaningInKuwaitBlogPage() {
             <Link href="/drain-cleaning-prices-kuwait" className="font-bold text-sky-700 underline-offset-4 hover:underline">
               أسعار تسليك المجاري
             </Link>
-            <Link href="/articles/drain-cleaning-kuwait" className="font-bold text-sky-700 underline-offset-4 hover:underline">
+            <Link href="/blogs/drain-cleaning-kuwait" className="font-bold text-sky-700 underline-offset-4 hover:underline">
               الدليل الشامل لتسليك المجاري
             </Link>
-            <Link href="/articles" className="font-bold text-slate-700 underline-offset-4 hover:underline">
-              المقالات
+            <Link href="/blogs" className="font-bold text-slate-700 underline-offset-4 hover:underline">
+              المدونة
             </Link>
             <Link href="/contact-us" className="font-bold text-slate-700 underline-offset-4 hover:underline">
               تواصل معنا

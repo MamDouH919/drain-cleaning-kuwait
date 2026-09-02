@@ -39,7 +39,7 @@ export default function ArticlesSection() {
             </p>
           </div>
           <Link
-            href="/articles"
+            href="/blogs"
             className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
           >
             كل المقالات
@@ -53,7 +53,7 @@ export default function ArticlesSection() {
           {latest.map((article) => (
             <li key={article.slug}>
               <Link
-                href={`/articles/${article.slug}`}
+                href={`/blogs/${article.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">

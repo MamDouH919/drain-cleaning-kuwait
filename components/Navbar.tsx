@@ -24,6 +24,7 @@ const services = [
 const navLinks = [
     { label: "المناطق", href: "/areas" },
     { label: "المقالات", href: "/articles" },
+    { label: "المدونة", href: "/blogs" },
     { label: "من نحن", href: "/about-us" },
     { label: "اتصل بنا", href: "/contact-us" },
 ];

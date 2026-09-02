@@ -4,6 +4,7 @@ import "./globals.css";
 import { SITE_URL, areas, serviceConfigs } from "@/lib/areas";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticlesSection from "@/components/cms/ArticlesSection";
 import MobileCTABar from "@/components/MobileCTABar";
 import Social from "@/components/social";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
@@ -123,10 +124,11 @@ const staticPages: SitePage[] = [
   { name: "غسيل تانكي الكويت", path: "/water-tank-cleaning-kuwait" },
   { name: "مناطق الخدمة", path: "/areas" },
   { name: "المقالات", path: "/articles" },
-  { name: "تسليك مجاري الكويت - مقال", path: "/articles/drain-cleaning-kuwait" },
+  { name: "المدونة", path: "/blogs" },
+  { name: "تسليك مجاري الكويت - مقال", path: "/blogs/drain-cleaning-kuwait" },
   {
     name: "تسليك المجاري في الكويت - مقال",
-    path: "/articles/drain-cleaning-in-kuwait",
+    path: "/blogs/drain-cleaning-in-kuwait",
   },
   { name: "من نحن", path: "/about-us" },
   { name: "تواصل معنا", path: "/contact-us" },
@@ -145,6 +147,10 @@ const areaPages: SitePage[] = Object.values(serviceConfigs).flatMap((service) =>
 
 // كل صفحات الموقع (app) — تُستخدم في بيانات التنقل المنظمة
 const sitePages: SitePage[] = [...staticPages, ...areaPages];
+
+// تاريخ آخر تحديث فعلي للصفحة الرئيسية — يُحدَّث يدويًا عند تعديل المحتوى،
+// حتى لا يُبلِّغ جوجل بتعديلٍ وهمي في كل عملية build.
+const HOME_LAST_MODIFIED = "2026-08-31T00:00:00+00:00";
 
 // Structured data
 const structuredData = {
@@ -177,13 +183,15 @@ const structuredData = {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/logo.webp`,
-        width: 600,
-        height: 450,
+        url: `${SITE_URL}/web-app-manifest-512x512.png`,
+        width: 512,
+        height: 512,
       },
       image: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/logo.webp`,
+        url: `${SITE_URL}/تسليك-مجاري-الكويت.webp`,
+        width: 1639,
+        height: 720,
       },
       sameAs: [
         // Add your social media URLs here
@@ -199,8 +207,11 @@ const structuredData = {
       },
       address: {
         "@type": "PostalAddress",
+        streetAddress: "خدمة متنقلة تغطي جميع محافظات الكويت",
+        addressLocality: "مدينة الكويت",
+        addressRegion: "الكويت",
+        postalCode: "13001",
         addressCountry: "KW",
-        addressLocality: "الكويت",
       },
       priceRange: "$$",
     },
@@ -216,13 +227,13 @@ const structuredData = {
         "@id": SITE_URL + "/#organization"
       },
       datePublished: "2020-12-29T13:47:49+00:00",
-      dateModified: new Date().toISOString(),
+      dateModified: HOME_LAST_MODIFIED,
       description:
-        "صباغ الكويت - هل تريد رقم صباغ شاطر ورخيص بالكويت؟ نوفر لك أفضل تصميمات وديكورات منزلية احترافية فني تركيب ورق جدران ممتاز اتصل الآن",
+        "خدمات تسليك مجاري الكويت وعزل الأسطح والصيانة المنزلية في جميع مناطق الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص.",
       inLanguage: "ar",
       primaryImageOfPage: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/logo.webp`,
+        url: `${SITE_URL}/تسليك-مجاري-الكويت.webp`,
       },
       breadcrumb: {
         "@id": SITE_URL + "/#breadcrumb"
@@ -305,6 +316,7 @@ export default function RootLayout({
         <Navbar />
         {/* <Social /> */}
         {children}
+        <ArticlesSection />
         <Footer />
         <MobileCTABar />
       </body>

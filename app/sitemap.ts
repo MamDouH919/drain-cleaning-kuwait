@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, allAreaPageSlugs } from "@/lib/areas";
 import { articles } from "@/lib/articles";
+import { CMS_BASE_PATH, safeGetAllArticles } from "@/lib/cms/client";
 
 const staticRoutes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "", priority: 1, changeFrequency: "weekly" },
@@ -15,16 +16,17 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/drain-cleaning-prices-kuwait", priority: 0.8, changeFrequency: "monthly" },
   { path: "/roof-insulation-prices-kuwait", priority: 0.8, changeFrequency: "monthly" },
   { path: "/areas", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/articles", priority: 0.7, changeFrequency: "weekly" },
-  { path: "/articles/drain-cleaning-kuwait", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/articles/drain-cleaning-in-kuwait", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/blogs", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/blogs/drain-cleaning-kuwait", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/blogs/drain-cleaning-in-kuwait", priority: 0.8, changeFrequency: "monthly" },
+  { path: CMS_BASE_PATH, priority: 0.8, changeFrequency: "weekly" },
   { path: "/about-us", priority: 0.6, changeFrequency: "yearly" },
   { path: "/contact-us", priority: 0.6, changeFrequency: "yearly" },
   { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
   { path: "/terms-conditions", priority: 0.3, changeFrequency: "yearly" },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -42,11 +44,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${SITE_URL}/articles/${article.slug}`,
+    url: `${SITE_URL}/blogs/${article.slug}`,
     lastModified: new Date(article.dateModified),
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...areaEntries, ...articleEntries];
+  // CMS-backed hub. Safe helper returns [] when the CMS is unset/unreachable,
+  // so the sitemap still builds.
+  const cmsArticles = await safeGetAllArticles();
+
+  const hubArticleEntries: MetadataRoute.Sitemap = cmsArticles.map((article) => ({
+    url: `${SITE_URL}${CMS_BASE_PATH}/${article.slug}`,
+    lastModified: new Date(article.updatedAt || article.publishedAt || now),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticEntries,
+    ...areaEntries,
+    ...articleEntries,
+    ...hubArticleEntries,
+  ];
 }

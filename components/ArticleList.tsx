@@ -96,7 +96,7 @@ export default function ArticleList({ posts }: { posts: ArticleSummary[] }) {
           {visible.map((post) => (
             <li key={post.slug}>
               <Link
-                href={`/articles/${post.slug}`}
+                href={`/blogs/${post.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
               >
                 <span className="relative block aspect-[16/10] overflow-hidden bg-slate-100">

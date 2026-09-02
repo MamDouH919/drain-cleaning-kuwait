@@ -85,7 +85,7 @@ export default function ArticleSidebar({
         <ul className="sidebar-posts">
           {posts.map((post) => (
             <li key={post.slug}>
-              <Link className="sidebar-post" href={`/articles/${post.slug}`}>
+              <Link className="sidebar-post" href={`/blogs/${post.slug}`}>
                 <span className="sidebar-post-thumb">
                   <Image
                     src={post.featuredImage}
@@ -105,7 +105,7 @@ export default function ArticleSidebar({
             </li>
           ))}
         </ul>
-        <Link className="sidebar-more" href="/articles">
+        <Link className="sidebar-more" href="/blogs">
           كل المقالات
         </Link>
       </section>
@@ -115,11 +115,11 @@ export default function ArticleSidebar({
         <ul className="sidebar-list">
           {guides.map((guide) => (
             <li key={guide.slug}>
-              <Link href={`/articles/${guide.slug}`}>{guide.title}</Link>
+              <Link href={`/blogs/${guide.slug}`}>{guide.title}</Link>
             </li>
           ))}
         </ul>
-        <Link className="sidebar-more" href="/articles">
+        <Link className="sidebar-more" href="/blogs">
           كل المقالات
         </Link>
       </section>
