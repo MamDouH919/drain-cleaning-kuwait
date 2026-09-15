@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "تركيب منهول الكويت | توريد وتركيب أغطية المناهل",
     description:
       "توريد وتركيب أغطية وفتحات المناهل بمختلف المقاسات لشبكات الصرف الصحي بإتقان وأمان في جميع مناطق الكويت.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

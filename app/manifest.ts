@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "خدمات الكويت - تسليك مجاري وعزل أسطح",
-    short_name: "خدمات الكويت",
+    name: "دار الصيانة الكويتية - تسليك مجاري وعزل أسطح",
+    short_name: "دار الصيانة",
     description:
       "خدمات تسليك المجاري وعزل الأسطح والصيانة المنزلية في الكويت على مدار 24 ساعة.",
     start_url: "/",

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "تسليك مجاري المطابخ والحمامات الكويت | بدون تكسير",
     description:
       "فتح انسداد أحواض المطابخ والحمامات والبلاعات بدون تكسير بأحدث الأجهزة وخدمة 24 ساعة في جميع مناطق الكويت.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

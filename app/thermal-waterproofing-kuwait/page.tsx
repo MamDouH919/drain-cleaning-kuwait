@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "العزل المائي والحراري الكويت | حماية الأسطح والمباني",
     description:
       "عزل مائي وحراري وفوم لحماية الأسطح والمباني من تسرب المياه والحرارة بأفضل المواد وضمان على الخدمة في الكويت.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

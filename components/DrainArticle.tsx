@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import ArticleRating from "@/components/ArticleRating";
 import ArticleToc from "@/components/ArticleToc";
 import {
   BUSINESS_NAME,
@@ -16,8 +15,6 @@ import {
   ARTICLE_AUTHOR_INITIAL,
   ARTICLE_MODIFIED,
   ARTICLE_PUBLISHED,
-  ARTICLE_RATING_COUNT,
-  ARTICLE_RATING_VALUE,
   FIGURE_HEIGHT,
   FIGURE_WIDTH,
   articleFaqs,
@@ -77,14 +74,6 @@ export default function DrainArticle({ area, service, imageUrl }: DrainArticlePr
             fetchPriority="high"
             sizes="(max-width: 762px) 100vw, 762px"
             title={heroAlt}
-          />
-        </div>
-
-        <div className="article-rating-wrap">
-          <ArticleRating
-            postId={postId}
-            average={ARTICLE_RATING_VALUE}
-            count={ARTICLE_RATING_COUNT}
           />
         </div>
 

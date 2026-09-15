@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/areas";
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/contact-us";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const BUSINESS_NAME = "خدمات الكويت";
+const BUSINESS_NAME = "دار الصيانة الكويتية";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";

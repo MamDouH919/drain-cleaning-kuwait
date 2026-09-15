@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "عزل أسطح جيتاروف الكويت | عزل مائي وحراري قوي",
     description:
       "عزل أسطح بمادة الجيتاروف المقاومة للماء والحرارة لحماية طويلة الأمد للمباني في جميع مناطق الكويت.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

@@ -47,7 +47,7 @@ export const localBusinessSchema = {
   "@type": ["LocalBusiness", "Plumber"],
   "@id": BUSINESS_ID,
   name: BUSINESS_NAME,
-  alternateName: "خدمات الكويت لتسليك المجاري وعزل الأسطح",
+  alternateName: "تسليك مجاري الكويت وعزل أسطح الكويت",
   legalName: BUSINESS_NAME,
   description:
     "خدمات تسليك المجاري وشفط البيارات وعزل الأسطح المائي والحراري في الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص مع ضمان على الخدمة وسرعة استجابة.",

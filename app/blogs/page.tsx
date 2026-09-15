@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ar_KW",
     url: PAGE_URL,
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     title: "المدونة | نصائح تسليك المجاري وعزل الأسطح في الكويت",
     description:
       "مقالات ونصائح متخصصة في تسليك المجاري وعزل الأسطح والصيانة المنزلية في الكويت.",

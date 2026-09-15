@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "تسليك المجاري في الكويت | الدليل الكامل وخدمة 24 ساعة",
     description:
       "كل ما تحتاج معرفته عن تسليك المجاري في الكويت: العلامات والأسباب وطرق الفتح والأسعار والوقاية، مع فني تسليك مجاري 24 ساعة بدون تكسير.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     publishedTime: DATE_PUBLISHED,
     modifiedTime: DATE_MODIFIED,
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],

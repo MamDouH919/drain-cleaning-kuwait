@@ -88,7 +88,8 @@ export default function About() {
             </h2>
 
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
-              نحن شركة متخصصة في <strong className="font-bold text-slate-800">تسليك مجاري الكويت</strong> و
+              <strong className="font-bold text-slate-800">دار الصيانة الكويتية</strong> شركة
+              متخصصة في <strong className="font-bold text-slate-800">تسليك مجاري الكويت</strong> و
               <strong className="font-bold text-slate-800"> عزل أسطح الكويت</strong>، نعتمد على فريق من الفنيين المدربين
               وأحدث المعدات والتقنيات لحل جميع مشاكل انسداد المجاري والصرف الصحي
               وعزل الأسطح المائي والحراري بأعلى جودة وبدون تكسير. نقدم خدمة سريعة

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SocialMediaLinks, { SocialMediaLink } from "./SocialMedia";
+import { BUSINESS_NAME } from "@/lib/areas";
 
-const BUSINESS_NAME = "خدمات الكويت";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
@@ -38,13 +38,11 @@ const legalLinks = [
 // site-wide from the root layout — do not redefine it here.
 
 
-const socialLinks: SocialMediaLink[] = [
-  { code: "FACEBOOK", link: "https://www.facebook.com/profile.php?id=61591488496952" },
-  { code: "INSTAGRAM", link: "https://www.instagram.com/novaslash1/" },
-  { code: "LINKEDIN", link: "https://www.linkedin.com/in/novaslash/" },
-  { code: "YOUTUBE", link: "https://www.youtube.com/@novaslash1" },
-  { code: "X", link: "https://x.com/novaslash1s" },
-];
+// TODO: replace with this business's own verified profiles (Google Business
+// Profile, Facebook Page, Instagram, etc.) — left empty rather than pointing
+// at unrelated accounts. `SocialMediaLinks` renders nothing when this is
+// empty, so the footer degrades gracefully until real profiles are added.
+const socialLinks: SocialMediaLink[] = [];
 
 export default function Footer() {
   return (
@@ -58,7 +56,7 @@ export default function Footer() {
       <div className="overflow-hidden border-b border-white/10 bg-gradient-to-l from-sky-700 to-emerald-700">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 py-8 text-center sm:px-8 lg:flex-row lg:justify-between lg:text-right">
           <p className="text-lg font-extrabold text-white sm:text-xl">
-            نصل إليك أينما كنت داخل الكويت خلال 30 دقيقة
+            نصل إليك أينما كنت داخل الكويت بسرعة استجابة عالية
           </p>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <a
@@ -116,8 +114,9 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
-              نقدم خدمات تسليك المجاري وعزل الأسطح في جميع مناطق الكويت على مدار
-              24 ساعة بأحدث المعدات وأفضل الأسعار.
+              دار الصيانة الكويتية تقدم خدمات تسليك مجاري الكويت وعزل أسطح
+              الكويت في جميع المناطق على مدار 24 ساعة بأحدث المعدات وأسعار
+              مناسبة.
             </p>
           </div>
 

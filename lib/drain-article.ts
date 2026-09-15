@@ -1,16 +1,12 @@
 import { areas, areaBySlug, type Area } from "@/lib/areas";
 
 // Article-level constants shared by the microdata block and the author box.
-export const ARTICLE_AUTHOR = "خدمات الكويت";
-export const ARTICLE_AUTHOR_INITIAL = "خ";
+export const ARTICLE_AUTHOR = "دار الصيانة الكويتية";
+export const ARTICLE_AUTHOR_INITIAL = "د";
 export const ARTICLE_AUTHOR_BIO =
-  "شركة خدمات الكويت هي أفضل شركة خدمات منزلية بالكويت نقدم العديد من الخدمات في مختلف المناطق والمدن والأحياء بأفضل جودة";
+  "دار الصيانة الكويتية شركة متخصصة في تسليك مجاري الكويت وعزل أسطح الكويت، تقدم خدماتها في مختلف مناطق الكويت بفريق فني مدرب وأحدث المعدات.";
 export const ARTICLE_PUBLISHED = "2026-06-22T11:15:34+03:00";
 export const ARTICLE_MODIFIED = "2026-06-22T11:15:36+03:00";
-
-// Ratings shown in the rating widget summary.
-export const ARTICLE_RATING_VALUE = 5;
-export const ARTICLE_RATING_COUNT = 4;
 
 // Internal destinations replacing the source article's outbound links.
 export const links = {

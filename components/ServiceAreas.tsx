@@ -134,7 +134,7 @@ export default function ServiceAreas() {
               <div className="mt-5 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur">
                   <span aria-hidden="true">⚡</span>
-                  استجابة خلال 30 دقيقة داخل الكويت
+                  سرعة استجابة في جميع مناطق الكويت
                 </span>
               </div>
             </div>

@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, areas, serviceConfigs } from "@/lib/areas";
+import { SITE_URL, BUSINESS_NAME, areas, serviceConfigs } from "@/lib/areas";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ArticlesSection from "@/components/cms/ArticlesSection";
 import MobileCTABar from "@/components/MobileCTABar";
 import Social from "@/components/social";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
@@ -19,24 +18,26 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "تسليك مجاري الكويت - عزل اسطح الكويت - 98890031",
-    template: "%s | اتصل 98890031",
+    default: "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية",
+    template: "%s | دار الصيانة الكويتية",
   },
   description:
-    "خدمات تسليك مجاري الكويت وشفط البيارات وعزل الأسطح المائي والحراري في جميع مناطق الكويت على مدار 24 ساعة، تسليك المجاري بدون تكسير بضمان وسرعة استجابة.",
+    "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري بسرعة استجابة وضمان على الخدمة في جميع المناطق. اتصل الآن أو راسلنا واتساب.",
   keywords: [
     "تسليك مجاري الكويت",
     "عزل أسطح الكويت",
+    "شركة تسليك مجاري الكويت",
+    "شركة عزل أسطح الكويت",
+    "دار الصيانة الكويتية",
     "شفط بيارات الكويت",
-    "خدمات صيانة منزلية الكويت",
     "تسليك مجاري بدون تكسير",
-    "عزل أسطح مائي وحراري الكويت",
-    "خدمات منزلية الكويت",
+    "عزل مائي وحراري للأسطح",
+    "خدمات الصيانة في الكويت",
   ],
-  applicationName: "تسليك مجاري الكويت - عزل اسطح الكويت",
-  authors: [{ name: "تسليك مجاري الكويت - عزل اسطح الكويت", url: SITE_URL }],
-  creator: "تسليك مجاري الكويت - عزل اسطح الكويت",
-  publisher: "تسليك مجاري الكويت - عزل اسطح الكويت",
+  applicationName: "دار الصيانة الكويتية",
+  authors: [{ name: "دار الصيانة الكويتية", url: SITE_URL }],
+  creator: "دار الصيانة الكويتية",
+  publisher: "دار الصيانة الكويتية",
   category: "خدمات منزلية",
 
   alternates: {
@@ -57,31 +58,31 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "تسليك مجاري الكويت - عزل اسطح الكويت",
+    title: "دار الصيانة الكويتية",
     statusBarStyle: "default",
   },
   openGraph: {
     type: "website",
     locale: "ar_KW",
     url: SITE_URL,
-    siteName: "تسليك مجاري الكويت - عزل اسطح الكويت",
-    title: "تسليك مجاري الكويت - عزل اسطح الكويت",
+    siteName: "دار الصيانة الكويتية",
+    title: "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية",
     description:
-      "خدمات تسليك مجاري الكويت وعزل الأسطح والصيانة المنزلية في جميع مناطق الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص.",
+      "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري بسرعة استجابة وضمان على الخدمة في جميع المناطق.",
     images: [
       {
         url: "/تسليك-مجاري-الكويت.webp",
         width: 1639,
         height: 720,
-        alt: "خدمات تسليك المجاري وعزل الأسطح في الكويت",
+        alt: "دار الصيانة الكويتية — خدمات تسليك المجاري وعزل الأسطح في الكويت",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "خدمات تسليك مجاري الكويت وعزل الأسطح 24 ساعة",
+    title: "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية",
     description:
-      "خدمات تسليك مجاري الكويت وعزل الأسطح والصيانة المنزلية في جميع مناطق الكويت على مدار 24 ساعة.",
+      "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري في جميع مناطق الكويت على مدار 24 ساعة.",
     images: ["/تسليك-مجاري-الكويت.webp"],
   },
 
@@ -150,22 +151,28 @@ const sitePages: SitePage[] = [...staticPages, ...areaPages];
 
 // تاريخ آخر تحديث فعلي للصفحة الرئيسية — يُحدَّث يدويًا عند تعديل المحتوى،
 // حتى لا يُبلِّغ جوجل بتعديلٍ وهمي في كل عملية build.
-const HOME_LAST_MODIFIED = "2026-08-31T00:00:00+00:00";
+const HOME_LAST_MODIFIED = "2026-09-15T00:00:00+00:00";
+
+const HOME_TITLE = "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية";
+const HOME_DESCRIPTION =
+  "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري بسرعة استجابة وضمان على الخدمة في جميع المناطق.";
 
 // Structured data
+// النود `#business` (LocalBusiness/Plumber) هو مصدر بيانات الشركة الوحيد،
+// ويُصدَّر مرة واحدة من `LocalBusinessSchema` في هذا الملف. لا تُنشئ نود
+// Organization منفصلاً هنا — سيتعارض مع `#business` بنفس الاسم/الهاتف.
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": SITE_URL + "#website",
+      "@id": SITE_URL + "/#website",
       url: SITE_URL,
-      name: "تسليك مجاري الكويت - عزل اسطح الكويت",
-      description:
-        "خدمات تسليك مجاري الكويت وعزل الأسطح والصيانة المنزلية في جميع مناطق الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص.",
+      name: BUSINESS_NAME,
+      description: HOME_DESCRIPTION,
       inLanguage: "ar",
       publisher: {
-        "@id": SITE_URL + "/#organization"
+        "@id": SITE_URL + "/#business"
       },
       potentialAction: {
         "@type": "SearchAction",
@@ -177,59 +184,19 @@ const structuredData = {
       },
     },
     {
-      "@type": "Organization",
-      "@id": SITE_URL + "/#organization",
-      name: "تسليك مجاري الكويت - عزل اسطح الكويت",
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/web-app-manifest-512x512.png`,
-        width: 512,
-        height: 512,
-      },
-      image: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/تسليك-مجاري-الكويت.webp`,
-        width: 1639,
-        height: 720,
-      },
-      sameAs: [
-        // Add your social media URLs here
-        // "https://www.facebook.com/yourpage",
-        // "https://www.instagram.com/yourpage",
-      ],
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+965-98890031",
-        contactType: "customer service",
-        areaServed: "KW",
-        availableLanguage: ["ar", "Arabic"],
-      },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "خدمة متنقلة تغطي جميع محافظات الكويت",
-        addressLocality: "مدينة الكويت",
-        addressRegion: "الكويت",
-        postalCode: "13001",
-        addressCountry: "KW",
-      },
-      priceRange: "$$",
-    },
-    {
       "@type": "WebPage",
       "@id": SITE_URL + "/#webpage",
       url: SITE_URL,
-      name: "تسليك مجاري الكويت - عزل اسطح الكويت - 98890031",
+      name: HOME_TITLE,
       isPartOf: {
         "@id": SITE_URL + "/#website"
       },
       about: {
-        "@id": SITE_URL + "/#organization"
+        "@id": SITE_URL + "/#business"
       },
       datePublished: "2020-12-29T13:47:49+00:00",
       dateModified: HOME_LAST_MODIFIED,
-      description:
-        "خدمات تسليك مجاري الكويت وعزل الأسطح والصيانة المنزلية في جميع مناطق الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص.",
+      description: HOME_DESCRIPTION,
       inLanguage: "ar",
       primaryImageOfPage: {
         "@type": "ImageObject",
@@ -246,7 +213,7 @@ const structuredData = {
         {
           "@type": "ListItem",
           position: 1,
-          name: "تسليك مجاري الكويت - عزل اسطح الكويت - 98890031",
+          name: HOME_TITLE,
           item: SITE_URL,
         },
       ],
@@ -266,7 +233,7 @@ const structuredData = {
           "@id": `${SITE_URL}${page.path}/#navelement`,
           name: page.name,
           url: `${SITE_URL}${page.path}`,
-          isPartOf: { "@id": SITE_URL + "#website" },
+          isPartOf: { "@id": SITE_URL + "/#website" },
         },
       })),
     },
@@ -316,7 +283,6 @@ export default function RootLayout({
         <Navbar />
         {/* <Social /> */}
         {children}
-        <ArticlesSection />
         <Footer />
         <MobileCTABar />
       </body>

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "اسعار عزل اسطح الكويت | أسعار واضحة بالمتر بدون رسوم خفية",
     description:
       "أسعار عزل الأسطح المائي والحراري وعزل الفوم في الكويت بالمتر، سعر واضح قبل البدء وضمان على الخدمة.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

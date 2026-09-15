@@ -85,27 +85,14 @@ const faqs = [
 ];
 
 export default function StructuredData() {
+  // The `#organization` and `#website` nodes are the canonical, single source
+  // of truth defined once in `app/layout.tsx` (rendered on every page). Do
+  // not redeclare them here — a second `<script>` on the same page with the
+  // same `@id` but different `name`/`telephone` values creates an
+  // unresolvable conflict for search engines merging the graph.
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${SITE_URL}/#organization`,
-        name: "خدمات الكويت",
-        url: SITE_URL,
-        logo: `${SITE_URL}/web-app-manifest-512x512.png`,
-        image: `${SITE_URL}/تسليك-مجاري-الكويت.webp`,
-        telephone: "+96598890031",
-        areaServed: { "@type": "Country", name: "الكويت" },
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${SITE_URL}/#website`,
-        url: SITE_URL,
-        name: "خدمات الكويت",
-        inLanguage: "ar",
-        publisher: { "@id": `${SITE_URL}/#organization` },
-      },
       ...services.map((service) => ({
         "@type": "Service",
         name: service.name,

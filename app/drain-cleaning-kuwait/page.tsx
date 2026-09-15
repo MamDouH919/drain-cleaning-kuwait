@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "تسليك مجاري الكويت بدون تكسير 24 ساعة",
     description:
       "فتح المجاري وحل الانسدادات بدون تكسير بأحدث الأجهزة وخدمة طوارئ 24 ساعة في جميع مناطق الكويت.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

@@ -72,13 +72,13 @@ export default function Navbar() {
                 >
                     <Link
                         href="/"
-                        aria-label="تسليك وعزل الكويت — الصفحة الرئيسية"
+                        aria-label="دار الصيانة الكويتية — تسليك مجاري وعزل أسطح الكويت — الصفحة الرئيسية"
                         className="flex items-center gap-2 rounded-xl px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
                     >
                         {/* Logo */}
                         <Image
                             src="/تسليك-مجاري-الكويت.webp" // حط اللوجو هنا في public folder
-                            alt="تسليك وعزل الكويت"
+                            alt="دار الصيانة الكويتية"
                             width={100}
                             height={100}
                             className="h-full w-full object-contain"

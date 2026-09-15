@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "اسعار تسليك مجاري الكويت | أسعار واضحة بدون رسوم خفية",
     description:
       "أسعار تسليك المجاري وفتح الانسدادات بدون تكسير في الكويت، تقييم وسعر واضح قبل البدء وخدمة 24 ساعة.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

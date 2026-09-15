@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "غسيل تانكي الكويت | تنظيف وتعقيم خزانات المياه",
     description:
       "تنظيف وتعقيم خزانات المياه من الرواسب والطحالب بمواد آمنة وفريق متخصص في جميع مناطق الكويت.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

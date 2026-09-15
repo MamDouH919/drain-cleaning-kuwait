@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "تركيب مكينة سرداب الكويت | مضخات سحب مياه السراديب",
     description:
       "تركيب وصيانة مكائن سحب مياه السراديب في الكويت بأحدث الأنواع وضمان على الخدمة على مدار 24 ساعة.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

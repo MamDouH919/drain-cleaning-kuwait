@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "عزل أسطح الكويت أفضل حماية ضد الحرارة وتسرب المياه",
     description:
       "عزل مائي وحراري وفوم للأسطح بأفضل المواد وضمان على الخدمة وخدمة 24 ساعة في جميع مناطق الكويت.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
   },
   twitter: {

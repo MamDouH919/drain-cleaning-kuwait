@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: "مناطق الخدمة | تسليك مجاري وعزل أسطح في جميع مناطق الكويت",
     description:
       "خدمات تسليك المجاري وعزل الأسطح في جميع مناطق الكويت بسرعة استجابة وخدمة 24 ساعة.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     images: [{ url: "/hero-service.svg", width: 720, height: 720, alt: "مناطق الخدمة في الكويت" }],
   },
   twitter: {

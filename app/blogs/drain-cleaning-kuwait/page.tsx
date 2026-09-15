@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "تسليك مجاري الكويت | الدليل الشامل وخدمة 24 ساعة",
     description:
       "كل ما تحتاجه عن تسليك مجاري الكويت: العلامات والأسباب والطرق والأسعار ونصائح الوقاية، مع خدمة فتح انسدادات بدون تكسير على مدار الساعة.",
-    siteName: "خدمات الكويت",
+    siteName: "دار الصيانة الكويتية",
     publishedTime: DATE_PUBLISHED,
     modifiedTime: DATE_MODIFIED,
     images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],

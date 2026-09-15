@@ -1,5 +1,5 @@
 export const SITE_URL = "https://taslikmajarikuwait.com";
-export const BUSINESS_NAME = "خدمات الكويت";
+export const BUSINESS_NAME = "دار الصيانة الكويتية";
 export const PHONE_NUMBER = "+96598890031";
 export const PHONE_DISPLAY = "98890031";
 export const WHATSAPP_URL = "https://wa.me/96598890031";
