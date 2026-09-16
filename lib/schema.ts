@@ -12,7 +12,6 @@ import {
  * emitted once from the root layout instead of per page.
  */
 export const BUSINESS_ID = `${SITE_URL}/#business`;
-export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
 const OFFERED_SERVICES = [
   "تسليك مجاري الكويت",
@@ -42,9 +41,10 @@ const OPEN_24_7 = {
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  // `Plumber` is the precise type; `LocalBusiness` is kept so generic
-  // parsers and SEO auditors that only look for it still match.
-  "@type": ["LocalBusiness", "Plumber"],
+  // `Plumber` + `RoofingContractor` are the precise types for the two lines
+  // of business (drain cleaning, roof waterproofing/insulation); `LocalBusiness`
+  // is kept so generic parsers and SEO auditors that only look for it still match.
+  "@type": ["LocalBusiness", "Plumber", "RoofingContractor"],
   "@id": BUSINESS_ID,
   name: BUSINESS_NAME,
   alternateName: "تسليك مجاري الكويت وعزل أسطح الكويت",
@@ -60,22 +60,17 @@ export const localBusinessSchema = {
     `${SITE_URL}/web-app-manifest-512x512.png`,
   ],
   logo: `${SITE_URL}/web-app-manifest-512x512.png`,
-  priceRange: "$$",
+  // KWD range reflecting the real published drain-cleaning price table
+  // (10–25 د.ك) — see /drain-cleaning-prices-kuwait. Update if/when the
+  // business publishes a verified full range across both service lines.
+  priceRange: "10 - 25 KWD",
   currenciesAccepted: "KWD",
   paymentAccepted: "نقداً، كي نت، تحويل بنكي",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "خدمة متنقلة تغطي جميع محافظات الكويت",
-    addressLocality: "مدينة الكويت",
-    addressRegion: "الكويت",
-    postalCode: "13001",
-    addressCountry: "KW",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 29.3759,
-    longitude: 47.9774,
-  },
+  // No fixed street address: this is a service-area business (SAB) with no
+  // visitable premises anywhere on the site. Asserting a PostalAddress/geo
+  // here would be the "fake storefront" anti-pattern — areaServed/serviceArea
+  // below is the correct SAB signal instead. Add a real address only if/when
+  // a verified physical office exists and matches the Google Business Profile.
   areaServed: [
     { "@type": "Country", name: "الكويت" },
     ...areas.map((area) => ({ "@type": "City", name: area.name })),
@@ -98,11 +93,14 @@ export const localBusinessSchema = {
       telephone: PHONE_NUMBER,
       contactType: "customer service",
       areaServed: "KW",
-      availableLanguage: ["ar", "en"],
+      // The site has no English section/content today — asserting "en" here
+      // would be a false language claim. Add it back only alongside a real
+      // English section.
+      availableLanguage: ["ar"],
       hoursAvailable: OPEN_24_7,
     },
   ],
-  knowsLanguage: ["ar", "en"],
+  knowsLanguage: ["ar"],
   makesOffer: OFFERED_SERVICES.map((name) => ({
     "@type": "Offer",
     itemOffered: { "@type": "Service", name },

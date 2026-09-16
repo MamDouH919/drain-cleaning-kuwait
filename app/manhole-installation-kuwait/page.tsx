@@ -13,7 +13,7 @@ import {
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/manhole-installation-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/services/تركيب-منهول-الكويت.webp";
+const COVER_IMAGE = "/portfolio/شركة تسليك مجاري بالكويت.webp";
 const COVER_ALT = "تركيب منهول في الكويت";
 
 export const metadata: Metadata = {
@@ -268,6 +268,7 @@ export default function ManholeInstallationKuwaitPage() {
               width={1200}
               height={750}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />
@@ -314,7 +315,7 @@ export default function ManholeInstallationKuwaitPage() {
           </blockquote>
 
           <ArticleImage
-            src="/portfolio/تركيب-منهول-الكويت.webp"
+            src="/drain-cleaning/تسليك-مجاري-حولي.webp"
             alt="تركيب غطاء منهول في الكويت باحترافية"
           />
 
@@ -331,7 +332,7 @@ export default function ManholeInstallationKuwaitPage() {
           </p>
 
           <ArticleImage
-            src="/drain-cleaning/تركيب-منهول-الكويت.webp"
+            src="/drain-cleaning/تسليك-مجاري-السالمية.webp"
             alt="ما هو غطاء المنهول واستخداماته"
           />
 
@@ -445,7 +446,7 @@ export default function ManholeInstallationKuwaitPage() {
             غطاء منهول ألومنيوم
           </h3>
           <ArticleImage
-            src="/drain-cleaning/تنظيف-جورة.webp"
+            src="/drain-cleaning/تسليك-منازل.webp"
             alt="غطاء منهول ألومنيوم"
           />
           <p className="text-lg leading-relaxed text-slate-600">

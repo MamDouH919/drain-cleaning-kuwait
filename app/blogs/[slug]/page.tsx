@@ -248,7 +248,7 @@ export default async function ArticlePage({
         dateModified: article.dateModified,
         inLanguage: "ar",
         author: { "@id": AUTHOR_PROFILE_ID },
-        publisher: { "@id": `${SITE_URL}/#organization` },
+        publisher: { "@id": `${SITE_URL}/#business` },
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
         articleSection: article.category,
       },
@@ -303,6 +303,7 @@ export default async function ArticlePage({
             width={1200}
             height={630}
             preload
+            fetchPriority="high"
             sizes="(max-width: 1024px) 100vw, 1024px"
             className="h-auto w-full object-cover"
           />

@@ -136,7 +136,7 @@ export function articleJsonLd(article: Article, path: string) {
         : article.author?.name
           ? { "@type": "Person", name: article.author.name }
           : undefined,
-      publisher: { "@id": `${SITE_URL}/#organization` },
+      publisher: { "@id": `${SITE_URL}/#business` },
     },
     breadcrumbList(`${url}#breadcrumb`, [
       { name: "الرئيسية", item: SITE_URL },
@@ -177,7 +177,7 @@ export function listJsonLd(opts: {
         description: opts.description,
         inLanguage: "ar",
         isPartOf: { "@id": `${SITE_URL}/#website` },
-        publisher: { "@id": `${SITE_URL}/#organization` },
+        publisher: { "@id": `${SITE_URL}/#business` },
       },
       breadcrumbList(`${url}#breadcrumb`, opts.breadcrumb),
       {

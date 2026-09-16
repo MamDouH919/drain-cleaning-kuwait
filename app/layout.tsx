@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, BUSINESS_NAME, areas, serviceConfigs } from "@/lib/areas";
+import { SITE_URL, BUSINESS_NAME } from "@/lib/areas";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
     languages: {
-      ar: SITE_URL,
+      "ar-KW": SITE_URL,
     },
   },
   formatDetection: { telephone: true, email: true, address: true },
@@ -104,50 +104,6 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
-
-type SitePage = { name: string; path: string };
-
-// الصفحات الثابتة في app
-const staticPages: SitePage[] = [
-  { name: "الرئيسية", path: "" },
-  { name: "تسليك مجاري الكويت", path: "/drain-cleaning-kuwait" },
-  {
-    name: "تسليك مجاري المطابخ والحمامات الكويت",
-    path: "/kitchen-bathroom-drain-cleaning-kuwait",
-  },
-  { name: "اسعار تسليك مجاري الكويت", path: "/drain-cleaning-prices-kuwait" },
-  { name: "عزل أسطح الكويت", path: "/roof-waterproofing-kuwait" },
-  { name: "العزل المائي والحراري الكويت", path: "/thermal-waterproofing-kuwait" },
-  { name: "عزل أسطح جيتاروف الكويت", path: "/gitaroof-insulation-kuwait" },
-  { name: "اسعار عزل اسطح الكويت", path: "/roof-insulation-prices-kuwait" },
-  { name: "تركيب مكينة سرداب الكويت", path: "/basement-pump-kuwait" },
-  { name: "تركيب منهول الكويت", path: "/manhole-installation-kuwait" },
-  { name: "غسيل تانكي الكويت", path: "/water-tank-cleaning-kuwait" },
-  { name: "مناطق الخدمة", path: "/areas" },
-  { name: "المقالات", path: "/articles" },
-  { name: "المدونة", path: "/blogs" },
-  { name: "تسليك مجاري الكويت - مقال", path: "/blogs/drain-cleaning-kuwait" },
-  {
-    name: "تسليك المجاري في الكويت - مقال",
-    path: "/blogs/drain-cleaning-in-kuwait",
-  },
-  { name: "من نحن", path: "/about-us" },
-  { name: "تواصل معنا", path: "/contact-us" },
-  { name: "سياسة الخصوصية", path: "/privacy-policy" },
-  { name: "الشروط والأحكام", path: "/terms-conditions" },
-];
-
-// صفحات المناطق الديناميكية app/[slug] — خدمة × منطقة
-// نفس ترتيب allAreaPageSlugs() في lib/areas.ts
-const areaPages: SitePage[] = Object.values(serviceConfigs).flatMap((service) =>
-  areas.map((area) => ({
-    name: `${service.shortName} ${area.name}`,
-    path: `/${service.prefix}${area.slug}`,
-  }))
-);
-
-// كل صفحات الموقع (app) — تُستخدم في بيانات التنقل المنظمة
-const sitePages: SitePage[] = [...staticPages, ...areaPages];
 
 // تاريخ آخر تحديث فعلي للصفحة الرئيسية — يُحدَّث يدويًا عند تعديل المحتوى،
 // حتى لا يُبلِّغ جوجل بتعديلٍ وهمي في كل عملية build.
@@ -217,25 +173,6 @@ const structuredData = {
           item: SITE_URL,
         },
       ],
-    },
-    {
-      "@type": "ItemList",
-      "@id": SITE_URL + "/#sitepages",
-      name: "صفحات الموقع",
-      itemListOrder: "https://schema.org/ItemListOrderAscending",
-      numberOfItems: sitePages.length,
-      itemListElement: sitePages.map((page, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: page.name,
-        item: {
-          "@type": "SiteNavigationElement",
-          "@id": `${SITE_URL}${page.path}/#navelement`,
-          name: page.name,
-          url: `${SITE_URL}${page.path}`,
-          isPartOf: { "@id": SITE_URL + "/#website" },
-        },
-      })),
     },
   ],
 };

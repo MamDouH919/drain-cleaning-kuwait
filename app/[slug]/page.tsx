@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import ArticleSidebar from "@/components/ArticleSidebar";
 import DrainArticle from "@/components/DrainArticle";
 import Gallery from "@/components/Gallery";
+import { articleFaqs } from "@/lib/drain-article";
 import {
   SITE_URL,
   BUSINESS_NAME,
@@ -108,7 +109,11 @@ export default async function AreaServicePage({
     .filter((a): a is NonNullable<typeof a> => Boolean(a));
   const nearbyNames = nearbyAreas.map((a) => a.name).join("، ");
 
-  const faqs = service.faqs(area.name);
+  // The drain-cleaning branch renders <DrainArticle>, which shows its own
+  // FAQ set (articleFaqs) rather than service.faqs — the FAQPage JSON-LD
+  // must match what's actually on the page, so mirror that here.
+  const faqs =
+    service.id === "drain-cleaning" ? articleFaqs(area.name) : service.faqs(area.name);
   const heroFrom = service.theme === "sky" ? "from-sky-50" : "from-emerald-50";
   const heroTo = service.theme === "sky" ? "to-emerald-50" : "to-sky-50";
   const badge = service.theme === "sky" ? "border-sky-200 text-sky-700" : "border-emerald-200 text-emerald-700";
@@ -240,6 +245,7 @@ export default async function AreaServicePage({
               width={1200}
               height={750}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />
@@ -407,34 +413,6 @@ export default async function AreaServicePage({
             <Link href="/contact-us" className="font-bold text-slate-700 underline-offset-4 hover:underline">
               تواصل معنا
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:px-8 lg:py-20">
-          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-            آراء عملائنا في {area.name}
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {service.testimonials(area.name).map((t) => (
-              <figure
-                key={t.name}
-                className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-6 shadow-sm ring-1 ring-slate-900/5"
-              >
-                <div className="flex gap-0.5 text-amber-400" aria-hidden="true">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-                      <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1.99 5.79L10 14.77l-5.2 2.73.99-5.79-4.21-4.1 5.82-.85L10 1.5Z" />
-                    </svg>
-                  ))}
-                </div>
-                <blockquote className="text-sm leading-relaxed text-slate-600">
-                  {t.text}
-                </blockquote>
-                <figcaption className="text-sm font-bold text-slate-900">{t.name}</figcaption>
-              </figure>
-            ))}
           </div>
         </div>
       </section>

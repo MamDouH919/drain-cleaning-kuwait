@@ -64,7 +64,7 @@ export function articleFigures(area: string) {
     },
     cleaning: {
       id: 6235,
-      src: "/drain-cleaning/تسليك.webp",
+      src: "/drain-cleaning/تسليك-حمامات.webp",
       alt: `تنظيف مجاري ${area}`,
       caption: `تنظيف مجاري ${area}`,
     },

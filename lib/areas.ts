@@ -477,7 +477,6 @@ export type ServiceConfig = {
   features: string[];
   steps: { title: string; desc: string }[];
   searchTerms: (area: string) => string[];
-  testimonials: (area: string) => { name: string; text: string }[];
   faqs: (area: string) => { question: string; answer: string }[];
   ctaTitle: string;
 };
@@ -544,20 +543,6 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
       `أرقام تسليك مجاري ${area}`,
       `تسليك مجاري ${area} بدون تكسير`,
     ],
-    testimonials: (area) => [
-      {
-        name: "أبو محمد",
-        text: `طلبت خدمة تسليك مجاري في ${area} وكان الوصول سريعاً والمشكلة اتحلت بدون أي تكسير. خدمة ممتازة وأسعار مناسبة.`,
-      },
-      {
-        name: "أم عبدالله",
-        text: `أفضل تجربة لتسليك المجاري في ${area}، فريق محترم وشغل نظيف وسعر واضح من البداية.`,
-      },
-      {
-        name: "فهد العتيبي",
-        text: `اتصلت بهم ليلاً في حالة طوارئ بـ${area} ووصلوا بسرعة وحلوا انسداد المجرى الرئيسي باحترافية.`,
-      },
-    ],
     faqs: (area) => [
       {
         question: `كم سعر تسليك المجاري في ${area}؟`,
@@ -595,7 +580,7 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
     serviceType: "عزل مائي وحراري للأسطح",
     keywordEn: "roof waterproofing Kuwait",
     theme: "emerald",
-    coverImage: "/roof-waterproofing/عزل-اسطح.webp",
+    coverImage: "/roof-waterproofing/عازل-اسطح-جيتاروف.webp",
     coverAlt: (area) => `عزل أسطح ${area} مائي وحراري`,
     h1: (subKw) => `${subKw} — عزل مائي وحراري بضمان`,
     metaTitle: (area) => `عزل أسطح ${area} | عزل مائي وحراري وفوم بضمان`,
@@ -646,20 +631,6 @@ export const serviceConfigs: Record<ServiceId, ServiceConfig> = {
       `عزل فوم ${area}`,
       `أرقام عزل أسطح ${area}`,
       `معالجة تسربات المياه ${area}`,
-    ],
-    testimonials: (area) => [
-      {
-        name: "بو سعود",
-        text: `عملت عزل مائي وحراري لسطح بيتي في ${area} والنتيجة ممتازة، الحرارة قلّت والتسرب اختفى تماماً.`,
-      },
-      {
-        name: "أم يوسف",
-        text: `أفضل شركة عزل أسطح في ${area}، شغل نظيف ومواد ممتازة وفيه ضمان على الخدمة.`,
-      },
-      {
-        name: "خالد المطيري",
-        text: `فريق محترف عالج تسرب المياه من سطح الفيلا في ${area} بسرعة وبسعر واضح من البداية.`,
-      },
     ],
     faqs: (area) => [
       {

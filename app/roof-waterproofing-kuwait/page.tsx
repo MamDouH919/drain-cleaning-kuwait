@@ -9,7 +9,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
-const COVER_IMAGE = "/services/عازل-اسطح-الكويت.webp";
+const COVER_IMAGE = "/roof-waterproofing/عازل-اسطح-جيتاروف.webp";
 const COVER_ALT = "عزل أسطح في الكويت مائي وحراري";
 
 export const metadata: Metadata = {
@@ -229,6 +229,7 @@ export default function RoofWaterproofingKuwaitPage() {
               width={1200}
               height={750}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />

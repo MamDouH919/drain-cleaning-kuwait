@@ -24,7 +24,7 @@ export default function RoofInsulationSection() {
             <div className="absolute inset-0 -z-10 -translate-x-4 translate-y-4 rounded-[2rem] bg-gradient-to-tr from-emerald-200/60 to-sky-200/60 blur-2xl" />
             <div className="overflow-hidden rounded-[2rem] border border-white/60 bg-white shadow-2xl shadow-slate-300/50 ring-1 ring-slate-900/5">
               <Image
-                src="/roof-waterproofing/عزل-اسطح-الكويت.webp"
+                src="/roof-waterproofing/عازل-اسطح-جيتاروف.webp"
                 alt="عزل أسطح الكويت المائي والحراري لحماية المباني"
                 width={720}
                 height={640}

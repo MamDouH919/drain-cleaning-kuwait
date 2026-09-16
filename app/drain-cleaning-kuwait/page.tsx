@@ -275,6 +275,7 @@ export default function DrainCleaningKuwaitPage() {
               width={1200}
               height={900}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />
@@ -318,7 +319,7 @@ export default function DrainCleaningKuwaitPage() {
           <figure className="mx-auto max-w-2xl px-6 py-6 sm:px-8">
             <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
               <Image
-                src="/portfolio/تسليك.webp"
+                src="/portfolio/تسليك-منازل.webp"
                 alt="فني تسليك مجاري"
                 width={600}
                 height={450}

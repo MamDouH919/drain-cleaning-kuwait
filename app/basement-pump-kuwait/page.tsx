@@ -6,7 +6,7 @@ import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/li
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/basement-pump-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/services/تركيب-مكين-سرداب-الكويت.webp";
+const COVER_IMAGE = "/drain-cleaning/تسليك-مجاري.webp";
 const COVER_ALT = "تركيب مكينة سرداب في الكويت";
 
 export const metadata: Metadata = {
@@ -205,6 +205,7 @@ export default function BasementPumpKuwaitPage() {
               width={1200}
               height={750}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />

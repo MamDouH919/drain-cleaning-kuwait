@@ -13,8 +13,6 @@ import {
   ARTICLE_AUTHOR,
   ARTICLE_AUTHOR_BIO,
   ARTICLE_AUTHOR_INITIAL,
-  ARTICLE_MODIFIED,
-  ARTICLE_PUBLISHED,
   FIGURE_HEIGHT,
   FIGURE_WIDTH,
   articleFaqs,
@@ -43,33 +41,18 @@ export default function DrainArticle({ area, service, imageUrl }: DrainArticlePr
   const heroAlt = `تسليك مجاري ${name}`;
 
   return (
-    <article
-      id={`post-${postId}`}
-      className={`single-card post-${postId} post type-post status-publish format-standard has-post-thumbnail hentry category-sewage-plumbing`}
-      itemScope
-      itemType="https://schema.org/Article"
-    >
+    <article id={`post-${postId}`} className="single-card">
       <div className="single-article">
-        <h1 className="article-title" itemProp="headline">
-          {heroAlt}
-        </h1>
-
-        {/* Microdata */}
-        <meta itemProp="datePublished" content={ARTICLE_PUBLISHED} />
-        <meta itemProp="dateModified" content={ARTICLE_MODIFIED} />
-        <meta itemProp="author" content={ARTICLE_AUTHOR} />
-
-        <meta itemProp="image" content={imageUrl} />
+        <h1 className="article-title">{heroAlt}</h1>
 
         <div className="article-hero-img">
           <Image
             width={FIGURE_WIDTH}
             height={FIGURE_HEIGHT}
             src={service.coverImage}
-            className="attachment-full size-full wp-post-image"
+            className="size-full"
             alt={heroAlt}
             loading="eager"
-            itemProp="image"
             decoding="async"
             fetchPriority="high"
             sizes="(max-width: 762px) 100vw, 762px"

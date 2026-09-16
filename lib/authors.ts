@@ -79,10 +79,12 @@ export const authorBySlug = new Map(authors.map((a) => [a.slug, a]));
 
 /**
  * يحوّل نص `author` المكتوب في articles.json إلى سجل كاتب كامل.
- * حاليًا كل المقالات لنفس جهة التحرير، فنُعيد الكاتب الافتراضي دائمًا.
+ * يعتمد على الاسم الحقيقي المرفق مع كل مقالة بدلاً من فرض هوية واحدة ثابتة؛
+ * يرجع للكاتب التحريري الافتراضي فقط إن لم يُذكر اسم.
  */
-export function resolveArticleAuthor(_name?: string): Author {
-  return EDITORIAL_AUTHOR;
+export function resolveArticleAuthor(name?: string): Author {
+  if (!name || name.trim() === "") return EDITORIAL_AUTHOR;
+  return { ...EDITORIAL_AUTHOR, name: name.trim() };
 }
 
 /** عقدة `Person` كاملة للـ JSON-LD — تُدرَج في `@graph` بصفحة المقال وصفحة التعريف. */
@@ -97,7 +99,7 @@ export function authorPersonNode(author: Author = EDITORIAL_AUTHOR) {
     ...(author.image ? { image: `${SITE_URL}${author.image}` } : {}),
     ...(author.email ? { email: author.email } : {}),
     ...(author.sameAs.length > 0 ? { sameAs: author.sameAs } : {}),
-    worksFor: { "@id": `${SITE_URL}/#organization` },
+    worksFor: { "@id": `${SITE_URL}/#business` },
   } as const;
 }
 

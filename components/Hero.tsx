@@ -137,6 +137,7 @@ export default function Hero() {
                             width={720}
                             height={720}
                             preload
+                            fetchPriority="high"
                             sizes="(max-width: 1024px) 90vw, 50vw"
                             className="h-full w-full object-cover"
                         />

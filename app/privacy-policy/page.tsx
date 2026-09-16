@@ -94,7 +94,7 @@ const jsonLd = {
   url: PAGE_URL,
   inLanguage: "ar",
   isPartOf: { "@id": `${SITE_URL}/#website` },
-  publisher: { "@id": `${SITE_URL}/#organization` },
+  publisher: { "@id": `${SITE_URL}/#business` },
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [

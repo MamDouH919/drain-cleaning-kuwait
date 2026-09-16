@@ -85,7 +85,7 @@ const faqs = [
 ];
 
 export default function StructuredData() {
-  // The `#organization` and `#website` nodes are the canonical, single source
+  // The `#business` and `#website` nodes are the canonical, single source
   // of truth defined once in `app/layout.tsx` (rendered on every page). Do
   // not redeclare them here — a second `<script>` on the same page with the
   // same `@id` but different `name`/`telephone` values creates an

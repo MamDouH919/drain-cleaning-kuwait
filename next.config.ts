@@ -21,8 +21,29 @@ const legacyBlogSlugs: string[] = [
   "drain-cleaning-in-kuwait",
 ];
 
+// Tailwind is the only stylesheet on the site (small, atomic CSS) — inlining
+// it removes the render-blocking <link rel="stylesheet"> request that was
+// measured as the dominant contributor to LCP's "element render delay"
+// (300–700ms per page). See taslikmajarikuwait.com-audit/findings/performance.md.
+const CSP_HEADER = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com",
+  "frame-src https://www.google.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+].join("; ");
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  experimental: {
+    inlineCss: true,
+  },
   async redirects() {
     return [
       ...slugRedirects.flatMap(({ from, to }) => [
@@ -60,6 +81,7 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
+          { key: "Content-Security-Policy", value: CSP_HEADER },
         ],
       },
     ];

@@ -26,19 +26,24 @@ const staticRoutes: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/terms-conditions", priority: 0.3, changeFrequency: "yearly" },
 ];
 
+// تاريخ آخر مراجعة فعلية لمحتوى الصفحات الثابتة وصفحات المناطق (القالب) —
+// يُحدَّث يدويًا فقط عند تعديل حقيقي في المحتوى/الأسعار/البنية، وليس تاريخ
+// آخر عملية build، حتى لا يُبلِّغ جوجل بتعديل وهمي في كل نشر.
+const CONTENT_LAST_MODIFIED = new Date("2026-09-15T00:00:00+00:00");
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${SITE_URL}${route.path}`,
-    lastModified: now,
+    lastModified: CONTENT_LAST_MODIFIED,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
 
   const areaEntries: MetadataRoute.Sitemap = allAreaPageSlugs().map((slug) => ({
     url: `${SITE_URL}/${slug}`,
-    lastModified: now,
+    lastModified: CONTENT_LAST_MODIFIED,
     changeFrequency: "monthly",
     priority: 0.7,
   }));

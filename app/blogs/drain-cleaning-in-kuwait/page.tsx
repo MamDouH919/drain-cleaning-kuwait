@@ -440,7 +440,7 @@ const gallery = [
   { src: "/drain-cleaning/تسليك-بلوعات.webp", alt: "تسليك بلاعات وتنظيف مواسير الصرف في الكويت" },
   { src: "/drain-cleaning/تسليك-حمامات.webp", alt: "فتح انسداد مجاري الحمامات بدون تكسير" },
   { src: "/drain-cleaning/تسليك-منازل.webp", alt: "تسليك مجاري المنازل والفلل في الكويت" },
-  { src: "/drain-cleaning/تنظيف-جورة.webp", alt: "شفط انسداد المجاري وتنظيف الجور والبيارات في الكويت" },
+  { src: "/drain-cleaning/تسليك-مجاري-حولي.webp", alt: "شفط انسداد المجاري وتنظيف الجور والبيارات في الكويت" },
 ];
 
 const jsonLd = {
@@ -483,6 +483,8 @@ const jsonLd = {
         "@type": "AggregateOffer",
         priceCurrency: "KWD",
         lowPrice: "10",
+        highPrice: "25",
+        offerCount: 5,
         availability: "https://schema.org/InStock",
       },
       hasOfferCatalog: {
@@ -631,6 +633,7 @@ export default function DrainCleaningInKuwaitBlogPage() {
               alt={COVER_ALT}
               fill
               preload
+              fetchPriority="high"
               sizes="(max-width: 1024px) 100vw, 768px"
               className="object-cover"
             />

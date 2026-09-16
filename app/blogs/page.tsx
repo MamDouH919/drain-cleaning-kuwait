@@ -38,7 +38,7 @@ export default function ArticlesPage() {
         url: PAGE_URL,
         inLanguage: "ar",
         isPartOf: { "@id": `${SITE_URL}/#website` },
-        publisher: { "@id": `${SITE_URL}/#organization` },
+        publisher: { "@id": `${SITE_URL}/#business` },
       },
       {
         "@type": "BreadcrumbList",

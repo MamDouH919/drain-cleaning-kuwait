@@ -6,7 +6,7 @@ import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/li
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/water-tank-cleaning-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/services/غسيل-تانكي-الكويت.webp";
+const COVER_IMAGE = "/portfolio/رقم فني تسليك مجاري.webp";
 const COVER_ALT = "غسيل وتنظيف تانكي المياه في الكويت";
 
 export const metadata: Metadata = {
@@ -205,6 +205,7 @@ export default function WaterTankCleaningKuwaitPage() {
               width={1200}
               height={750}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />

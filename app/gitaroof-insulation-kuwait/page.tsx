@@ -205,6 +205,7 @@ export default function GitaroofInsulationKuwaitPage() {
               width={1200}
               height={750}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />

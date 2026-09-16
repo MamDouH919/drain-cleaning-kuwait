@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/areas";
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/roof-insulation-prices-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/services/عازل-اسطح-الكويت.webp";
+const COVER_IMAGE = "/roof-waterproofing/عازل-اسطح-جيتاروف.webp";
 const COVER_ALT = "اسعار عزل اسطح الكويت";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
@@ -147,12 +147,10 @@ const jsonLd = {
       provider: { "@id": `${SITE_URL}/#business` },
       description:
         "أسعار عزل الأسطح المائي والحراري وعزل الفوم في الكويت بالمتر بسعر واضح قبل البدء وبدون رسوم خفية.",
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "KWD",
-        availability: "https://schema.org/InStock",
-        areaServed: "KW",
-      },
+      // No numeric KWD figure is published anywhere on this page yet — an
+      // AggregateOffer without lowPrice/highPrice is invalid/useless, and
+      // inventing a number here would be a fabricated-price risk. Re-add
+      // this block once a real starting price is published as page copy.
     },
     {
       "@type": "FAQPage",
@@ -241,6 +239,7 @@ export default function RoofInsulationPricesKuwaitPage() {
               width={1200}
               height={900}
               preload
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 768px"
               className="h-auto w-full object-cover"
             />
