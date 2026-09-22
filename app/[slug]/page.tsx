@@ -272,6 +272,22 @@ export default async function AreaServicePage({
               {service.problems(area.name)}
             </p>
           </div>
+          <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50/60 p-5">
+            <h3 className="text-base font-bold text-slate-900">عن {area.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">{area.character}</p>
+            {area.landmarks.length > 0 ? (
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                <span className="font-bold text-slate-800">من معالم {area.name}: </span>
+                {area.landmarks.join("، ")}.
+              </p>
+            ) : null}
+            {area.coveredAreas.length > 0 ? (
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                <span className="font-bold text-slate-800">تشمل خدمتنا في {area.name} أيضاً: </span>
+                {area.coveredAreas.join("، ")}.
+              </p>
+            ) : null}
+          </div>
         </div>
       </section>
 

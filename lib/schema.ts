@@ -71,10 +71,20 @@ export const localBusinessSchema = {
   // here would be the "fake storefront" anti-pattern — areaServed/serviceArea
   // below is the correct SAB signal instead. Add a real address only if/when
   // a verified physical office exists and matches the Google Business Profile.
+  // Every real district we serve, not just the 8 consolidated page slugs —
+  // areaServed doesn't require a dedicated indexable page per city.
   areaServed: [
     { "@type": "Country", name: "الكويت" },
-    ...areas.map((area) => ({ "@type": "City", name: area.name })),
-  ],
+    ...areas.flatMap((area) => [
+      { "@type": "City", name: area.governorate },
+      ...area.coveredAreas.map((name) => ({ "@type": "City", name })),
+    ]),
+    { "@type": "City", name: "السالمية" },
+    { "@type": "City", name: "الفحيحيل" },
+  ].filter(
+    (entry, index, all) =>
+      all.findIndex((e) => e.name === entry.name) === index,
+  ),
   serviceArea: {
     "@type": "GeoCircle",
     geoMidpoint: {

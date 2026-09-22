@@ -26,6 +26,11 @@ export const CMS_REVALIDATE_SECONDS = 3600;
 /** Default page size for article lists. */
 export const CMS_PAGE_SIZE = 12;
 
+// Slugs published to this site's CMS space that actually contain another
+// client's business name/phone number (cross-site content mix-up on the
+// shared CMS). Blocked here until removed at the CMS source.
+const BLOCKED_SLUGS = new Set(["salmiya-drain-cleaning-company"]);
+
 export class CmsApiError extends Error {
   readonly code: string;
   readonly status: number;
@@ -147,7 +152,7 @@ export async function getArticles(params: {
     },
     tags: ["cms:articles"],
   });
-  return { items: data, meta };
+  return { items: data.filter((a) => !BLOCKED_SLUGS.has(a.slug)), meta };
 }
 
 // ── Detail: single article ─────────────────────────────────────────────────
@@ -158,6 +163,7 @@ export async function getArticles(params: {
  */
 export async function getArticle(slug: string): Promise<Article | null> {
   if (!isCmsConfigured()) return null;
+  if (BLOCKED_SLUGS.has(slug)) return null;
   try {
     const { data } = await cmsFetch<Article>(
       `/articles/${encodeURIComponent(slug)}`,

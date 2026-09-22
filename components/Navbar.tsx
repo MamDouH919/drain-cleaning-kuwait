@@ -79,9 +79,9 @@ export default function Navbar() {
                         <Image
                             src="/تسليك-مجاري-الكويت.webp" // حط اللوجو هنا في public folder
                             alt="دار الصيانة الكويتية"
-                            width={100}
-                            height={100}
-                            className="h-full w-full object-contain"
+                            width={1874}
+                            height={1440}
+                            className="h-14 w-auto object-contain lg:h-16"
                             loading="eager"
                         />
                     </Link>

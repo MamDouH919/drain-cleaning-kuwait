@@ -1,6 +1,48 @@
 import type { NextConfig } from "next";
 import articlesJson from "./content/articles.json";
 
+// The 2026-09 SEO audit flagged 132 near-duplicate area pages (66 districts ×
+// 2 services) as a doorway-page pattern (findings/sitemap.md, Finding 1).
+// Consolidated to 8 areas (6 real governorates + 2 flagship high-demand
+// districts — see lib/areas.ts) with genuinely differentiated content.
+// Retired district slugs 301-redirect to their real governorate's surviving
+// page, grouped below by governorate for auditability.
+const retiredAreaGovernorate: Record<string, string[]> = {
+  asima: [
+    "sharq", "sulaibikhat", "shuwaikh", "kaifan", "qadsiya", "daiya",
+    "mansouriya", "faiha", "shamiya", "khaldiya", "adailiya", "qortuba",
+    "surra", "yarmouk", "doha", "gharb-sulaibikhat", "jaber-al-ahmad",
+  ],
+  hawalli: [
+    "jabriya", "salwa", "mishref", "bayan", "rumaithiya",
+    "shaab", "shuhada", "siddiq", "zahra", "hateen",
+  ],
+  farwaniya: [
+    "jleeb-al-shuyoukh", "ardhiya", "omariya", "rabiya", "ishbiliya",
+    "firdous", "andalous", "sabah-al-nasser", "riggae",
+    "gharb-abdullah-mubarak", "abdullah-mubarak",
+  ],
+  ahmadi: [
+    "mangaf", "abu-halifa", "fintas", "mahboula", "egaila", "riqqa",
+    "hadiya", "sabahiya", "jaber-al-ali", "fahad-al-ahmad", "umm-al-haiman",
+  ],
+  jahra: ["qairawan", "mutlaa", "sulaibiya", "nahda", "saad-al-abdullah"],
+  "mubarak-kabeer": ["sabah-al-salem", "abu-fatira", "adan", "qusour", "qurain"],
+};
+
+const areaServicePrefixes = ["drain-cleaning-", "roof-waterproofing-"];
+
+const areaPageRedirects: { source: string; destination: string; permanent: true }[] =
+  Object.entries(retiredAreaGovernorate).flatMap(([survivor, retired]) =>
+    retired.flatMap((oldSlug) =>
+      areaServicePrefixes.map((prefix) => ({
+        source: `/${prefix}${oldSlug}`,
+        destination: `/${prefix}${survivor}`,
+        permanent: true as const,
+      })),
+    ),
+  );
+
 const slugRedirects: { from: string; to: string }[] = [
   { from: "/تسليك-مجاري-الكويت", to: "/drain-cleaning-kuwait" },
   {
@@ -46,6 +88,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...areaPageRedirects,
       ...slugRedirects.flatMap(({ from, to }) => [
         { source: from, destination: to, permanent: true },
         { source: encodeURI(from), destination: to, permanent: true },

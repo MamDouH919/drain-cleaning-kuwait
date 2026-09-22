@@ -112,6 +112,20 @@ export default function DrainArticle({ area, service, imageUrl }: DrainArticlePr
             <strong>فحص قبل التنفيذ | عرض سعر واضح | معدات مناسبة | اختبار التصريف بعد العمل</strong>
           </p>
 
+          <div className="baytak-table-wrap" style={{ background: "#f8fafc", borderRadius: "1rem", padding: "1.25rem 1.5rem" }}>
+            <p style={{ margin: 0 }}>{area.character}</p>
+            {area.landmarks.length > 0 ? (
+              <p style={{ marginTop: "0.75rem", marginBottom: 0 }}>
+                <strong>من معالم {name}:</strong> {area.landmarks.join("، ")}.
+              </p>
+            ) : null}
+            {area.coveredAreas.length > 0 ? (
+              <p style={{ marginTop: "0.75rem", marginBottom: 0 }}>
+                <strong>تشمل خدمتنا في {name} أيضاً:</strong> {area.coveredAreas.join("، ")}.
+              </p>
+            ) : null}
+          </div>
+
           <h2 id={h(0).id}>{h(0).text}</h2>
           <p>
             تعتمد خدمة <strong>تسليك المجاري</strong> الناجحة على معرفة مكان الانسداد قبل محاولة
