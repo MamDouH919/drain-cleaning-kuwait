@@ -4,8 +4,8 @@ import {
   HOME_LAST_MODIFIED,
   HOME_TITLE,
   OG_IMAGE,
-  homeFaqs,
 } from "@/lib/home";
+import { homeFaqs } from "@/lib/home-faqs";
 
 /**
  * JSON-LD خاص بالصفحة الرئيسية فقط.

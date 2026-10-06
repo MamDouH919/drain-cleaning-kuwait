@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { homeFaqs } from "@/lib/home";
+import { homeFaqs } from "@/lib/home-faqs";
 
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";

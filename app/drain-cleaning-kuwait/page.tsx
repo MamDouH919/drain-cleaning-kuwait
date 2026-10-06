@@ -661,6 +661,38 @@ export default function DrainCleaningKuwaitPage() {
       </div>
 
       <Faq items={faqs} title="الأسئلة الشائعة عن تسليك مجاري الكويت" />
+
+      {/* CTA */}
+      <section className="w-full bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:py-20">
+          <div className="overflow-hidden rounded-3xl bg-gradient-to-bl from-sky-700 via-sky-800 to-emerald-700 p-8 text-center shadow-xl sm:p-12">
+            <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
+              عندك انسداد في المجاري؟ تواصل الآن
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-sky-50/90 sm:text-lg">
+              نستقبل طلبك على مدار 24 ساعة، ونحدد لك السعر قبل بدء العمل.
+            </p>
+            <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+              <a
+                href={`tel:${PHONE_NUMBER}`}
+                aria-label="اتصل الآن"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-base font-bold text-sky-700 shadow-lg transition hover:bg-sky-50"
+              >
+                {PHONE_DISPLAY} | اتصل الآن
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="تواصل عبر واتساب"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-4 text-base font-bold text-white shadow-lg transition hover:bg-emerald-400"
+              >
+                واتساب
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
