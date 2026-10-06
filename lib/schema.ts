@@ -1,10 +1,5 @@
-import {
-  BUSINESS_NAME,
-  PHONE_NUMBER,
-  SITE_URL,
-  WHATSAPP_URL,
-  areas,
-} from "./areas";
+import { BUSINESS_NAME, PHONE_NUMBER, SITE_URL, WHATSAPP_URL } from "./areas";
+import { coreServices } from "./services";
 
 /**
  * Canonical `#business` node for the whole site.
@@ -13,15 +8,14 @@ import {
  */
 export const BUSINESS_ID = `${SITE_URL}/#business`;
 
-const OFFERED_SERVICES = [
-  "تسليك مجاري الكويت",
-  "تسليك مجاري المطابخ والحمامات",
-  "شفط بيارات الكويت",
-  "عزل أسطح مائي وحراري",
-  "عزل أسطح جيتاروف",
-  "تركيب مكينة سرداب",
-  "تركيب منهول",
-  "غسيل تانكي المياه",
+// محافظات الكويت الست.
+const GOVERNORATES = [
+  "محافظة العاصمة",
+  "محافظة حولي",
+  "محافظة الفروانية",
+  "محافظة الأحمدي",
+  "محافظة الجهراء",
+  "محافظة مبارك الكبير",
 ];
 
 const OPEN_24_7 = {
@@ -47,53 +41,27 @@ export const localBusinessSchema = {
   "@type": ["LocalBusiness", "Plumber", "RoofingContractor"],
   "@id": BUSINESS_ID,
   name: BUSINESS_NAME,
-  alternateName: "تسليك مجاري الكويت وعزل أسطح الكويت",
   legalName: BUSINESS_NAME,
   description:
     "خدمات تسليك المجاري وشفط البيارات وعزل الأسطح المائي والحراري في الكويت على مدار 24 ساعة بأحدث المعدات وفريق متخصص مع ضمان على الخدمة وسرعة استجابة.",
   url: SITE_URL,
   mainEntityOfPage: SITE_URL,
-  inLanguage: "ar",
   telephone: PHONE_NUMBER,
   image: [
     `${SITE_URL}/%D8%AA%D8%B3%D9%84%D9%8A%D9%83-%D9%85%D8%AC%D8%A7%D8%B1%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.webp`,
     `${SITE_URL}/web-app-manifest-512x512.png`,
   ],
   logo: `${SITE_URL}/web-app-manifest-512x512.png`,
-  // KWD range reflecting the real published drain-cleaning price table
-  // (10–25 د.ك) — see /drain-cleaning-prices-kuwait. Update if/when the
-  // business publishes a verified full range across both service lines.
-  priceRange: "10 - 25 KWD",
+  priceRange: "$$",
   currenciesAccepted: "KWD",
   paymentAccepted: "نقداً، كي نت، تحويل بنكي",
-  // No fixed street address: this is a service-area business (SAB) with no
-  // visitable premises anywhere on the site. Asserting a PostalAddress/geo
-  // here would be the "fake storefront" anti-pattern — areaServed/serviceArea
-  // below is the correct SAB signal instead. Add a real address only if/when
-  // a verified physical office exists and matches the Google Business Profile.
-  // Every real district we serve, not just the 8 consolidated page slugs —
-  // areaServed doesn't require a dedicated indexable page per city.
+  // TODO: أضف `address` (PostalAddress) و`geo` (GeoCoordinates) و
+  // `aggregateRating` ببيانات حقيقية فقط، مطابقة لملف Google Business Profile.
+  // لا تُضِف قيمًا تقديرية — بدونها يُعامَل النشاط كـ service-area business.
   areaServed: [
     { "@type": "Country", name: "الكويت" },
-    ...areas.flatMap((area) => [
-      { "@type": "City", name: area.governorate },
-      ...area.coveredAreas.map((name) => ({ "@type": "City", name })),
-    ]),
-    { "@type": "City", name: "السالمية" },
-    { "@type": "City", name: "الفحيحيل" },
-  ].filter(
-    (entry, index, all) =>
-      all.findIndex((e) => e.name === entry.name) === index,
-  ),
-  serviceArea: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: 29.3759,
-      longitude: 47.9774,
-    },
-    geoRadius: 80000,
-  },
+    ...GOVERNORATES.map((name) => ({ "@type": "AdministrativeArea", name })),
+  ],
   openingHoursSpecification: OPEN_24_7,
   openingHours: "Mo-Su 00:00-23:59",
   sameAs: [WHATSAPP_URL],
@@ -111,18 +79,18 @@ export const localBusinessSchema = {
     },
   ],
   knowsLanguage: ["ar"],
-  makesOffer: OFFERED_SERVICES.map((name) => ({
-    "@type": "Offer",
-    itemOffered: { "@type": "Service", name },
-    priceCurrency: "KWD",
-    availability: "https://schema.org/InStock",
-  })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "خدمات تسليك المجاري وعزل الأسطح في الكويت",
-    itemListElement: OFFERED_SERVICES.map((name) => ({
+    name: "خدمات دار الصيانة الكويتية",
+    itemListElement: coreServices.map((service) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Service", name, areaServed: { "@type": "Country", name: "الكويت" } },
+      itemOffered: {
+        "@type": "Service",
+        name: service.anchor,
+        description: service.description,
+        url: `${SITE_URL}${service.href}`,
+        areaServed: { "@type": "Country", name: "الكويت" },
+      },
     })),
   },
 };

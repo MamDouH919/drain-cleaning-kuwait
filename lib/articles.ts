@@ -84,28 +84,9 @@ export type ArticleSummary = Pick<
 
 // مقالات لها صفحاتها الخاصة (تصميم مستقل) تُعرض في قائمة المقالات فقط،
 // ولا تمر عبر مسار [slug] لأن لها ملف page.tsx خاص بها.
-export const customArticlePages: ArticleSummary[] = [
-  {
-    slug: "drain-cleaning-in-kuwait",
-    title: "تسليك المجاري في الكويت: الدليل الكامل وخدمة 24 ساعة",
-    excerpt:
-      "دليل شامل لتسليك المجاري في الكويت: العلامات والأسباب وطرق الفتح والأسعار ونصائح الوقاية، مع خدمة فني 24 ساعة بدون تكسير.",
-    category: "تسليك المجاري",
-    featuredImage: "/تسليك-مجاري-الكويت.webp",
-    datePublished: "2026-07-16",
-    readingMinutes: 12,
-  },
-  {
-    slug: "drain-cleaning-kuwait",
-    title: "تسليك مجاري الكويت: الدليل الشامل وخدمة 24 ساعة",
-    excerpt:
-      "كل ما تحتاجه عن تسليك مجاري الكويت: العلامات والأسباب وطرق التسليك والأسعار ونصائح الوقاية بدون تكسير.",
-    category: "تسليك المجاري",
-    featuredImage: "/تسليك-مجاري-الكويت.webp",
-    datePublished: "2026-07-15",
-    readingMinutes: 11,
-  },
-];
+// (كان فيها مقالا drain-cleaning-kuwait وdrain-cleaning-in-kuwait، ودُمجا في
+// صفحة /drain-cleaning-kuwait مع تحويل 301 — راجع next.config.ts.)
+export const customArticlePages: ArticleSummary[] = [];
 
 /** كل المقالات — مقالات المحتوى بالإضافة إلى الصفحات ذات التصميم المستقل. */
 export function getArticleSummaries(): ArticleSummary[] {

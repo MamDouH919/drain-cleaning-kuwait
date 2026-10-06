@@ -43,17 +43,15 @@ export default function Hero() {
                         id="hero-heading"
                         className="mt-6 text-4xl font-extrabold leading-[1.2] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
                     >
-                        تسليك مجاري الكويت{" "}
+                        دار الصيانة الكويتية —{" "}
                         <span className="bg-gradient-to-l from-sky-600 to-emerald-600 bg-clip-text text-transparent">
-                            وعزل أسطح الكويت
+                            خدمات الصيانة المنزلية في جميع مناطق الكويت
                         </span>
                     </h1>
 
                     <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-                        <strong className="font-bold text-slate-800">دار الصيانة الكويتية</strong>{" "}
-                        تقدّم خدمة تسليك مجاري الكويت وعزل الأسطح المائي والحراري بفريق فني
-                        متخصص وأحدث الأجهزة، مع سرعة استجابة وخدمة متوفرة على مدار الساعة في
-                        جميع مناطق الكويت.
+                        فريق فني متخصص لتسليك المجاري وعزل الأسطح وتركيب مكائن السراديب
+                        والمناهيل وغسيل خزانات المياه، نصل إليك في أي وقت ليلًا أو نهارًا.
                     </p>
 
                     <div className="mt-6 flex w-full max-w-xl flex-wrap items-center gap-x-2 gap-y-2 text-sm">
@@ -137,8 +135,7 @@ export default function Hero() {
                             width={720}
                             height={720}
                             preload
-                            fetchPriority="high"
-                            sizes="(max-width: 1024px) 90vw, 50vw"
+                            sizes="(max-width: 1023px) calc(100vw - 48px), (max-width: 1280px) calc(50vw - 64px), 576px"
                             className="h-full w-full object-cover"
                         />
                     </div>

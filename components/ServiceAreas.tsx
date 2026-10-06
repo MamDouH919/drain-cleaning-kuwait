@@ -4,13 +4,49 @@ const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
 
+// الأوصاف مأخوذة من الحقائق الموثقة في `lib/areas.ts` (حقل `character`) —
+// وصف مختلف لكل منطقة بدل جملة مكررة.
 const areas = [
-  { name: "حولي", slug: "hawalli" },
-  { name: "السالمية", slug: "salmiya" },
-  { name: "الفروانية", slug: "farwaniya" },
-  { name: "الجهراء", slug: "jahra" },
-  { name: "الأحمدي", slug: "ahmadi" },
-  { name: "مبارك الكبير", slug: "mubarak-kabeer" },
+  {
+    name: "العاصمة",
+    slug: "asima",
+    desc: "تضم أقدم أحياء الكويت عمرانًا، وشبكات الصرف في مبانيها القديمة تحتاج إلى تشخيص دقيق.",
+  },
+  {
+    name: "حولي",
+    slug: "hawalli",
+    desc: "الأعلى كثافة سكانية بين المحافظات، وأغلب مبانيها عمارات بشبكات صرف مشتركة.",
+  },
+  {
+    name: "السالمية",
+    slug: "salmiya",
+    desc: "مجمعات سكنية وتجارية متلاصقة على امتداد شارع الخليج العربي.",
+  },
+  {
+    name: "الفروانية",
+    slug: "farwaniya",
+    desc: "المحافظة الأكثر سكانًا، وتتفاوت فيها أعمار المباني وأنظمة الصرف من حي لآخر.",
+  },
+  {
+    name: "الأحمدي",
+    slug: "ahmadi",
+    desc: "مساحة واسعة تجمع بين أحياء سكنية قديمة ومدن ساحلية حديثة نسبيًا.",
+  },
+  {
+    name: "الفحيحيل",
+    slug: "fahaheel",
+    desc: "سوق ساحلي عريق إلى جانب مجمعات تجارية حديثة مثل مجمع الكوت.",
+  },
+  {
+    name: "الجهراء",
+    slug: "jahra",
+    desc: "أكبر المحافظات مساحة، وتكثر فيها الفلل الواسعة ذات خطوط الصرف الداخلية الطويلة.",
+  },
+  {
+    name: "مبارك الكبير",
+    slug: "mubarak-kabeer",
+    desc: "أحدث محافظات الكويت، وأغلب أحيائها سكنية عائلية حديثة البناء.",
+  },
 ];
 
 export default function ServiceAreas() {
@@ -48,7 +84,7 @@ export default function ServiceAreas() {
           </p>
         </div>
 
-        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {areas.map((area) => (
             <li
               key={area.slug}
@@ -74,48 +110,41 @@ export default function ServiceAreas() {
                 <div className="flex flex-col gap-1">
                   <h3 className="text-lg font-bold text-slate-900 transition-colors group-hover:text-sky-700">
                     {area.name}
-                    <span className="sr-only">
-                      {" "}
-                      — تسليك مجاري {area.name} وعزل أسطح {area.name}
-                    </span>
                   </h3>
                   <p className="text-sm leading-relaxed text-slate-600">
-                    خدمات تسليك مجاري الكويت وعزل الأسطح في {area.name} بسرعة
-                    واستجابة فورية.
+                    {area.desc}
                   </p>
                 </div>
               </div>
 
-              <div className="mt-auto grid grid-cols-2 gap-2">
+              <div className="mt-auto grid grid-cols-1 gap-2">
                 <Link
                   href={`/drain-cleaning-${area.slug}`}
-                  aria-label={`تسليك مجاري ${area.name}`}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-sky-50 px-3 py-2.5 text-sm font-bold text-sky-700 transition-colors hover:bg-sky-600 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-xl text-center bg-sky-50 px-3 py-2.5 text-sm font-bold text-sky-700 transition-colors hover:bg-sky-600 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
                 >
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="h-4 w-4"
+                    className="h-4 w-4 shrink-0"
                   >
                     <path d="M7 2a1 1 0 0 0-1 1v6a6 6 0 0 0 5 5.917V20H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-5.083A6 6 0 0 0 18 9V3a1 1 0 0 0-1-1H7Zm1 2h8v2H8V4Zm0 4h8v1a4 4 0 0 1-8 0V8Z" />
                   </svg>
-                  تسليك مجاري
+                  تسليك مجاري {area.name}
                 </Link>
                 <Link
                   href={`/roof-waterproofing-${area.slug}`}
-                  aria-label={`عزل أسطح ${area.name}`}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-50 px-3 py-2.5 text-sm font-bold text-emerald-700 transition-colors hover:bg-emerald-600 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-xl text-center bg-emerald-50 px-3 py-2.5 text-sm font-bold text-emerald-700 transition-colors hover:bg-emerald-600 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
                 >
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="h-4 w-4"
+                    className="h-4 w-4 shrink-0"
                   >
                     <path d="M12 2 2 9h2v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9h2L12 2Zm0 6.5 5 3.75V19h-3v-4a2 2 0 0 0-4 0v4H7v-6.75l5-3.75Z" />
                   </svg>
-                  عزل أسطح
+                  عزل أسطح {area.name}
                 </Link>
               </div>
             </li>

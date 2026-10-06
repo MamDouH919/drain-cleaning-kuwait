@@ -1,112 +1,58 @@
 import { SITE_URL } from "@/lib/areas";
+import {
+  HOME_DESCRIPTION,
+  HOME_LAST_MODIFIED,
+  HOME_TITLE,
+  OG_IMAGE,
+  homeFaqs,
+} from "@/lib/home";
 
-const serviceAreas = [
-  "حولي",
-  "السالمية",
-  "الجهراء",
-  "الفروانية",
-  "الأحمدي",
-];
-
-const services = [
-  {
-    name: "تسليك مجاري الكويت",
-    description:
-      "تسليك المجاري وفتح الانسدادات بأحدث الأجهزة وسرعة استجابة على مدار 24 ساعة.",
-  },
-  {
-    name: "شفط بيارات الكويت",
-    description:
-      "شفط وتنظيف البيارات والمجاري بسيارات حديثة وفريق متخصص في جميع مناطق الكويت.",
-  },
-  {
-    name: "عزل أسطح الكويت",
-    description:
-      "عزل الأسطح المائي والحراري لحماية المباني من تسرب المياه والحرارة مع ضمان على الخدمة.",
-  },
-];
-
-const faqs = [
-  {
-    question: "كم سعر تسليك المجاري في الكويت؟",
-    answer:
-      "يختلف السعر حسب حالة الانسداد ومكانه، لكن نوفر أسعار مناسبة وتقييم مجاني قبل بدء العمل.",
-  },
-  {
-    question: "هل يتم تسليك المجاري بدون تكسير؟",
-    answer:
-      "نعم، نستخدم أحدث الأجهزة التي تسمح بتسليك المجاري بدون أي تكسير أو إتلاف للمكان.",
-  },
-  {
-    question: "هل تقدمون خدمة 24 ساعة؟",
-    answer:
-      "نعم، نوفر خدمة تسليك المجاري وعزل الأسطح على مدار 24 ساعة في جميع مناطق الكويت.",
-  },
-  {
-    question: "ما أفضل نوع عزل للأسطح؟",
-    answer:
-      "العزل المائي والحراري والفوم من أفضل أنواع العزل لحماية الأسطح من التسربات والحرارة.",
-  },
-  {
-    question: "هل تغطون جميع مناطق الكويت؟",
-    answer:
-      "نعم، نغطي جميع مناطق الكويت مثل حولي، السالمية، الفروانية، الجهراء، الأحمدي، ومبارك الكبير.",
-  },
-  {
-    question: "كم يستغرق وقت تسليك المجاري؟",
-    answer:
-      "غالبًا يتم حل المشكلة خلال 30 إلى 60 دقيقة حسب حالة الانسداد ومكانه.",
-  },
-  {
-    question: "هل خدماتكم تشمل المنازل والشركات؟",
-    answer:
-      "نعم، نقدم خدمات تسليك المجاري وعزل الأسطح للمنازل، الفلل، والشركات في جميع أنحاء الكويت.",
-  },
-  {
-    question: "هل يوجد ضمان على خدمة العزل؟",
-    answer:
-      "نعم، نوفر ضمان على أعمال العزل المائي والحراري لضمان حماية طويلة الأمد للأسطح.",
-  },
-  {
-    question: "هل يمكن الحجز عبر واتساب؟",
-    answer:
-      "نعم، يمكن التواصل عبر واتساب لحجز الخدمة أو طلب معاينة سريعة.",
-  },
-  {
-    question: "هل الأسعار ثابتة أم حسب الحالة؟",
-    answer:
-      "الأسعار تختلف حسب المشكلة، لكن يتم تقديم تقييم وسعر واضح قبل بدء العمل بدون أي رسوم خفية.",
-  },
-  {
-    question: "هل تعملون في الحالات الطارئة؟",
-    answer:
-      "نعم، نوفر خدمة طوارئ 24 ساعة للتعامل مع انسداد المجاري أو مشاكل العزل بشكل فوري.",
-  },
-];
-
+/**
+ * JSON-LD خاص بالصفحة الرئيسية فقط.
+ * نودا `#business` (lib/schema.ts) و`#website` (app/layout.tsx) يُصدَّران مرة
+ * واحدة من الـ layout على كل الصفحات — لا تُعِد تعريفهما هنا، فوجود نفس الـ
+ * `@id` بقيم مختلفة في `<script>` آخر يسبب تعارضًا عند دمج الـ graph.
+ * FAQPage مبني من `homeFaqs` نفسها التي يعرضها `Faq`، فيطابق النص الظاهر حرفيًا.
+ */
 export default function StructuredData() {
-  // The `#business` and `#website` nodes are the canonical, single source
-  // of truth defined once in `app/layout.tsx` (rendered on every page). Do
-  // not redeclare them here — a second `<script>` on the same page with the
-  // same `@id` but different `name`/`telephone` values creates an
-  // unresolvable conflict for search engines merging the graph.
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      ...services.map((service) => ({
-        "@type": "Service",
-        name: service.name,
-        description: service.description,
-        serviceType: service.name,
-        areaServed: serviceAreas.map((name) => ({
-          "@type": "City",
-          name,
-        })),
-        provider: { "@id": `${SITE_URL}/#business` },
-      })),
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/#webpage`,
+        url: SITE_URL,
+        name: HOME_TITLE,
+        description: HOME_DESCRIPTION,
+        inLanguage: "ar",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: { "@id": `${SITE_URL}/#business` },
+        datePublished: "2020-12-29T13:47:49+00:00",
+        dateModified: HOME_LAST_MODIFIED,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: encodeURI(`${SITE_URL}${OG_IMAGE.url}`),
+          width: OG_IMAGE.width,
+          height: OG_IMAGE.height,
+        },
+        breadcrumb: { "@id": `${SITE_URL}/#breadcrumb` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE_URL}/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "الرئيسية",
+            item: SITE_URL,
+          },
+        ],
+      },
       {
         "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
+        "@id": `${SITE_URL}/#faq`,
+        mainEntity: homeFaqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
           acceptedAnswer: {
@@ -121,7 +67,9 @@ export default function StructuredData() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }

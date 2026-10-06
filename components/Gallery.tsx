@@ -12,6 +12,9 @@ function getImages(folder: string) {
   }
   return files.sort().map((file) => ({
     src: `/${folder}/${file}`,
+    // TODO: الـ alt المتولد من اسم الملف مش وصفي (وبعض الأسماء مش مطابقة
+    // لمحتوى الصورة، مثلًا تسليك-مجاري-حولي.webp صورة إعلانية). المفروض
+    // يبقى فيه alt مكتوب يدويًا لكل صورة بدل الاعتماد على اسم الملف.
     alt: file.replace(/\.(webp|avif|jpe?g|png)$/i, "").replace(/[-_]/g, " "),
   }));
 }
@@ -65,6 +68,7 @@ export default function Gallery({
                 src={image.src}
                 alt={image.alt}
                 fill
+                loading="lazy"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="object-cover transition duration-500 group-hover:scale-110"
               />

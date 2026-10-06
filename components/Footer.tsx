@@ -114,9 +114,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
-              دار الصيانة الكويتية تقدم خدمات تسليك مجاري الكويت وعزل أسطح
-              الكويت في جميع المناطق على مدار 24 ساعة بأحدث المعدات وأسعار
-              مناسبة.
+              دار الصيانة الكويتية لخدمات تسليك المجاري والعزل والصيانة المنزلية
+              في جميع مناطق الكويت على مدار 24 ساعة.
             </p>
           </div>
 
@@ -213,7 +212,6 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 py-6 text-center text-sm text-slate-500 sm:px-8 lg:flex-row lg:justify-between lg:text-right">
           <p>
             © {new Date().getFullYear()} {BUSINESS_NAME} — جميع الحقوق محفوظة.
-            خدمات تسليك مجاري الكويت وعزل أسطح الكويت.
           </p>
           <nav aria-label="روابط قانونية">
             <ul className="flex items-center gap-4">

@@ -57,11 +57,21 @@ const slugRedirects: { from: string; to: string }[] = [
 // /articles/[slug] الآن لمقالات نظام إدارة المحتوى. نُعيد توجيه روابط
 // المقالات اليدوية القديمة (بما فيها الصفحتان ذواتا التصميم الخاص) إلى
 // /blogs بشكل دائم حتى لا تُفقد من الفهرس ولا تصطدم بمسار الـ CMS.
-const legacyBlogSlugs: string[] = [
-  ...(articlesJson as { slug: string }[]).map((article) => article.slug),
-  "drain-cleaning-kuwait",
-  "drain-cleaning-in-kuwait",
-];
+const legacyBlogSlugs: string[] = (articlesJson as { slug: string }[]).map(
+  (article) => article.slug,
+);
+
+// مقالا المدونة المستقلان عن تسليك مجاري الكويت كانا ينافسان صفحة الخدمة على
+// نفس الكلمة، فدُمج محتواهما فيها. كل مساراتهما القديمة (/blogs و/articles
+// و/blog) تذهب إلى الصفحة مباشرة بخطوة واحدة بدل سلسلة تحويلات.
+const mergedDrainArticleSlugs = ["drain-cleaning-kuwait", "drain-cleaning-in-kuwait"];
+const mergedDrainArticleRedirects = mergedDrainArticleSlugs.flatMap((slug) =>
+  ["/blogs", "/articles", "/blog"].map((base) => ({
+    source: `${base}/${slug}`,
+    destination: "/drain-cleaning-kuwait",
+    permanent: true,
+  })),
+);
 
 // Tailwind is the only stylesheet on the site (small, atomic CSS) — inlining
 // it removes the render-blocking <link rel="stylesheet"> request that was
@@ -89,6 +99,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...areaPageRedirects,
+      // قبل قاعدتي /articles/<slug> و/blog/:slug العامتين حتى تطابق أولًا.
+      ...mergedDrainArticleRedirects,
       ...slugRedirects.flatMap(({ from, to }) => [
         { source: from, destination: to, permanent: true },
         { source: encodeURI(from), destination: to, permanent: true },

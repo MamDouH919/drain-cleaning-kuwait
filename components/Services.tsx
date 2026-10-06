@@ -1,108 +1,21 @@
 import Link from "next/link";
+import { coreServices, priceLinks } from "@/lib/services";
 
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
 
-type IconProps = { className?: string };
-
-const primaryServices = [
-  {
-    title: "تسليك مجاري الكويت",
-    description:
-      "نعالج انسداد المجاري وتسليك البالوعات وخطوط الصرف في المطابخ والحمامات بأحدث الأجهزة، مع فحص دقيق لمصدر الانسداد قبل اختيار طريقة الحل المناسبة.",
-    href: "/drain-cleaning-kuwait",
-    cta: "خدمة تسليك المجاري",
-    theme: "sky" as const,
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M7 2a1 1 0 0 0-1 1v6a6 6 0 0 0 5 5.917V20H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-5.083A6 6 0 0 0 18 9V3a1 1 0 0 0-1-1H7Zm1 2h8v2H8V4Zm0 4h8v1a4 4 0 0 1-8 0V8Z" />
-      </svg>
-    ),
-  },
-  {
-    title: "عزل أسطح الكويت",
-    description:
-      "نوفر العزل المائي والحراري لحماية الأسطح من تسرب المياه وارتفاع الحرارة، ويشمل ذلك عزل أسطح المنازل والفلل والمباني بمواد معتمدة وفريق متخصص.",
-    href: "/roof-waterproofing-kuwait",
-    cta: "خدمة عزل الأسطح",
-    theme: "emerald" as const,
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M12 2 2 9h2v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9h2L12 2Zm0 6.5 5 3.75V19h-3v-4a2 2 0 0 0-4 0v4H7v-6.75l5-3.75Z" />
-      </svg>
-    ),
-  },
-];
-
-const secondaryServices = [
-  {
-    title: "تسليك مجاري المطابخ والحمامات",
-    description:
-      "معالجة انسداد الأحواض والمطابخ والحمامات بسرعة وكفاءة عالية.",
-    href: "/kitchen-bathroom-drain-cleaning-kuwait",
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M5 2a1 1 0 0 0-1 1v5a4 4 0 0 0 3 3.874V21a1 1 0 1 0 2 0v-9.126A4 4 0 0 0 12 8V3a1 1 0 1 0-2 0v4H9V3a1 1 0 0 0-2 0v4H6V3a1 1 0 0 0-1-1Zm13 0a3 3 0 0 0-3 3v6h-1a1 1 0 0 0-1 1v3a3 3 0 0 0 3 3h.5a1 1 0 0 0 1-1v-2h.5a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Z" />
-      </svg>
-    ),
-  },
-  {
-    title: "العزل المائي والحراري",
-    description:
-      "عزل احترافي للأسطح والمباني ضد الحرارة وتسرب المياه لضمان حماية طويلة الأمد.",
-    href: "/thermal-waterproofing-kuwait",
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M12 2c-.5 0-.96.26-1.22.69C9.3 5.06 6 10.73 6 14a6 6 0 0 0 12 0c0-3.27-3.3-8.94-4.78-11.31A1.43 1.43 0 0 0 12 2Zm0 16a4 4 0 0 1-4-4c0-.55.45-1 1-1s1 .45 1 1a2 2 0 0 0 2 2c.55 0 1 .45 1 1s-.45 1-1 1Z" />
-      </svg>
-    ),
-  },
-  {
-    title: "تركيب مكينة سرداب",
-    description:
-      "تركيب وصيانة مكائن سحب المياه للسراديب لحمايتها من الغرق وتجمع المياه بكفاءة عالية.",
-    href: "/basement-pump-kuwait",
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M4 21a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h4V8a1 1 0 0 1 1-1h2V5h-1a1 1 0 1 1 0-2h6a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1v2h1a1 1 0 0 1 1 1v3h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4Zm6-14v2h2V7h-2Zm-5 9v3h14v-2h-2a1 1 0 0 1-1-1v-3h-8v3a1 1 0 0 1-1 1H5Z" />
-      </svg>
-    ),
-  },
-  {
-    title: "تركيب منهول الكويت",
-    description:
-      "توريد وتركيب أغطية وفتحات المناهل بمختلف المقاسات لشبكات الصرف الصحي بإتقان وأمان.",
-    href: "/manhole-installation-kuwait",
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 0 1 7.75 6H4.25A8 8 0 0 1 12 4Zm-7.75 8h15.5A8 8 0 0 1 12 20a8 8 0 0 1-7.75-8Z" />
-      </svg>
-    ),
-  },
-  {
-    title: "غسيل تانكي الكويت",
-    description:
-      "تنظيف وتعقيم خزانات المياه من الرواسب والطحالب لضمان مياه نظيفة وصحية لمنزلك.",
-    href: "/water-tank-cleaning-kuwait",
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M5 3h14a1 1 0 0 1 1 1v15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a1 1 0 0 1 1-1Zm1 2v3h12V5H6Zm12 5H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9Zm-6 2c1.7 1.9 3 3.5 3 5a3 3 0 0 1-6 0c0-1.5 1.3-3.1 3-5Z" />
-      </svg>
-    ),
-  },
-  {
-    title: "عزل أسطح جيتاروف",
-    description:
-      "عزل الأسطح بمادة الجيتاروف القوية المقاومة للماء والحرارة لحماية طويلة الأمد للمباني.",
-    href: "/gitaroof-insulation-kuwait",
-    Icon: ({ className }: IconProps) => (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M12 2 2 9h2v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9h2L12 2Zm-5 9h10a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2Zm0 4h10a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2Z" />
-      </svg>
-    ),
-  },
-];
+// أيقونة لكل خدمة، بمفتاح `id` من `coreServices`.
+const serviceIcons: Record<(typeof coreServices)[number]["id"], string> = {
+  "drain": "M7 2a1 1 0 0 0-1 1v6a6 6 0 0 0 5 5.917V20H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-5.083A6 6 0 0 0 18 9V3a1 1 0 0 0-1-1H7Zm1 2h8v2H8V4Zm0 4h8v1a4 4 0 0 1-8 0V8Z",
+  "roof": "M12 2 2 9h2v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9h2L12 2Zm0 6.5 5 3.75V19h-3v-4a2 2 0 0 0-4 0v4H7v-6.75l5-3.75Z",
+  "kitchen-bathroom": "M5 2a1 1 0 0 0-1 1v5a4 4 0 0 0 3 3.874V21a1 1 0 1 0 2 0v-9.126A4 4 0 0 0 12 8V3a1 1 0 1 0-2 0v4H9V3a1 1 0 0 0-2 0v4H6V3a1 1 0 0 0-1-1Zm13 0a3 3 0 0 0-3 3v6h-1a1 1 0 0 0-1 1v3a3 3 0 0 0 3 3h.5a1 1 0 0 0 1-1v-2h.5a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Z",
+  "thermal": "M12 2c-.5 0-.96.26-1.22.69C9.3 5.06 6 10.73 6 14a6 6 0 0 0 12 0c0-3.27-3.3-8.94-4.78-11.31A1.43 1.43 0 0 0 12 2Zm0 16a4 4 0 0 1-4-4c0-.55.45-1 1-1s1 .45 1 1a2 2 0 0 0 2 2c.55 0 1 .45 1 1s-.45 1-1 1Z",
+  "basement": "M4 21a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h4V8a1 1 0 0 1 1-1h2V5h-1a1 1 0 1 1 0-2h6a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1v2h1a1 1 0 0 1 1 1v3h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4Zm6-14v2h2V7h-2Zm-5 9v3h14v-2h-2a1 1 0 0 1-1-1v-3h-8v3a1 1 0 0 1-1 1H5Z",
+  "manhole": "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 0 1 7.75 6H4.25A8 8 0 0 1 12 4Zm-7.75 8h15.5A8 8 0 0 1 12 20a8 8 0 0 1-7.75-8Z",
+  "tank": "M5 3h14a1 1 0 0 1 1 1v15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a1 1 0 0 1 1-1Zm1 2v3h12V5H6Zm12 5H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9Zm-6 2c1.7 1.9 3 3.5 3 5a3 3 0 0 1-6 0c0-1.5 1.3-3.1 3-5Z",
+  "gitaroof": "M12 2 2 9h2v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9h2L12 2Zm-5 9h10a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2Zm0 4h10a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2Z",
+};
 
 export default function Services() {
   return (
@@ -134,49 +47,46 @@ export default function Services() {
             id="services-heading"
             className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
           >
-            خدمات تسليك مجاري الكويت وعزل الأسطح
+            خدماتنا
           </h2>
 
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            نوفر خدمات تسليك المجاري وعزل الأسطح في جميع مناطق الكويت باستخدام
-            أحدث المعدات ومواد العزل عالية الجودة مع سرعة استجابة وخدمة احترافية
-            على مدار الساعة.
+            ثماني خدمات صيانة منزلية ينفذها فريق متخصص في جميع مناطق الكويت،
+            اختر الخدمة التي تحتاجها لمعرفة تفاصيلها.
           </p>
         </div>
 
-        <p className="mx-auto mt-8 max-w-4xl text-center text-base font-medium text-slate-700">
-          نقدم خدمات تسليك مجاري الكويت وعزل أسطح الكويت بأعلى جودة وبضمان كامل
-          في جميع المناطق.
-        </p>
-
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
-          {primaryServices.map((service) => (
-            <Link
+        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {coreServices.map((service) => (
+            <li
               key={service.href}
-              href={service.href}
-              aria-label={`خدمة ${service.title}`}
-              className="group relative flex flex-col items-start gap-5 overflow-hidden rounded-3xl border border-slate-100 bg-white p-7 shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-300/50 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300 sm:p-8"
+              className="group relative flex h-full flex-col items-start gap-4 overflow-hidden rounded-3xl border border-slate-100 bg-white p-6 shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-300/50"
             >
               <span
                 aria-hidden="true"
                 className="absolute -left-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-tr from-sky-100 to-emerald-100 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
               />
 
-              <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-bl from-sky-600 to-emerald-600 text-white shadow-lg shadow-sky-600/25 transition-transform duration-300 group-hover:scale-105">
-                <service.Icon className="h-8 w-8" />
+              <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-bl from-sky-600 to-emerald-600 text-white shadow-lg shadow-sky-600/25 transition-transform duration-300 group-hover:scale-105">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7">
+                  <path d={serviceIcons[service.id]} />
+                </svg>
               </span>
 
               <div className="relative flex flex-col gap-2">
-                <h3 className="text-xl font-bold text-slate-900 transition-colors group-hover:text-sky-700">
+                <h3 className="text-lg font-bold text-slate-900 transition-colors group-hover:text-sky-700">
                   {service.title}
                 </h3>
-                <p className="text-base leading-relaxed text-slate-600">
+                <p className="text-sm leading-relaxed text-slate-600">
                   {service.description}
                 </p>
               </div>
 
-              <span className="relative mt-auto inline-flex items-center gap-2 rounded-full bg-slate-50 px-5 py-2.5 text-sm font-bold text-sky-700 transition-colors group-hover:bg-sky-600 group-hover:text-white">
-                {service.cta}
+              <Link
+                href={service.href}
+                className="relative mt-auto inline-flex items-center gap-2 rounded-full bg-slate-50 px-4 py-2.5 text-sm font-bold text-sky-700 transition-colors hover:bg-sky-600 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
+              >
+                {service.anchor}
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 24 24"
@@ -185,41 +95,30 @@ export default function Services() {
                   strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1"
+                  className="h-4 w-4 shrink-0"
                 >
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
-              </span>
-            </Link>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <h3 className="mt-16 text-center text-xl font-bold text-slate-900 sm:text-2xl">
-          خدمات صيانة أخرى نقدمها في الكويت
-        </h3>
-
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {secondaryServices.map((service) => (
-            <Link
-              key={service.href}
-              href={service.href}
-              aria-label={`خدمة ${service.title}`}
-              className="group flex items-start gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-sky-700 transition-colors group-hover:bg-sky-50">
-                <service.Icon className="h-5 w-5" />
-              </span>
-              <span className="flex flex-col gap-1">
-                <span className="text-base font-bold text-slate-900 transition-colors group-hover:text-sky-700">
-                  {service.title}
-                </span>
-                <span className="text-sm leading-relaxed text-slate-600">
-                  {service.description}
-                </span>
-              </span>
-            </Link>
+        <p className="mt-10 text-center text-base text-slate-700">
+          للاطلاع على الأسعار التقريبية:{" "}
+          {priceLinks.map((link, index) => (
+            <span key={link.href}>
+              {index > 0 && " و"}
+              <Link
+                href={link.href}
+                className="font-bold text-sky-700 underline decoration-sky-300 underline-offset-4 transition-colors hover:text-sky-900"
+              >
+                {link.anchor}
+              </Link>
+            </span>
           ))}
-        </div>
+          .
+        </p>
 
         <div className="mt-14 overflow-hidden rounded-3xl bg-gradient-to-bl from-sky-700 via-sky-800 to-emerald-700 p-8 shadow-xl sm:p-12">
           <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:text-right">

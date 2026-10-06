@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, BUSINESS_NAME } from "@/lib/areas";
+import { HOME_TITLE, HOME_DESCRIPTION, OG_IMAGE } from "@/lib/home";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
@@ -18,22 +19,10 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية",
+    default: HOME_TITLE,
     template: "%s | دار الصيانة الكويتية",
   },
-  description:
-    "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري بسرعة استجابة وضمان على الخدمة في جميع المناطق. اتصل الآن أو راسلنا واتساب.",
-  keywords: [
-    "تسليك مجاري الكويت",
-    "عزل أسطح الكويت",
-    "شركة تسليك مجاري الكويت",
-    "شركة عزل أسطح الكويت",
-    "دار الصيانة الكويتية",
-    "شفط بيارات الكويت",
-    "تسليك مجاري بدون تكسير",
-    "عزل مائي وحراري للأسطح",
-    "خدمات الصيانة في الكويت",
-  ],
+  description: HOME_DESCRIPTION,
   applicationName: "دار الصيانة الكويتية",
   authors: [{ name: "دار الصيانة الكويتية", url: SITE_URL }],
   creator: "دار الصيانة الكويتية",
@@ -66,24 +55,15 @@ export const metadata: Metadata = {
     locale: "ar_KW",
     url: SITE_URL,
     siteName: "دار الصيانة الكويتية",
-    title: "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية",
-    description:
-      "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري بسرعة استجابة وضمان على الخدمة في جميع المناطق.",
-    images: [
-      {
-        url: "/تسليك-مجاري-الكويت.webp",
-        width: 1639,
-        height: 720,
-        alt: "دار الصيانة الكويتية — خدمات تسليك المجاري وعزل الأسطح في الكويت",
-      },
-    ],
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية",
-    description:
-      "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري في جميع مناطق الكويت على مدار 24 ساعة.",
-    images: ["/تسليك-مجاري-الكويت.webp"],
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [OG_IMAGE.url],
   },
 
   robots: {
@@ -105,76 +85,32 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// تاريخ آخر تحديث فعلي للصفحة الرئيسية — يُحدَّث يدويًا عند تعديل المحتوى،
-// حتى لا يُبلِّغ جوجل بتعديلٍ وهمي في كل عملية build.
-const HOME_LAST_MODIFIED = "2026-09-15T00:00:00+00:00";
-
-const HOME_TITLE = "تسليك مجاري الكويت وعزل أسطح الكويت | دار الصيانة الكويتية";
-const HOME_DESCRIPTION =
-  "دار الصيانة الكويتية تقدم خدمة تسليك مجاري الكويت وعزل أسطح الكويت المائي والحراري بسرعة استجابة وضمان على الخدمة في جميع المناطق.";
-
 // Structured data
-// النود `#business` (LocalBusiness/Plumber) هو مصدر بيانات الشركة الوحيد،
-// ويُصدَّر مرة واحدة من `LocalBusinessSchema` في هذا الملف. لا تُنشئ نود
-// Organization منفصلاً هنا — سيتعارض مع `#business` بنفس الاسم/الهاتف.
+// النود `#business` (LocalBusiness) هو مصدر بيانات الشركة الوحيد، ويُصدَّر مرة
+// واحدة من `LocalBusinessSchema` في هذا الملف. لا تُنشئ نود Organization
+// منفصلاً هنا — سيتعارض مع `#business` بنفس الاسم/الهاتف.
+// نود `#website` يبقى هنا لأن كل الصفحات تشير إليه عبر `isPartOf`. أما
+// WebPage/BreadcrumbList الخاصة بالرئيسية فمكانها `components/StructuredData.tsx`
+// حتى لا تظهر في كل صفحات الموقع.
 const structuredData = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": SITE_URL + "/#website",
-      url: SITE_URL,
-      name: BUSINESS_NAME,
-      description: HOME_DESCRIPTION,
-      inLanguage: "ar",
-      publisher: {
-        "@id": SITE_URL + "/#business"
-      },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: SITE_URL + "/?s={search_term_string}",
-        },
-        "query-input": "required name=search_term_string",
-      },
+  "@type": "WebSite",
+  "@id": SITE_URL + "/#website",
+  url: SITE_URL,
+  name: BUSINESS_NAME,
+  description: HOME_DESCRIPTION,
+  inLanguage: "ar",
+  publisher: {
+    "@id": SITE_URL + "/#business"
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: SITE_URL + "/?s={search_term_string}",
     },
-    {
-      "@type": "WebPage",
-      "@id": SITE_URL + "/#webpage",
-      url: SITE_URL,
-      name: HOME_TITLE,
-      isPartOf: {
-        "@id": SITE_URL + "/#website"
-      },
-      about: {
-        "@id": SITE_URL + "/#business"
-      },
-      datePublished: "2020-12-29T13:47:49+00:00",
-      dateModified: HOME_LAST_MODIFIED,
-      description: HOME_DESCRIPTION,
-      inLanguage: "ar",
-      primaryImageOfPage: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/تسليك-مجاري-الكويت.webp`,
-      },
-      breadcrumb: {
-        "@id": SITE_URL + "/#breadcrumb"
-      },
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": SITE_URL + "/#breadcrumb",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: HOME_TITLE,
-          item: SITE_URL,
-        },
-      ],
-    },
-  ],
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export default function RootLayout({

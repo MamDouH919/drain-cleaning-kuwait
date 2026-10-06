@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { articles } from "@/lib/articles";
+import { articleBySlug, getArticleSummaries } from "@/lib/articles";
 
 function formatDate(iso: string) {
   return new Intl.DateTimeFormat("ar-KW", {
@@ -11,7 +11,9 @@ function formatDate(iso: string) {
 }
 
 export default function ArticlesSection() {
-  const latest = articles.slice(0, 3);
+  // getArticleSummaries() تضم مقالات المحتوى والصفحات المستقلة مرتبة تنازليًا
+  // حسب تاريخ النشر — ملف JSON نفسه غير مرتب.
+  const latest = getArticleSummaries().slice(0, 3);
   if (latest.length === 0) return null;
 
   return (
@@ -59,8 +61,9 @@ export default function ArticlesSection() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={article.featuredImage}
-                    alt={article.featuredAlt}
+                    alt={articleBySlug.get(article.slug)?.featuredAlt ?? article.title}
                     fill
+                    loading="lazy"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
