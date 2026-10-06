@@ -10,7 +10,6 @@ const quickLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "خدماتنا", href: "/#services" },
   { label: "المناطق", href: "/areas" },
-  { label: "المقالات", href: "/articles" },
   { label: "المدونة", href: "/blogs" },
   { label: "من نحن", href: "/about-us" },
   { label: "تواصل معنا", href: "/contact-us" },

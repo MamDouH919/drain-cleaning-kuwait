@@ -23,7 +23,6 @@ const services = [
 
 const navLinks = [
     { label: "المناطق", href: "/areas" },
-    { label: "المقالات", href: "/articles" },
     { label: "المدونة", href: "/blogs" },
     { label: "من نحن", href: "/about-us" },
     { label: "اتصل بنا", href: "/contact-us" },
@@ -183,10 +182,12 @@ export default function Navbar() {
                     </button>
                 </nav>
 
+                {/* تُرسم القائمة فقط عند فتحها حتى لا تتكرر روابطها في HTML الصفحة؛
+                    أنيميشن الفتح عبر @starting-style (متغيّر starting: في Tailwind). */}
+                {menuOpen && (
                 <div
                     id="mobile-menu"
-                    className={`overflow-y-auto border-t border-slate-100 bg-white transition-[max-height,opacity] duration-300 ease-in-out lg:hidden ${menuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
-                        }`}
+                    className="max-h-[80vh] overflow-y-auto border-t border-slate-100 bg-white opacity-100 transition-[max-height,opacity] duration-300 ease-in-out starting:max-h-0 starting:opacity-0 lg:hidden"
                 >
                     <ul className="flex flex-col gap-1 px-4 py-4">
                         <li className="px-4 pb-1 pt-2 text-xs font-bold text-slate-400">
@@ -253,6 +254,7 @@ export default function Navbar() {
                         </a>
                     </div>
                 </div>
+                )}
             </header>
         </>
     );

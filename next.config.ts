@@ -105,6 +105,9 @@ const nextConfig: NextConfig = {
         { source: from, destination: to, permanent: true },
         { source: encodeURI(from), destination: to, permanent: true },
       ]),
+      // صفحة فهرس /articles أُلغيت لصالح /blogs. مطابقة تامة للمسار فقط، فلا
+      // تلتقط /articles/<slug> (مقالات الـ CMS والتحويلات الخاصة أدناه).
+      { source: "/articles", destination: "/blogs", permanent: true },
       // روابط المقالات اليدوية القديمة على /articles/<slug> → /blogs/<slug>.
       ...legacyBlogSlugs.map((slug) => ({
         source: `/articles/${slug}`,
