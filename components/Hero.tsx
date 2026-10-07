@@ -133,7 +133,7 @@ export default function Hero() {
                     <div className="overflow-hidden rounded-[2rem] border border-white/60 bg-white shadow-2xl shadow-slate-300/50 ring-1 ring-slate-900/5">
                         <Image
                             src="/hero/تسليك-الكويت.webp"
-                            alt="فريق متخصص يقدم خدمة تسليك المجاري وعزل الأسطح في الكويت"
+                            alt="إعلان دار الصيانة الكويتية لخدمات تسليك المجاري وعزل الأسطح وكشف الخرير — 98890031"
                             width={720}
                             height={720}
                             preload
