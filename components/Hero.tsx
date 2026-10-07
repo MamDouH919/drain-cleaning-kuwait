@@ -41,10 +41,12 @@ export default function Hero() {
 
                     <h1
                         id="hero-heading"
-                        className="mt-6 text-4xl font-extrabold leading-[1.2] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+                        className="mt-6 text-balance text-4xl font-extrabold leading-[1.2] tracking-tight text-slate-900 sm:text-5xl xl:text-6xl"
                     >
-                        دار الصيانة الكويتية —{" "}
-                        <span className="bg-gradient-to-l from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+                        {/* الشرطة مخفية بصريًا فقط حتى يبقى نص الـ H1 مطابقًا للـ metadata والـ schema */}
+                        <span className="block">دار الصيانة الكويتية</span>
+                        <span className="sr-only">{" — "}</span>
+                        <span className="block bg-gradient-to-l from-sky-600 to-emerald-600 bg-clip-text text-transparent">
                             خدمات الصيانة المنزلية في جميع مناطق الكويت
                         </span>
                     </h1>
@@ -139,7 +141,9 @@ export default function Hero() {
                             className="h-full w-full object-cover"
                         />
                     </div>
-                    <div className="absolute bottom-5 right-5 flex items-center gap-3 rounded-2xl bg-white/90 px-4 py-3 shadow-lg backdrop-blur">
+                    {/* الصورة إعلان مليء بالنصوص (ورقم التليفون في أسفلها)، فالبادج خارج حدودها:
+                        تحتها على الموبايل والتابلت، وفوق زاويتها العليا اليسرى على الديسكتوب. */}
+                    <div className="mt-4 flex w-fit items-center gap-3 rounded-2xl bg-white/90 px-4 py-3 shadow-lg backdrop-blur lg:absolute lg:-left-6 lg:-top-10 lg:mt-0">
                         <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sky-700">
                             <svg
                                 aria-hidden="true"
