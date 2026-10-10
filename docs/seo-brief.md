@@ -175,8 +175,14 @@ farwaniya (الفروانية)، ahmadi (الأحمدي)، fahaheel (الفحي�
 - مفتوح: الصور عليها اسم "ابويوسف" بدل "دار الصيانة الكويتية" (مستنيين رد صاحب الشغل)،
   وصور معارض صفحات المناطق لسه الـ alt بتاعها من اسم الملف.
 
+**2026-10-10: خطوة 2 من خطة الـ SEO**
+- 4 مقالات اتشالت من `content/articles.json` (17 بقوا 13)، وكل واحد ليه 3 تحويلات بخطوة واحدة:
+  best-drain-cleaning-companies-kuwait → `/drain-cleaning-kuwait`، kitchen-drain-cleaning →
+  `/kitchen-bathroom-drain-cleaning-kuwait`، drain-cleaning-hawalli-guide → `/drain-cleaning-hawalli`،
+  drain-cleaning-salmiya-guide → `/drain-cleaning-salmiya`. (`mergedArticles` في `next.config.ts`)
+- الـ sitemap بقى 46 URL. سطور المقالات دي اتشالت من `llms.txt` و`llms-full.txt`.
+- أفكار مقال المطابخ متسجلة في `docs/removed-blog-posts.md` عشان خطوة 4.
+
 **الخطة الجاية (من المراجعة الشاملة 2026-10-10):**
-2. دمج 4 مقالات منافسة بـ 301: best-drain-cleaning-companies-kuwait وkitchen-drain-cleaning
-   وdrain-cleaning-hawalli-guide وdrain-cleaning-salmiya-guide.
 3–6. إعادة كتابة صفحات الخدمات والأسعار. 7. صفحات المناطق الـ 16 (تشابه 84% بين المناطق).
 8. السرعة وCore Web Vitals. 9. الـ sitemap وllms.txt والـ Local SEO.

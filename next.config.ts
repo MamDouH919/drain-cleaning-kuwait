@@ -61,16 +61,24 @@ const legacyBlogSlugs: string[] = (articlesJson as { slug: string }[]).map(
   (article) => article.slug,
 );
 
-// مقالا المدونة المستقلان عن تسليك مجاري الكويت كانا ينافسان صفحة الخدمة على
-// نفس الكلمة، فدُمج محتواهما فيها. كل مساراتهما القديمة (/blogs و/articles
-// و/blog) تذهب إلى الصفحة مباشرة بخطوة واحدة بدل سلسلة تحويلات.
-const mergedDrainArticleSlugs = ["drain-cleaning-kuwait", "drain-cleaning-in-kuwait"];
-const mergedDrainArticleRedirects = mergedDrainArticleSlugs.flatMap((slug) =>
-  ["/blogs", "/articles", "/blog"].map((base) => ({
-    source: `${base}/${slug}`,
-    destination: "/drain-cleaning-kuwait",
-    permanent: true,
-  })),
+// مقالات مدونة كانت تنافس صفحة خدمة أو منطقة على نفس الكلمة، فدُمجت فيها.
+// كل مساراتها القديمة (/blogs و/articles و/blog) تذهب إلى الصفحة مباشرة
+// بخطوة واحدة بدل سلسلة تحويلات. التفاصيل في docs/removed-blog-posts.md.
+const mergedArticles: Record<string, string> = {
+  "drain-cleaning-kuwait": "/drain-cleaning-kuwait",
+  "drain-cleaning-in-kuwait": "/drain-cleaning-kuwait",
+  "best-drain-cleaning-companies-kuwait": "/drain-cleaning-kuwait",
+  "kitchen-drain-cleaning": "/kitchen-bathroom-drain-cleaning-kuwait",
+  "drain-cleaning-hawalli-guide": "/drain-cleaning-hawalli",
+  "drain-cleaning-salmiya-guide": "/drain-cleaning-salmiya",
+};
+const mergedArticleRedirects = Object.entries(mergedArticles).flatMap(
+  ([slug, destination]) =>
+    ["/blogs", "/articles", "/blog"].map((base) => ({
+      source: `${base}/${slug}`,
+      destination,
+      permanent: true,
+    })),
 );
 
 // Tailwind is the only stylesheet on the site (small, atomic CSS) — inlining
@@ -100,7 +108,7 @@ const nextConfig: NextConfig = {
     return [
       ...areaPageRedirects,
       // قبل قاعدتي /articles/<slug> و/blog/:slug العامتين حتى تطابق أولًا.
-      ...mergedDrainArticleRedirects,
+      ...mergedArticleRedirects,
       ...slugRedirects.flatMap(({ from, to }) => [
         { source: from, destination: to, permanent: true },
         { source: encodeURI(from), destination: to, permanent: true },
