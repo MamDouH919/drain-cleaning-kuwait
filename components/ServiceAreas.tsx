@@ -154,9 +154,9 @@ export default function ServiceAreas() {
         <div className="mt-14 overflow-hidden rounded-3xl bg-gradient-to-bl from-slate-900 via-slate-800 to-sky-900 p-8 shadow-xl sm:p-12">
           <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:text-right">
             <div className="max-w-xl">
-              <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
+              <p className="text-2xl font-extrabold text-white sm:text-3xl">
                 مش لاقي منطقتك؟
-              </h3>
+              </p>
               <p className="mt-3 text-base leading-relaxed text-slate-300 sm:text-lg">
                 اتصل بنا الآن ونصل إليك أينما كنت داخل الكويت خلال وقت قصير.
               </p>

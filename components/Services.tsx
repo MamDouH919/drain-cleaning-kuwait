@@ -123,9 +123,9 @@ export default function Services() {
         <div className="mt-14 overflow-hidden rounded-3xl bg-gradient-to-bl from-sky-700 via-sky-800 to-emerald-700 p-8 shadow-xl sm:p-12">
           <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:text-right">
             <div className="max-w-xl">
-              <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
+              <p className="text-2xl font-extrabold text-white sm:text-3xl">
                 تحتاج إلى خدمة سريعة؟
-              </h3>
+              </p>
               <p className="mt-3 text-base leading-relaxed text-sky-50/90 sm:text-lg">
                 تواصل معنا الآن واحصل على خدمة احترافية بأسرع وقت.
               </p>

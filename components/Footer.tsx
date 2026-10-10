@@ -119,7 +119,7 @@ export default function Footer() {
           </div>
 
           <nav aria-label="روابط سريعة" className="flex flex-col gap-4">
-            <h2 className="text-base font-bold text-white">روابط سريعة</h2>
+            <p className="text-base font-bold text-white">روابط سريعة</p>
             <ul className="flex flex-col gap-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -136,7 +136,7 @@ export default function Footer() {
           </nav>
 
           <nav aria-label="خدماتنا" className="flex flex-col gap-4">
-            <h2 className="text-base font-bold text-white">خدماتنا</h2>
+            <p className="text-base font-bold text-white">خدماتنا</p>
             <ul className="flex flex-col gap-3">
               {services.map((service) => (
                 <li key={service.href}>
@@ -153,7 +153,7 @@ export default function Footer() {
           </nav>
 
           <div className="flex flex-col gap-4">
-            <h2 className="text-base font-bold text-white">تواصل معنا</h2>
+            <p className="text-base font-bold text-white">تواصل معنا</p>
             <ul className="flex flex-col gap-3 text-sm">
               <li>
                 <a

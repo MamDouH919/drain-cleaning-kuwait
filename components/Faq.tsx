@@ -128,9 +128,9 @@ export default function Faq({
         </div>
 
         <div className="mt-12 overflow-hidden rounded-3xl bg-gradient-to-bl from-sky-700 via-sky-800 to-emerald-700 p-8 text-center shadow-xl sm:p-12">
-          <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
+          <p className="text-2xl font-extrabold text-white sm:text-3xl">
             لسه عندك سؤال؟
-          </h3>
+          </p>
           <p className="mt-3 text-base leading-relaxed text-sky-50/90 sm:text-lg">
             اتصل بنا الآن وسنساعدك فوراً في حل مشكلتك داخل الكويت.
           </p>

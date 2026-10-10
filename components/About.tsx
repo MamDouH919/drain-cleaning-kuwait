@@ -62,9 +62,9 @@ export default function About() {
             </p>
 
             <div className="mt-9 overflow-hidden rounded-3xl bg-gradient-to-bl from-sky-700 via-sky-800 to-emerald-700 p-8 shadow-xl">
-              <h3 className="text-2xl font-extrabold text-white">
+              <p className="text-2xl font-extrabold text-white">
                 جاهز نساعدك؟
-              </h3>
+              </p>
               <p className="mt-2 text-base leading-relaxed text-sky-50/90">
                 تواصل معنا الآن واحصل على خدمة احترافية بأسرع وقت.
               </p>
