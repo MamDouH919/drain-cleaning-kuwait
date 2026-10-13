@@ -71,6 +71,8 @@ const mergedArticles: Record<string, string> = {
   "kitchen-drain-cleaning": "/kitchen-bathroom-drain-cleaning-kuwait",
   "drain-cleaning-hawalli-guide": "/drain-cleaning-hawalli",
   "drain-cleaning-salmiya-guide": "/drain-cleaning-salmiya",
+  // مقال قديم مش موجود في articles.json، وSearch Console لقاه 404.
+  "salmiya-drain-cleaning-company": "/drain-cleaning-salmiya",
 };
 const mergedArticleRedirects = Object.entries(mergedArticles).flatMap(
   ([slug, destination]) =>

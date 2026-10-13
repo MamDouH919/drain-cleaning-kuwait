@@ -193,6 +193,16 @@ farwaniya (الفروانية)، ahmadi (الأحمدي)، fahaheel (الفحي�
 - اتشال: meta keywords، وبلوك searchTerms، و"أفضل" (كانت 8 مرات)، و"1–2 يوم" لأن المدة مش متأكدة.
 - النص في الـ main بقى ~1045 كلمة بدل ~400. الـ CTA الوحيد في الآخر هو اللي جوه `Faq`.
 
+**2026-10-13: مراجعة Search Console**
+- Pages: 55 indexed و66 not indexed. الـ sitemap: Success و46 صفحة. HTTPS وBreadcrumbs: من غير أخطاء.
+  Manual actions: مفيش. Core Web Vitals: البيانات مش كفاية لسه.
+- 404 الوحيد: `/articles/salmiya-drain-cleaning-company` → اتضاف لـ `mergedArticles` (301 لـ `/drain-cleaning-salmiya`).
+- "Duplicate, Google chose different canonical" (6) و"Alternative page with proper canonical" (2): كلها URLs قديمة
+  (www، `/articles/...`، مناطق ملغية) اتزحفت قبل التحويلات، وكلها بتعمل redirect دلوقتي. هتختفي لوحدها.
+- "Crawled - currently not indexed": `/drain-cleaning-fahaheel`. السبب الأرجح المحتوى المكرر بين المناطق (خطوة 7).
+- مفتوح: `www` + مسار قديم بيعمل سلسلة من خطوتين (www → `/blog/x` → `/blogs/x`). الـ www redirect بيحصل
+  قبل Next (Cloudflare أو السيرفر)، فالحل هناك.
+
 **الخطة الجاية (من المراجعة الشاملة 2026-10-10):**
 3–6. إعادة كتابة صفحات الخدمات والأسعار. 7. صفحات المناطق الـ 16 (تشابه 84% بين المناطق).
 8. السرعة وCore Web Vitals. 9. الـ sitemap وllms.txt والـ Local SEO.
