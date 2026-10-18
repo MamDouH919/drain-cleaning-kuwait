@@ -28,6 +28,8 @@ import {
 } from "@/lib/areas";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
+import CustomAreaServicePage from "@/components/area-pages/AreaServicePage";
+import { customAreaPages } from "@/components/area-pages";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -46,9 +48,10 @@ export async function generateMetadata({
   const { service, area } = parsed;
   const path = `/${slug}`;
   const url = `${SITE_URL}${path}`;
-  const title = service.metaTitle(area.name);
-  const description = service.metaDescription(area.name);
-  const subKw = subKeyword(service, area);
+  const custom = customAreaPages[slug];
+  const title = custom ? custom.title : service.metaTitle(area.name);
+  const description = custom ? custom.description : service.metaDescription(area.name);
+  const image = custom ? custom.cover : { src: service.coverImage, alt: title, width: 1200, height: 630 };
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -67,13 +70,13 @@ export async function generateMetadata({
       title,
       description,
       siteName: BUSINESS_NAME,
-      images: [{ url: service.coverImage, width: 1200, height: 630, alt: title }],
+      images: [{ url: image.src, width: image.width, height: image.height, alt: image.alt }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [service.coverImage],
+      images: [image.src],
     },
   };
 }
@@ -86,6 +89,9 @@ export default async function AreaServicePage({
   const { slug } = await params;
   const parsed = parseAreaSlug(slug);
   if (!parsed) notFound();
+
+  const custom = customAreaPages[slug];
+  if (custom) return <CustomAreaServicePage page={custom} path={`/${slug}`} />;
 
   const { service, area } = parsed;
   const subKw = subKeyword(service, area);
