@@ -6,7 +6,7 @@ import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/li
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/basement-pump-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/drain-cleaning/تسليك-مجاري.webp";
+const COVER_IMAGE = "/drain-cleaning/sewage-suction-tanker.webp";
 const COVER_ALT = "تركيب مكينة سرداب في الكويت";
 
 export const metadata: Metadata = {

@@ -132,7 +132,7 @@ export default function Hero() {
                     <div className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-[2rem] bg-gradient-to-tr from-sky-200/60 to-emerald-200/60 blur-2xl" />
                     <div className="overflow-hidden rounded-[2rem] border border-white/60 bg-white shadow-2xl shadow-slate-300/50 ring-1 ring-slate-900/5">
                         <Image
-                            src="/hero/تسليك-الكويت.webp"
+                            src="/hero/drain-cleaning-kuwait-hero.webp"
                             alt="إعلان دار الصيانة الكويتية لخدمات تسليك المجاري وعزل الأسطح وكشف الخرير — 98890031"
                             width={720}
                             height={720}

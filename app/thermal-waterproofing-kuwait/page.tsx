@@ -6,7 +6,7 @@ import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/li
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/thermal-waterproofing-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/roof-waterproofing/عازل-اسطح-جيتاروف.webp";
+const COVER_IMAGE = "/roof-waterproofing/gitaroof-membrane-installation.webp";
 const COVER_ALT = "العزل المائي والحراري في الكويت";
 
 export const metadata: Metadata = {

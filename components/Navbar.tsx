@@ -76,7 +76,7 @@ export default function Navbar() {
                     >
                         {/* Logo */}
                         <Image
-                            src="/تسليك-مجاري-الكويت.webp" // حط اللوجو هنا في public folder
+                            src="/drain-cleaning-kuwait.webp" // حط اللوجو هنا في public folder
                             alt="دار الصيانة الكويتية"
                             width={83}
                             height={64}

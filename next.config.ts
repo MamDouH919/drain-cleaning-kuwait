@@ -53,6 +53,57 @@ const slugRedirects: { from: string; to: string }[] = [
   { from: "/العزل-المائي-والحراري", to: "/thermal-waterproofing-kuwait" },
 ];
 
+// أسماء الصور اتغيرت من عربي لإنجليزي (2026-10-18). المسارات القديمة ممكن
+// تكون متفهرسة في Google Images، فبتتحول للاسم الجديد بخطوة واحدة.
+const renamedImages: [string, string][] = [
+  ["/drain-cleaning/تركيب-مكين-سرداب-الكويت.webp", "/drain-cleaning/basement-pump-installation.webp"],
+  ["/drain-cleaning/تركيب-منهول-الكويت.webp", "/drain-cleaning/manhole-installation.webp"],
+  ["/drain-cleaning/تسليك-بلوعات.webp", "/drain-cleaning/street-manhole-drain-cleaning.webp"],
+  ["/drain-cleaning/تسليك-حمامات.webp", "/drain-cleaning/toilet-unclogging.webp"],
+  ["/drain-cleaning/تسليك-مجاري-السالمية.webp", "/drain-cleaning/kitchen-floor-drain.webp"],
+  ["/drain-cleaning/تسليك-مجاري-المطابخ-والحمامات.webp", "/drain-cleaning/kitchen-bathroom-drain-cleaning.webp"],
+  ["/drain-cleaning/تسليك-مجاري-حولي.webp", "/drain-cleaning/service-truck-kuwait-towers.webp"],
+  ["/drain-cleaning/تسليك-مجاري.webp", "/drain-cleaning/sewage-suction-tanker.webp"],
+  ["/drain-cleaning/تسليك-منازل.webp", "/drain-cleaning/bathroom-floor-drain-cleaning.webp"],
+  ["/drain-cleaning/تسليك.webp", "/drain-cleaning/electric-drain-machine.webp"],
+  ["/drain-cleaning/تنظيف-جورة.webp", "/drain-cleaning/basement-pit-cleaning.webp"],
+  ["/hero/تسليك-الكويت.webp", "/hero/drain-cleaning-kuwait-hero.webp"],
+  ["/portfolio/العزل-المائي-والحراري.webp", "/portfolio/white-roof-coating-water-tank.webp"],
+  ["/portfolio/تركيب-مكين-سرداب-الكويت.webp", "/portfolio/basement-pump-installation.webp"],
+  ["/portfolio/تركيب-منهول-الكويت.webp", "/portfolio/manhole-installation.webp"],
+  ["/portfolio/تسليك-بلوعات.webp", "/portfolio/street-manhole-drain-cleaning.webp"],
+  ["/portfolio/تسليك-حمامات.webp", "/portfolio/toilet-unclogging.webp"],
+  ["/portfolio/تسليك-مجاري-السالمية.webp", "/portfolio/kitchen-floor-drain.webp"],
+  ["/portfolio/تسليك-مجاري-المطابخ-والحمامات.webp", "/portfolio/kitchen-bathroom-drain-cleaning.webp"],
+  ["/portfolio/تسليك-مجاري-حولي.webp", "/portfolio/service-truck-kuwait-towers.webp"],
+  ["/portfolio/تسليك-مجاري.webp", "/portfolio/sewage-suction-tanker.webp"],
+  ["/portfolio/تسليك-منازل.webp", "/portfolio/bathroom-floor-drain-cleaning.webp"],
+  ["/portfolio/تسليك.webp", "/portfolio/electric-drain-machine.webp"],
+  ["/portfolio/تنظيف-جورة.webp", "/portfolio/basement-pit-cleaning.webp"],
+  ["/portfolio/رقم فني تسليك مجاري.webp", "/portfolio/service-truck-kuwait-towers.webp"],
+  ["/portfolio/شركة تسليك مجاري بالكويت.webp", "/portfolio/kitchen-bathroom-drain-cleaning.webp"],
+  ["/portfolio/عازل-اسطح-الكويت.webp", "/portfolio/grey-roof-insulation-ac-units.webp"],
+  ["/portfolio/عازل-اسطح-جيتاروف.webp", "/portfolio/gitaroof-membrane-installation.webp"],
+  ["/portfolio/عزل-اسطح-الكويت.webp", "/portfolio/light-grey-roof-coating.webp"],
+  ["/portfolio/عزل-اسطح-حراري.webp", "/portfolio/white-roof-insulation-satellite.webp"],
+  ["/portfolio/عزل-اسطح.webp", "/portfolio/white-roof-insulation-houses.webp"],
+  ["/portfolio/غسيل-تانكي-الكويت.webp", "/portfolio/water-tank-cleaning.webp"],
+  ["/roof-waterproofing/العزل-المائي-والحراري.webp", "/roof-waterproofing/white-roof-coating-water-tank.webp"],
+  ["/roof-waterproofing/عازل-اسطح-الكويت.webp", "/roof-waterproofing/grey-roof-insulation-ac-units.webp"],
+  ["/roof-waterproofing/عازل-اسطح-جيتاروف.webp", "/roof-waterproofing/gitaroof-membrane-installation.webp"],
+  ["/roof-waterproofing/عزل-اسطح-الكويت.webp", "/roof-waterproofing/light-grey-roof-coating.webp"],
+  ["/roof-waterproofing/عزل-اسطح-حراري.webp", "/roof-waterproofing/white-roof-insulation-satellite.webp"],
+  ["/roof-waterproofing/عزل-اسطح.webp", "/roof-waterproofing/white-roof-insulation-houses.webp"],
+  ["/services/العزل-المائي-والحراري.webp", "/services/white-roof-coating-water-tank.webp"],
+  ["/services/تركيب-مكين-سرداب-الكويت.webp", "/services/basement-pump-installation.webp"],
+  ["/services/تركيب-منهول-الكويت.webp", "/services/manhole-installation.webp"],
+  ["/services/تسليك-مجاري-المطابخ-والحمامات.webp", "/services/kitchen-bathroom-drain-cleaning.webp"],
+  ["/services/عازل-اسطح-الكويت.webp", "/services/grey-roof-insulation-ac-units.webp"],
+  ["/services/عازل-اسطح-جيتاروف.webp", "/services/gitaroof-membrane-installation.webp"],
+  ["/services/غسيل-تانكي-الكويت.webp", "/services/water-tank-cleaning.webp"],
+  ["/تسليك-مجاري-الكويت.webp", "/drain-cleaning-kuwait.webp"],
+];
+
 // المقالات المكتوبة يدويًا انتقلت من /articles إلى /blogs، وصار مسار
 // /articles/[slug] الآن لمقالات نظام إدارة المحتوى. نُعيد توجيه روابط
 // المقالات اليدوية القديمة (بما فيها الصفحتان ذواتا التصميم الخاص) إلى
@@ -116,6 +167,10 @@ const nextConfig: NextConfig = {
       // قبل قاعدتي /articles/<slug> و/blog/:slug العامتين حتى تطابق أولًا.
       ...mergedArticleRedirects,
       ...slugRedirects.flatMap(({ from, to }) => [
+        { source: from, destination: to, permanent: true },
+        { source: encodeURI(from), destination: to, permanent: true },
+      ]),
+      ...renamedImages.flatMap(([from, to]) => [
         { source: from, destination: to, permanent: true },
         { source: encodeURI(from), destination: to, permanent: true },
       ]),

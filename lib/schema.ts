@@ -48,7 +48,7 @@ export const localBusinessSchema = {
   mainEntityOfPage: SITE_URL,
   telephone: PHONE_NUMBER,
   image: [
-    `${SITE_URL}/%D8%AA%D8%B3%D9%84%D9%8A%D9%83-%D9%85%D8%AC%D8%A7%D8%B1%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.webp`,
+    `${SITE_URL}/drain-cleaning-kuwait.webp`,
     `${SITE_URL}/web-app-manifest-512x512.png`,
   ],
   logo: `${SITE_URL}/web-app-manifest-512x512.png`,

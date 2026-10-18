@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/areas";
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/drain-cleaning-prices-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/portfolio/تسليك-مجاري.webp";
+const COVER_IMAGE = "/portfolio/sewage-suction-tanker.webp";
 const COVER_ALT = "اسعار تسليك مجاري الكويت";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";

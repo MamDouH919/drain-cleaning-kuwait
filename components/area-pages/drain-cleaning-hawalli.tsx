@@ -233,7 +233,7 @@ export const drainCleaningHawalli: CustomAreaPage = {
   ),
   experience: "يعمل في حولي فريق لديه خبرة أكثر من 15 عامًا في الصرف الصحي.",
   cover: {
-    src: "/drain-cleaning/تسليك-منازل.webp",
+    src: "/drain-cleaning/bathroom-floor-drain-cleaning.webp",
     alt: "فني يفتح انسداد بلاعة أرضية في حمام شقة بسلك ماكينة التسليك",
     width: 1080,
     height: 1080,

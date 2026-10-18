@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/areas";
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/roof-insulation-prices-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/roof-waterproofing/عازل-اسطح-جيتاروف.webp";
+const COVER_IMAGE = "/roof-waterproofing/gitaroof-membrane-installation.webp";
 const COVER_ALT = "اسعار عزل اسطح الكويت";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";

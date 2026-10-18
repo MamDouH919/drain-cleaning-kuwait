@@ -58,13 +58,13 @@ export function articleFigures(area: string) {
   return {
     drains: {
       id: 6236,
-      src: "/drain-cleaning/تسليك-بلوعات.webp",
+      src: "/drain-cleaning/street-manhole-drain-cleaning.webp",
       alt: `تسليك بلاعات ${area}`,
       caption: `تسليك بلاعات ${area}`,
     },
     cleaning: {
       id: 6235,
-      src: "/drain-cleaning/تسليك-حمامات.webp",
+      src: "/drain-cleaning/toilet-unclogging.webp",
       alt: `تنظيف مجاري ${area}`,
       caption: `تنظيف مجاري ${area}`,
     },

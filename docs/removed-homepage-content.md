@@ -9,7 +9,7 @@
 
 - المصدر: `components/TaslikMajariSection.tsx` (حُذف الملف)
 - الصفحة المقترحة: `/drain-cleaning-kuwait`
-- الصورة: `/drain-cleaning/تسليك-مجاري.webp` — alt: "فني يقوم بتسليك مجاري الكويت بأحدث الأجهزة"
+- الصورة: `/drain-cleaning/sewage-suction-tanker.webp` — alt: "فني يقوم بتسليك مجاري الكويت بأحدث الأجهزة"
 - الشارة (badge): تسليك مجاري الكويت
 
 ### تسليك مجاري الكويت بخدمة سريعة واحترافية
@@ -45,7 +45,7 @@
 
 - المصدر: `components/RoofInsulationSection.tsx` (حُذف الملف)
 - الصفحة المقترحة: `/roof-waterproofing-kuwait`
-- الصورة: `/roof-waterproofing/عازل-اسطح-جيتاروف.webp` — alt: "عزل أسطح الكويت المائي والحراري لحماية المباني"
+- الصورة: `/roof-waterproofing/gitaroof-membrane-installation.webp` — alt: "عزل أسطح الكويت المائي والحراري لحماية المباني"
 - الشارة (badge): عزل أسطح الكويت
 
 ### عزل أسطح الكويت لحماية المباني من المياه والحرارة

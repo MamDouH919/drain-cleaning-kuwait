@@ -20,7 +20,7 @@ const PAGE_LABEL = "عزل أسطح الكويت";
 const TITLE = "عزل أسطح الكويت ضد الحرارة وتسرب المياه";
 const DESCRIPTION =
   "عزل أسطح الكويت للفلل والبيوت: معاينة السطح، تجهيزه ومعالجة الشقوق، ثم طبقة عزل تناسب حالته، مع ضمان على العمل وخدمة في جميع المحافظات. اتصل 98890031";
-const COVER_IMAGE = "/roof-waterproofing/عازل-اسطح-الكويت.webp";
+const COVER_IMAGE = "/roof-waterproofing/grey-roof-insulation-ac-units.webp";
 const COVER_ALT = "سطح بعد العزل بطبقة رمادية مع وحدات التكييف";
 
 export const metadata: Metadata = {
@@ -155,11 +155,11 @@ const areaLinks = areas.map((a) => ({
 }));
 
 const gallery = [
-  { src: "/roof-waterproofing/عازل-اسطح-جيتاروف.webp", alt: "عامل يفرد طبقة عزل سوداء على سطح" },
-  { src: "/roof-waterproofing/عزل-اسطح-الكويت.webp", alt: "سطح بيت بعد العزل بطلاء رمادي فاتح" },
-  { src: "/roof-waterproofing/عزل-اسطح-حراري.webp", alt: "سطح معزول بطبقة بيضاء وعليه وحدة تكييف وطبق ستلايت" },
-  { src: "/roof-waterproofing/عزل-اسطح.webp", alt: "سطح معزول بطبقة بيضاء بين بيوت سكنية" },
-  { src: "/roof-waterproofing/العزل-المائي-والحراري.webp", alt: "سطح مدهون بطبقة عزل بيضاء وعليه خزان مياه مغطى" },
+  { src: "/roof-waterproofing/gitaroof-membrane-installation.webp", alt: "عامل يفرد طبقة عزل سوداء على سطح" },
+  { src: "/roof-waterproofing/light-grey-roof-coating.webp", alt: "سطح بيت بعد العزل بطلاء رمادي فاتح" },
+  { src: "/roof-waterproofing/white-roof-insulation-satellite.webp", alt: "سطح معزول بطبقة بيضاء وعليه وحدة تكييف وطبق ستلايت" },
+  { src: "/roof-waterproofing/white-roof-insulation-houses.webp", alt: "سطح معزول بطبقة بيضاء بين بيوت سكنية" },
+  { src: "/roof-waterproofing/white-roof-coating-water-tank.webp", alt: "سطح مدهون بطبقة عزل بيضاء وعليه خزان مياه مغطى" },
 ];
 
 const faqs: FaqItem[] = [

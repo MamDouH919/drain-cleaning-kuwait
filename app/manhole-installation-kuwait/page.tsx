@@ -13,7 +13,7 @@ import {
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/manhole-installation-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const COVER_IMAGE = "/portfolio/شركة تسليك مجاري بالكويت.webp";
+const COVER_IMAGE = "/portfolio/kitchen-bathroom-drain-cleaning.webp";
 const COVER_ALT = "تركيب منهول في الكويت";
 
 export const metadata: Metadata = {
@@ -64,7 +64,7 @@ type Step = {
 const steps: Step[] = [
   {
     title: "الخطوة الأولى",
-    image: "/drain-cleaning/تسليك-منازل.webp",
+    image: "/drain-cleaning/bathroom-floor-drain-cleaning.webp",
     alt: "فحص وقياس المنهول قبل التركيب",
     items: [
       "فحص شامل للمنهول الحالي وقياس أبعاده بدقة من الداخل والخارج.",
@@ -75,7 +75,7 @@ const steps: Step[] = [
   },
   {
     title: "الخطوة الثانية",
-    image: "/drain-cleaning/تسليك-مجاري.webp",
+    image: "/drain-cleaning/sewage-suction-tanker.webp",
     alt: "إزالة غطاء المنهول القديم وتنظيفه",
     items: [
       "إزالة الغطاء القديم بحرص شديد.",
@@ -308,7 +308,7 @@ export default function ManholeInstallationKuwaitPage() {
           </blockquote>
 
           <ArticleImage
-            src="/drain-cleaning/تسليك-مجاري-حولي.webp"
+            src="/drain-cleaning/service-truck-kuwait-towers.webp"
             alt="تركيب غطاء منهول في الكويت باحترافية"
           />
 
@@ -325,7 +325,7 @@ export default function ManholeInstallationKuwaitPage() {
           </p>
 
           <ArticleImage
-            src="/drain-cleaning/تسليك-مجاري-السالمية.webp"
+            src="/drain-cleaning/kitchen-floor-drain.webp"
             alt="ما هو غطاء المنهول واستخداماته"
           />
 
@@ -374,7 +374,7 @@ export default function ManholeInstallationKuwaitPage() {
             غطاء منهول حديد
           </h3>
           <ArticleImage
-            src="/drain-cleaning/تسليك-بلوعات.webp"
+            src="/drain-cleaning/street-manhole-drain-cleaning.webp"
             alt="غطاء منهول حديد للشوارع والمداخل"
           />
           <p className="text-lg leading-relaxed text-slate-600">
@@ -439,7 +439,7 @@ export default function ManholeInstallationKuwaitPage() {
             غطاء منهول ألومنيوم
           </h3>
           <ArticleImage
-            src="/drain-cleaning/تسليك-منازل.webp"
+            src="/drain-cleaning/bathroom-floor-drain-cleaning.webp"
             alt="غطاء منهول ألومنيوم"
           />
           <p className="text-lg leading-relaxed text-slate-600">
@@ -476,7 +476,7 @@ export default function ManholeInstallationKuwaitPage() {
             ما الذي يميز شركتنا؟
           </h2>
           <ArticleImage
-            src="/portfolio/شركة تسليك مجاري بالكويت.webp"
+            src="/portfolio/kitchen-bathroom-drain-cleaning.webp"
             alt="ما يميز شركتنا في تركيب أغطية المناهل"
           />
           <p className="text-lg leading-relaxed text-slate-600">
@@ -557,7 +557,7 @@ export default function ManholeInstallationKuwaitPage() {
             خبرات فريق العمل
           </h2>
           <ArticleImage
-            src="/drain-cleaning/تسليك-حمامات.webp"
+            src="/drain-cleaning/toilet-unclogging.webp"
             alt="فنيون متخصصون في تركيب أغطية المنهول"
           />
           <p className="text-lg leading-relaxed text-slate-600">

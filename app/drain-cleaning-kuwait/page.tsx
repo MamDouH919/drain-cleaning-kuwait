@@ -20,7 +20,7 @@ const PAGE_LABEL = "تسليك مجاري الكويت";
 const TITLE = "تسليك مجاري الكويت بدون تكسير 24 ساعة";
 const DESCRIPTION =
   "تسليك مجاري الكويت بدون تكسير 24 ساعة: فتح انسداد المطابخ والحمامات والخط الرئيسي بالسوستة وضغط المياه والكاميرا، مع سعر واضح قبل البدء. اتصل 98890031";
-const COVER_IMAGE = "/drain-cleaning/تسليك-بلوعات.webp";
+const COVER_IMAGE = "/drain-cleaning/street-manhole-drain-cleaning.webp";
 const COVER_ALT = "فني يفتح انسداد غرفة تفتيش في أحد شوارع الكويت بخرطوم ضغط المياه";
 
 export const metadata: Metadata = {
@@ -205,23 +205,23 @@ const mistakes = [
 
 const gallery = [
   {
-    src: "/drain-cleaning/تسليك-منازل.webp",
+    src: "/drain-cleaning/bathroom-floor-drain-cleaning.webp",
     alt: "فني يسلّك بلاعة أرضية في حمام منزل باستخدام ماكينة التسليك",
   },
   {
-    src: "/drain-cleaning/تسليك-مجاري-السالمية.webp",
+    src: "/drain-cleaning/kitchen-floor-drain.webp",
     alt: "فني يفتح انسداد بلاعة أرضية في مطبخ منزل",
   },
   {
-    src: "/drain-cleaning/تسليك-حمامات.webp",
+    src: "/drain-cleaning/toilet-unclogging.webp",
     alt: "تسليك كرسي حمام مسدود بالسوستة اليدوية",
   },
   {
-    src: "/drain-cleaning/تسليك.webp",
+    src: "/drain-cleaning/electric-drain-machine.webp",
     alt: "ماكينة تسليك كهربائية بسلك دوّار أثناء العمل في خط صرف",
   },
   {
-    src: "/drain-cleaning/تسليك-مجاري.webp",
+    src: "/drain-cleaning/sewage-suction-tanker.webp",
     alt: "سيارة شفط تسحب مياه الصرف من منهول في أحد شوارع الكويت",
   },
 ];

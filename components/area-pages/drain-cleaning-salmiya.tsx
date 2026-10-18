@@ -175,7 +175,7 @@ export const drainCleaningSalmiya: CustomAreaPage = {
   ),
   experience: "خبرة فريقنا في الصرف الصحي تتجاوز 15 عامًا.",
   cover: {
-    src: "/drain-cleaning/تسليك-مجاري-السالمية.webp",
+    src: "/drain-cleaning/kitchen-floor-drain.webp",
     alt: "فني يفتح انسداد بلاعة أرضية في مطبخ بسوستة التسليك اليدوية",
     width: 1034,
     height: 1071,
