@@ -14,13 +14,6 @@ export const metadata: Metadata = {
   title: "عزل أسطح جيتاروف الكويت | عزل مائي وحراري قوي",
   description:
     "خدمة عزل أسطح جيتاروف في الكويت بمادة مقاومة للماء والحرارة لحماية طويلة الأمد للمباني، فريق متخصص وضمان على الخدمة في جميع مناطق الكويت.",
-  keywords: [
-    "عزل أسطح جيتاروف",
-    "جيتاروف الكويت",
-    "عزل جيتاروف",
-    "عزل أسطح الكويت",
-    "gitaroof insulation Kuwait",
-  ],
   alternates: { canonical: PAGE_PATH },
   robots: {
     index: true,

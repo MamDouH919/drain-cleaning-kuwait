@@ -47,7 +47,6 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: article.metaTitle,
     description: article.description,
-    keywords: article.keywords,
     alternates: { canonical: path },
     robots: {
       index: true,

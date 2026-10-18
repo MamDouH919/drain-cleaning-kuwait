@@ -16,14 +16,6 @@ export const metadata: Metadata = {
   title: "تواصل معنا | دار الصيانة الكويتية على مدار 24 ساعة",
   description:
     "تواصل معنا الآن لخدمة تسليك مجاري الكويت وعزل أسطح الكويت برد سريع وخدمة طوارئ 24 ساعة في جميع المناطق. اتصل أو راسلنا واتساب على 98890031.",
-  keywords: [
-    "تواصل معنا الكويت",
-    "تسليك مجاري الكويت",
-    "عزل أسطح الكويت",
-    "رقم تسليك مجاري الكويت",
-    "plumber Kuwait contact",
-    "waterproofing Kuwait contact",
-  ],
   alternates: {
     canonical: PAGE_PATH,
   },

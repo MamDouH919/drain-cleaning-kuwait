@@ -18,13 +18,6 @@ export const metadata: Metadata = {
   title: "مناطق الخدمة | تسليك مجاري وعزل أسطح في جميع مناطق الكويت",
   description:
     "نقدم خدمات تسليك المجاري وعزل الأسطح في جميع مناطق الكويت مثل حولي والسالمية والفروانية والجهراء والأحمدي والفحيحيل بسرعة استجابة وخدمة 24 ساعة.",
-  keywords: [
-    "تسليك مجاري في الكويت",
-    "عزل أسطح في الكويت",
-    "مناطق الكويت خدمات",
-    "drain cleaning Kuwait areas",
-    "roof waterproofing Kuwait locations",
-  ],
   alternates: { canonical: PAGE_PATH },
   robots: {
     index: true,

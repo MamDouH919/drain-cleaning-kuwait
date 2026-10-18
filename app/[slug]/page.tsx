@@ -54,14 +54,6 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title,
     description,
-    keywords: [
-      subKw,
-      `${service.shortName} ${area.name}`,
-      `${service.shortName} الكويت`,
-      `خدمات ${area.name}`,
-      area.name,
-      service.keywordEn,
-    ],
     alternates: { canonical: path },
     robots: {
       index: true,

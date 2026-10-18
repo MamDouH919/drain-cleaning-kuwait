@@ -14,13 +14,6 @@ export const metadata: Metadata = {
   title: "تسليك مجاري المطابخ والحمامات الكويت | بدون تكسير",
   description:
     "تسليك مجاري المطابخ والحمامات في الكويت وفتح انسداد الأحواض والبلاعات بدون تكسير بأحدث الأجهزة وسرعة استجابة وخدمة 24 ساعة في جميع المناطق.",
-  keywords: [
-    "تسليك مجاري المطابخ",
-    "تسليك مجاري الحمامات",
-    "انسداد حوض المطبخ",
-    "تسليك بلاعة الحمام",
-    "kitchen bathroom drain cleaning Kuwait",
-  ],
   alternates: { canonical: PAGE_PATH },
   robots: {
     index: true,
