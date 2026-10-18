@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     "الشروط والأحكام الخاصة باستخدام موقع وخدمات تسليك المجاري وعزل الأسطح في الكويت، تعرف على شروط طلب الخدمة والأسعار والضمان والمسؤوليات.",
   alternates: {
     canonical: PAGE_PATH,
-    languages: { "ar-KW": PAGE_PATH },
   },
   robots: {
     index: true,

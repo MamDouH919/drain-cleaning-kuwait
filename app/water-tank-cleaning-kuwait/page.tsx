@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "شركة غسيل خزانات",
     "water tank cleaning Kuwait",
   ],
-  alternates: { canonical: PAGE_PATH, languages: { "ar-KW": PAGE_PATH } },
+  alternates: { canonical: PAGE_PATH },
   robots: {
     index: true,
     follow: true,

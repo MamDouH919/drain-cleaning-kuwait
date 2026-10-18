@@ -17,16 +17,15 @@ import Faq, { type FaqItem } from "@/components/Faq";
 const PAGE_PATH = "/drain-cleaning-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const PAGE_LABEL = "تسليك مجاري الكويت";
-const TITLE = "تسليك مجاري الكويت بدون تكسير 24 ساعة | دار الصيانة الكويتية";
+const TITLE = "تسليك مجاري الكويت بدون تكسير 24 ساعة";
 const DESCRIPTION =
-  "تسليك مجاري الكويت بدون تكسير على مدار 24 ساعة: فتح انسداد المطابخ والحمامات والخط الرئيسي بالسوستة وضغط المياه والكاميرا، مع سعر واضح قبل البدء. اتصل 98890031";
+  "تسليك مجاري الكويت بدون تكسير 24 ساعة: فتح انسداد المطابخ والحمامات والخط الرئيسي بالسوستة وضغط المياه والكاميرا، مع سعر واضح قبل البدء. اتصل 98890031";
 const COVER_IMAGE = "/drain-cleaning/تسليك-بلوعات.webp";
 const COVER_ALT = "فني يفتح انسداد غرفة تفتيش في أحد شوارع الكويت بخرطوم ضغط المياه";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  // `absolute` يتجاوز قالب العنوان في الـ layout لأن العنوان يحمل اسم النشاط أصلًا.
-  title: { absolute: TITLE },
+  title: TITLE,
   description: DESCRIPTION,
   alternates: {
     canonical: PAGE_URL,

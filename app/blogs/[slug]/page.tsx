@@ -48,7 +48,7 @@ export async function generateMetadata({
     title: article.metaTitle,
     description: article.description,
     keywords: article.keywords,
-    alternates: { canonical: path, languages: { "ar-KW": path } },
+    alternates: { canonical: path },
     robots: {
       index: true,
       follow: true,

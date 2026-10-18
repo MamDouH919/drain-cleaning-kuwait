@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "المدونة | نصائح تسليك المجاري وعزل الأسطح في الكويت",
   description:
     "مقالات ونصائح متخصصة في تسليك المجاري وعزل الأسطح والصيانة المنزلية في الكويت، تعرف على أحدث التقنيات وطرق الوقاية من المشاكل.",
-  alternates: { canonical: PAGE_PATH, languages: { "ar-KW": PAGE_PATH } },
+  alternates: { canonical: PAGE_PATH },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "صيانة مناهل الصرف",
     "manhole installation Kuwait",
   ],
-  alternates: { canonical: PAGE_PATH, languages: { "ar-KW": PAGE_PATH } },
+  alternates: { canonical: PAGE_PATH },
   robots: {
     index: true,
     follow: true,

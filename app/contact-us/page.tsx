@@ -13,7 +13,7 @@ const WHATSAPP_URL = "https://wa.me/96598890031";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "تواصل معنا | تسليك مجاري وعزل أسطح في الكويت 24 ساعة",
+  title: "تواصل معنا | دار الصيانة الكويتية على مدار 24 ساعة",
   description:
     "تواصل معنا الآن لخدمة تسليك مجاري الكويت وعزل أسطح الكويت برد سريع وخدمة طوارئ 24 ساعة في جميع المناطق. اتصل أو راسلنا واتساب على 98890031.",
   keywords: [
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: PAGE_PATH,
-    languages: { "ar-KW": PAGE_PATH },
   },
   robots: {
     index: true,
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ar_KW",
     url: PAGE_URL,
-    title: "تواصل معنا | تسليك مجاري وعزل أسطح في الكويت 24 ساعة",
+    title: "تواصل معنا | دار الصيانة الكويتية على مدار 24 ساعة",
     description:
       "رد سريع وخدمة طوارئ 24 ساعة لتسليك المجاري وعزل الأسطح في جميع مناطق الكويت. اتصل أو راسلنا واتساب.",
     siteName: BUSINESS_NAME,
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "تواصل معنا | تسليك مجاري وعزل أسطح في الكويت 24 ساعة",
+    title: "تواصل معنا | دار الصيانة الكويتية على مدار 24 ساعة",
     description:
       "رد سريع وخدمة طوارئ 24 ساعة لتسليك المجاري وعزل الأسطح في جميع مناطق الكويت.",
     images: ["/hero-service.svg"],

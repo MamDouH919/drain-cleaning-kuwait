@@ -62,7 +62,7 @@ export async function generateMetadata({
       area.name,
       service.keywordEn,
     ],
-    alternates: { canonical: path, languages: { "ar-KW": path } },
+    alternates: { canonical: path },
     robots: {
       index: true,
       follow: true,

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "drain cleaning Kuwait areas",
     "roof waterproofing Kuwait locations",
   ],
-  alternates: { canonical: PAGE_PATH, languages: { "ar-KW": PAGE_PATH } },
+  alternates: { canonical: PAGE_PATH },
   robots: {
     index: true,
     follow: true,

@@ -17,7 +17,7 @@ import Faq, { type FaqItem } from "@/components/Faq";
 const PAGE_PATH = "/roof-waterproofing-kuwait";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const PAGE_LABEL = "عزل أسطح الكويت";
-const TITLE = "عزل أسطح الكويت ضد الحرارة وتسرب المياه | دار الصيانة الكويتية";
+const TITLE = "عزل أسطح الكويت ضد الحرارة وتسرب المياه";
 const DESCRIPTION =
   "عزل أسطح الكويت للفلل والبيوت: معاينة السطح، تجهيزه ومعالجة الشقوق، ثم طبقة عزل تناسب حالته، مع ضمان على العمل وخدمة في جميع المحافظات. اتصل 98890031";
 const COVER_IMAGE = "/roof-waterproofing/عازل-اسطح-الكويت.webp";
@@ -25,8 +25,7 @@ const COVER_ALT = "سطح بعد العزل بطبقة رمادية مع وحد�
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  // `absolute` يتجاوز قالب العنوان في الـ layout لأن العنوان يحمل اسم النشاط أصلًا.
-  title: { absolute: TITLE },
+  title: TITLE,
   description: DESCRIPTION,
   alternates: {
     canonical: PAGE_URL,

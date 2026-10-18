@@ -83,7 +83,7 @@ export function buildListMetadata(opts: {
     metadataBase: new URL(SITE_URL),
     title: opts.title,
     description: opts.description,
-    alternates: { canonical: opts.path, languages: { "ar-KW": opts.path } },
+    alternates: { canonical: opts.path },
     robots: { index: true, follow: true },
     openGraph: {
       type: "website",

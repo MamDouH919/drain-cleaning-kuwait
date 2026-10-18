@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "صيانة مكينة سرداب",
     "basement pump Kuwait",
   ],
-  alternates: { canonical: PAGE_PATH, languages: { "ar-KW": PAGE_PATH } },
+  alternates: { canonical: PAGE_PATH },
   robots: {
     index: true,
     follow: true,

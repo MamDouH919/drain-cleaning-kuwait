@@ -103,6 +103,10 @@ const CSP_HEADER = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    // الافتراضي ينتهي بـ 2048 و3840، ولا تحتاجهما صور الموقع؛ أكبرها يُعرض بعرض الشاشة.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+  },
   experimental: {
     inlineCss: true,
   },

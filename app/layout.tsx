@@ -18,10 +18,9 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: HOME_TITLE,
-    template: "%s | دار الصيانة الكويتية",
-  },
+  // بلا template: اسم النشاط يُكتب يدويًا في عناوين الرئيسية ومن نحن وتواصل معنا
+  // فقط، حتى تبقى بقية العناوين في حدود 60 حرفًا.
+  title: HOME_TITLE,
   description: HOME_DESCRIPTION,
   applicationName: "دار الصيانة الكويتية",
   authors: [{ name: "دار الصيانة الكويتية", url: SITE_URL }],
@@ -31,9 +30,6 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: SITE_URL,
-    languages: {
-      "ar-KW": SITE_URL,
-    },
   },
   formatDetection: { telephone: true, email: true, address: true },
   manifest: "/manifest.json",

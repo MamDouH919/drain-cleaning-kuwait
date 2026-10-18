@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     "سياسة الخصوصية الخاصة بموقع خدمات تسليك المجاري وعزل الأسطح في الكويت، تعرف على كيفية جمع بياناتك واستخدامها وحمايتها عند طلب خدماتنا.",
   alternates: {
     canonical: PAGE_PATH,
-    languages: { "ar-KW": PAGE_PATH },
   },
   robots: {
     index: true,
