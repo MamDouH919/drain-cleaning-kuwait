@@ -102,9 +102,17 @@ export function getArticleSummaries(): ArticleSummary[] {
     })
   );
 
-  return [...summaries, ...customArticlePages].sort((a, b) =>
-    a.datePublished < b.datePublished ? 1 : -1
-  );
+  // أغلب المقالات اتنشرت في نفس اليوم، فعند تساوي التاريخ الأحدث في
+  // articles.json يظهر أولًا، وده بيحافظ على الترتيب الحالي.
+  const all = [...summaries, ...customArticlePages];
+  return all
+    .map((article, index) => ({ article, index }))
+    .sort((a, b) =>
+      a.article.datePublished === b.article.datePublished
+        ? b.index - a.index
+        : a.article.datePublished < b.article.datePublished ? 1 : -1
+    )
+    .map(({ article }) => article);
 }
 
 export function getRelatedArticles(slug: string, limit = 3): ArticleSummary[] {

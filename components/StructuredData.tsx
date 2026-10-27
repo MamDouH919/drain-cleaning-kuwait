@@ -27,7 +27,7 @@ export default function StructuredData() {
         inLanguage: "ar",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#business` },
-        datePublished: "2020-12-29T13:47:49+00:00",
+        datePublished: "2026-06-19T00:00:00+00:00",
         dateModified: HOME_LAST_MODIFIED,
         primaryImageOfPage: {
           "@type": "ImageObject",

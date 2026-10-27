@@ -1,7 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { coreServices } from "@/lib/services";
 
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
+
+const NOT_FOUND_TITLE = "الصفحة غير موجودة | دار الصيانة الكويتية";
+
+// من غير canonical (الـ layout بيحط canonical الرئيسية)، وNext بيضيف noindex
+// وstatus 404 لوحده.
+export const metadata: Metadata = {
+  title: { absolute: NOT_FOUND_TITLE },
+  description: "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+  alternates: { canonical: null },
+  robots: { index: false, follow: true },
+  openGraph: { title: NOT_FOUND_TITLE, url: null },
+  twitter: { title: NOT_FOUND_TITLE },
+};
 
 export default function NotFound() {
   return (
@@ -33,16 +48,19 @@ export default function NotFound() {
           </a>
         </div>
         <nav aria-label="روابط مفيدة" className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-          <Link href="/drain-cleaning-kuwait" className="font-bold text-sky-700 underline-offset-4 hover:underline">
-            تسليك مجاري الكويت
-          </Link>
-          <Link href="/roof-waterproofing-kuwait" className="font-bold text-emerald-700 underline-offset-4 hover:underline">
-            عزل أسطح الكويت
-          </Link>
+          {coreServices.map((service) => (
+            <Link
+              key={service.href}
+              href={service.href}
+              className="font-bold text-sky-700 underline-offset-4 hover:underline"
+            >
+              {service.anchor}
+            </Link>
+          ))}
           <Link href="/areas" className="font-bold text-slate-700 underline-offset-4 hover:underline">
             المناطق
           </Link>
-          <Link href="/articles" className="font-bold text-slate-700 underline-offset-4 hover:underline">
+          <Link href="/blogs" className="font-bold text-slate-700 underline-offset-4 hover:underline">
             المقالات
           </Link>
         </nav>

@@ -4,6 +4,10 @@ export const PHONE_NUMBER = "+96598890031";
 export const PHONE_DISPLAY = "98890031";
 export const WHATSAPP_URL = "https://wa.me/96598890031";
 
+// روابط حسابات النشاط برة الموقع (sameAs في schema الـ #business). ضيف هنا لينك
+// Google Business Profile وصفحات السوشيال أول ما تتعمل.
+export const SAME_AS: string[] = [WHATSAPP_URL];
+
 export type Area = {
   slug: string;
   /** Display name as used in copy: either "محافظة X" or a district name. */

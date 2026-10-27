@@ -1,4 +1,4 @@
-import { BUSINESS_NAME, PHONE_NUMBER, SITE_URL, WHATSAPP_URL } from "./areas";
+import { BUSINESS_NAME, PHONE_NUMBER, SAME_AS, SITE_URL } from "./areas";
 import { coreServices } from "./services";
 
 /**
@@ -55,16 +55,23 @@ export const localBusinessSchema = {
   priceRange: "$$",
   currenciesAccepted: "KWD",
   paymentAccepted: "نقداً، كي نت، تحويل بنكي",
-  // TODO: أضف `address` (PostalAddress) و`geo` (GeoCoordinates) و
-  // `aggregateRating` ببيانات حقيقية فقط، مطابقة لملف Google Business Profile.
-  // لا تُضِف قيمًا تقديرية — بدونها يُعامَل النشاط كـ service-area business.
+  // عنوان على مستوى المدينة بس، من غير شارع، لحد ما العنوان الفعلي يتأكد.
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "مدينة الكويت",
+    addressRegion: "محافظة العاصمة",
+    addressCountry: "KW",
+  },
+  // TODO: أضف `geo` (GeoCoordinates) ببيانات حقيقية بس، مطابقة لملف Google
+  // Business Profile. و`aggregateRating` بس لو التقييمات ظاهرة فعلًا في الصفحة
+  // ومن عملاء حقيقيين.
   areaServed: [
     { "@type": "Country", name: "الكويت" },
     ...GOVERNORATES.map((name) => ({ "@type": "AdministrativeArea", name })),
   ],
   openingHoursSpecification: OPEN_24_7,
   openingHours: "Mo-Su 00:00-23:59",
-  sameAs: [WHATSAPP_URL],
+  sameAs: SAME_AS,
   contactPoint: [
     {
       "@type": "ContactPoint",

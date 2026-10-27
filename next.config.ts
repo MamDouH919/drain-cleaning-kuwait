@@ -154,6 +154,9 @@ const CSP_HEADER = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // شيل الـ / من آخر الرابط بيحصل في redirects() تحت، عشان الرابط القديم اللي
+  // في آخره / يروح للوجهة النهائية بخطوة واحدة بدل خطوتين.
+  skipTrailingSlashRedirect: true,
   images: {
     // الافتراضي ينتهي بـ 2048 و3840، ولا تحتاجهما صور الموقع؛ أكبرها يُعرض بعرض الشاشة.
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -162,7 +165,7 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   async redirects() {
-    return [
+    const rules = [
       ...areaPageRedirects,
       // قبل قاعدتي /articles/<slug> و/blog/:slug العامتين حتى تطابق أولًا.
       ...mergedArticleRedirects,
@@ -186,6 +189,12 @@ const nextConfig: NextConfig = {
       // مسار /blog القديم كان يحمل نفس مقالات المدونة اليدوية.
       { source: "/blog", destination: "/blogs", permanent: true },
       { source: "/blog/:slug", destination: "/blogs/:slug", permanent: true },
+    ];
+    return [
+      // كل قاعدة بتقبل / اختيارية في الآخر.
+      ...rules.map((rule) => ({ ...rule, source: `${rule.source}{/}?` })),
+      // أي رابط تاني في آخره / بيروح لنفس الرابط من غير الـ /.
+      { source: "/:path+/", destination: "/:path+", permanent: true },
     ];
   },
   async headers() {

@@ -72,6 +72,11 @@ export default function ArticleSidebar({
       <section className="sidebar-card">
         <h2 className="sidebar-title">صفحات الخدمات</h2>
         <ul className="sidebar-list">
+          {area ? (
+            <li>
+              <Link href={`/roof-waterproofing-${area.slug}`}>عزل أسطح {area.name}</Link>
+            </li>
+          ) : null}
           {servicePages.map((page) => (
             <li key={page.href}>
               <Link href={page.href}>{page.label}</Link>

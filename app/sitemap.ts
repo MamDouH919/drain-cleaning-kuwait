@@ -2,66 +2,55 @@ import type { MetadataRoute } from "next";
 import { SITE_URL, allAreaPageSlugs } from "@/lib/areas";
 import { articles } from "@/lib/articles";
 import { CMS_BASE_PATH, safeGetAllArticles } from "@/lib/cms/client";
+import { PAGE_LAST_MODIFIED } from "@/lib/last-modified";
 
-const staticRoutes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
-  { path: "", priority: 1, changeFrequency: "weekly" },
-  { path: "/drain-cleaning-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/roof-waterproofing-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/kitchen-bathroom-drain-cleaning-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/thermal-waterproofing-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/basement-pump-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/manhole-installation-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/water-tank-cleaning-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/gitaroof-insulation-kuwait", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/drain-cleaning-prices-kuwait", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/roof-insulation-prices-kuwait", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/areas", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/blogs", priority: 0.7, changeFrequency: "weekly" },
-  { path: "/about-us", priority: 0.6, changeFrequency: "yearly" },
-  { path: "/contact-us", priority: 0.6, changeFrequency: "yearly" },
-  { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
-  { path: "/terms-conditions", priority: 0.3, changeFrequency: "yearly" },
+// من غير changefreq وpriority لأن جوجل بيتجاهلهم.
+const staticRoutes = [
+  "",
+  "/drain-cleaning-kuwait",
+  "/roof-waterproofing-kuwait",
+  "/kitchen-bathroom-drain-cleaning-kuwait",
+  "/thermal-waterproofing-kuwait",
+  "/basement-pump-kuwait",
+  "/manhole-installation-kuwait",
+  "/water-tank-cleaning-kuwait",
+  "/gitaroof-insulation-kuwait",
+  "/drain-cleaning-prices-kuwait",
+  "/roof-insulation-prices-kuwait",
+  "/areas",
+  "/blogs",
+  "/about-us",
+  "/contact-us",
+  "/privacy-policy",
+  "/terms-conditions",
 ];
 
-// تاريخ آخر مراجعة فعلية لمحتوى الصفحات الثابتة وصفحات المناطق (القالب) —
-// يُحدَّث يدويًا فقط عند تعديل حقيقي في المحتوى/الأسعار/البنية، وليس تاريخ
-// آخر عملية build، حتى لا يُبلِّغ جوجل بتعديل وهمي في كل نشر.
-const CONTENT_LAST_MODIFIED = new Date("2026-09-15T00:00:00+00:00");
+// lastmod بيطلع بس لو فيه تاريخ حقيقي للصفحة (lib/last-modified.ts).
+function entry(path: string, lastModified?: string): MetadataRoute.Sitemap[number] {
+  return {
+    url: `${SITE_URL}${path}`,
+    ...(lastModified ? { lastModified } : {}),
+  };
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
+  const staticEntries = staticRoutes.map((path) => entry(path, PAGE_LAST_MODIFIED[path]));
 
-  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: `${SITE_URL}${route.path}`,
-    lastModified: CONTENT_LAST_MODIFIED,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
+  const areaEntries = allAreaPageSlugs().map((slug) =>
+    entry(`/${slug}`, PAGE_LAST_MODIFIED[`/${slug}`]),
+  );
 
-  const areaEntries: MetadataRoute.Sitemap = allAreaPageSlugs().map((slug) => ({
-    url: `${SITE_URL}/${slug}`,
-    lastModified: CONTENT_LAST_MODIFIED,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
-  const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${SITE_URL}/blogs/${article.slug}`,
-    lastModified: new Date(article.dateModified),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  const articleEntries = articles.map((article) =>
+    entry(`/blogs/${article.slug}`, article.dateModified),
+  );
 
   // CMS-backed hub. Safe helper returns [] when the CMS is unset/unreachable,
   // so the sitemap still builds.
   const cmsArticles = await safeGetAllArticles();
 
-  const hubArticleEntries: MetadataRoute.Sitemap = cmsArticles.map((article) => ({
-    url: `${SITE_URL}${CMS_BASE_PATH}/${article.slug}`,
-    lastModified: new Date(article.updatedAt || article.publishedAt || now),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  const hubArticleEntries = cmsArticles.map((article) =>
+    entry(`${CMS_BASE_PATH}/${article.slug}`, article.updatedAt || article.publishedAt),
+  );
 
   return [
     ...staticEntries,
