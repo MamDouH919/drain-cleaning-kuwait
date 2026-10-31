@@ -13,6 +13,8 @@ export type CustomAreaPage = {
   title: string;
   description: string;
   h1: string;
+  /** تاريخ أول نشر للنسخة المكتوبة يدويًا (`YYYY-MM-DD`)، لـ `datePublished` في الـ Article. */
+  datePublished: string;
   intro: ReactNode;
   /** سطر الخبرة (يتذكر مرة واحدة في الصفحة). */
   experience: string;

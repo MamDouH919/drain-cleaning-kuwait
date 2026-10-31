@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
+import { articleGraph } from "@/lib/article-schema";
+import { PAGE_LAST_MODIFIED } from "@/lib/last-modified";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/drain-cleaning-prices-kuwait";
@@ -12,37 +15,13 @@ const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "اسعار تسليك مجاري الكويت | أسعار واضحة بدون رسوم خفية",
   description:
     "اسعار تسليك مجاري الكويت لفتح انسداد المغاسل والحمامات والخط الرئيسي بدون تكسير، مع سعر واضح بعد المعاينة وقبل بدء العمل، وخدمة طوارئ 24 ساعة.",
-  alternates: {
-    canonical: PAGE_PATH,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "اسعار تسليك مجاري الكويت | أسعار واضحة بدون رسوم خفية",
-    description:
-      "أسعار تسليك المجاري وفتح الانسدادات بدون تكسير في الكويت، تقييم وسعر واضح قبل البدء وخدمة 24 ساعة.",
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "اسعار تسليك مجاري الكويت | أسعار واضحة بدون رسوم خفية",
-    description:
-      "أسعار تسليك المجاري وفتح الانسدادات بدون تكسير في الكويت، تقييم وسعر واضح قبل البدء وخدمة 24 ساعة.",
-    images: [COVER_IMAGE],
-  },
-};
+  path: PAGE_PATH,
+  image: { url: COVER_IMAGE, width: 1080, height: 1080, alt: COVER_ALT },
+});
 
 const priceList = [
   {
@@ -149,6 +128,18 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    // صفحة دليل أسعار: Article عشان المحتوى نفسه، وService عشان العرض.
+    // أول نشر 2026-07-14 (أول commit للصفحة)، وآخر تعديل من last-modified.
+    ...articleGraph({
+      url: PAGE_URL,
+      headline: "اسعار تسليك مجاري الكويت", // = الـ H1
+      description:
+        "أسعار تسليك المجاري وفتح الانسدادات بدون تكسير في الكويت بسعر واضح قبل البدء وبدون رسوم خفية.",
+      image: COVER_IMAGE,
+      datePublished: "2026-07-14",
+      dateModified: PAGE_LAST_MODIFIED[PAGE_PATH],
+      breadcrumbId: `${PAGE_URL}/#breadcrumb`,
+    }),
     {
       "@type": "Service",
       "@id": `${PAGE_URL}/#service`,

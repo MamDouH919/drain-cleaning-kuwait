@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/lib/areas";
@@ -9,35 +10,13 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/roof-waterproofing/gitaroof-membrane-installation.webp";
 const COVER_ALT = "العزل المائي والحراري في الكويت";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "العزل المائي والحراري الكويت | حماية الأسطح والمباني",
   description:
     "خدمة العزل المائي والحراري في الكويت لحماية الأسطح والمباني من تسرب المياه والحرارة بأفضل المواد وعزل الفوم مع ضمان على الخدمة في جميع المناطق.",
-  alternates: { canonical: PAGE_PATH },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "العزل المائي والحراري الكويت | حماية الأسطح والمباني",
-    description:
-      "عزل مائي وحراري وفوم لحماية الأسطح والمباني من تسرب المياه والحرارة بأفضل المواد وضمان على الخدمة في الكويت.",
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "العزل المائي والحراري الكويت | حماية الأسطح والمباني",
-    description:
-      "عزل مائي وحراري وفوم لحماية الأسطح والمباني من تسرب المياه والحرارة بأفضل المواد وضمان على الخدمة.",
-    images: [COVER_IMAGE],
-  },
-};
+  path: PAGE_PATH,
+  image: { url: COVER_IMAGE, width: 640, height: 474, alt: COVER_ALT },
+});
 
 const features = [
   "العزل المائي للأسطح والأساسات",

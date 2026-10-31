@@ -7,10 +7,12 @@ export const HOME_TITLE =
 export const HOME_DESCRIPTION =
   "دار الصيانة الكويتية: تسليك مجاري، عزل أسطح مائي وحراري، تركيب مكائن سرداب ومناهيل، وغسيل تانكي في جميع مناطق الكويت. خدمة 24 ساعة. اتصل 98890031";
 
+// صورة المشاركة الافتراضية (1200×630): اللوجو على خلفية بيضاء. أي صفحة مالهاش
+// صورة غلاف بتاخدها من `pageMetadata` في `lib/metadata.ts`.
 export const OG_IMAGE = {
-  url: "/drain-cleaning-kuwait.webp",
-  width: 1874,
-  height: 1440,
+  url: "/og-image.jpg",
+  width: 1200,
+  height: 630,
   alt: "دار الصيانة الكويتية — خدمات تسليك المجاري وعزل الأسطح في الكويت",
 };
 

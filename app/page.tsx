@@ -8,33 +8,16 @@ import Gallery from "@/components/Gallery";
 import Faq from "@/components/Faq";
 import ArticlesSection from "@/components/ArticlesSection";
 import StructuredData from "@/components/StructuredData";
-import { SITE_URL } from "@/lib/areas";
-import { HOME_DESCRIPTION, HOME_TITLE, OG_IMAGE } from "@/lib/home";
+import { HOME_DESCRIPTION, HOME_TITLE } from "@/lib/home";
+import { pageMetadata } from "@/lib/metadata";
 
 // الرئيسية صفحة عامة (بوابة) تعرّف بالشركة وتوزّع على صفحات الخدمات؛ كل كلمة
 // مستهدفة لها صفحة خدمة واحدة فقط، فلا تستهدف الرئيسية أيًّا منها مباشرة.
-export const metadata: Metadata = {
-  title: { absolute: HOME_TITLE },
+export const metadata: Metadata = pageMetadata({
+  title: HOME_TITLE,
   description: HOME_DESCRIPTION,
-  alternates: {
-    canonical: `${SITE_URL}/`,
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: `${SITE_URL}/`,
-    siteName: "دار الصيانة الكويتية",
-    title: HOME_TITLE,
-    description: HOME_DESCRIPTION,
-    images: [OG_IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: HOME_TITLE,
-    description: HOME_DESCRIPTION,
-    images: [OG_IMAGE.url],
-  },
-};
+  path: "/",
+});
 
 export default function Home() {
   return (

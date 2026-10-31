@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import ArticleList from "@/components/ArticleList";
 import { SITE_URL } from "@/lib/areas";
 import { getArticleSummaries } from "@/lib/articles";
@@ -7,23 +8,12 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/blogs";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "المدونة | نصائح تسليك المجاري وعزل الأسطح في الكويت",
   description:
     "مقالات ونصائح متخصصة في تسليك المجاري وعزل الأسطح والصيانة المنزلية في الكويت، تعرف على أحدث التقنيات وطرق الوقاية من المشاكل.",
-  alternates: { canonical: PAGE_PATH },
-  robots: { index: true, follow: true },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    siteName: "دار الصيانة الكويتية",
-    title: "المدونة | نصائح تسليك المجاري وعزل الأسطح في الكويت",
-    description:
-      "مقالات ونصائح متخصصة في تسليك المجاري وعزل الأسطح والصيانة المنزلية في الكويت.",
-  },
-};
+  path: PAGE_PATH,
+});
 
 export default function ArticlesPage() {
   const posts = getArticleSummaries();
@@ -38,7 +28,7 @@ export default function ArticlesPage() {
         url: PAGE_URL,
         inLanguage: "ar",
         isPartOf: { "@id": `${SITE_URL}/#website` },
-        publisher: { "@id": `${SITE_URL}/#business` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
       },
       {
         "@type": "BreadcrumbList",

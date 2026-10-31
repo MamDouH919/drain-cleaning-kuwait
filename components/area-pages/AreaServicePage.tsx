@@ -3,6 +3,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Faq from "@/components/Faq";
 import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, serviceConfigs } from "@/lib/areas";
 import { BUSINESS_ID } from "@/lib/schema";
+import { articleGraph } from "@/lib/article-schema";
+import { PAGE_LAST_MODIFIED } from "@/lib/last-modified";
 import { coreServices } from "@/lib/services";
 import type { CustomAreaPage } from "./types";
 
@@ -19,6 +21,15 @@ export default function AreaServicePage({ page, path }: { page: CustomAreaPage; 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...articleGraph({
+        url,
+        headline: page.h1,
+        description: page.description,
+        image: page.cover.src,
+        datePublished: page.datePublished,
+        dateModified: PAGE_LAST_MODIFIED[path] ?? page.datePublished,
+        breadcrumbId: `${url}#breadcrumb`,
+      }),
       {
         "@type": "Service",
         "@id": `${url}#service`,

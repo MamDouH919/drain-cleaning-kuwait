@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,7 +9,6 @@ import Gallery from "@/components/Gallery";
 import { articleFaqs } from "@/lib/drain-article";
 import {
   SITE_URL,
-  BUSINESS_NAME,
   PHONE_NUMBER,
   PHONE_DISPLAY,
   WHATSAPP_URL,
@@ -47,38 +47,14 @@ export async function generateMetadata({
 
   const { service, area } = parsed;
   const path = `/${slug}`;
-  const url = `${SITE_URL}${path}`;
   const custom = customAreaPages[slug];
   const title = custom ? custom.title : service.metaTitle(area.name);
   const description = custom ? custom.description : service.metaDescription(area.name);
-  const image = custom ? custom.cover : { src: service.coverImage, alt: title, width: 1200, height: 630 };
+  const image = custom
+    ? { url: custom.cover.src, width: custom.cover.width, height: custom.cover.height, alt: custom.cover.alt }
+    : { url: service.coverImage, alt: title };
 
-  return {
-    metadataBase: new URL(SITE_URL),
-    title,
-    description,
-    alternates: { canonical: path },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large" },
-    },
-    openGraph: {
-      type: "website",
-      locale: "ar_KW",
-      url,
-      title,
-      description,
-      siteName: BUSINESS_NAME,
-      images: [{ url: image.src, width: image.width, height: image.height, alt: image.alt }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image.src],
-    },
-  };
+  return pageMetadata({ title, description, path, image });
 }
 
 export default async function AreaServicePage({

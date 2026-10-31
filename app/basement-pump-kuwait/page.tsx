@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/lib/areas";
@@ -9,35 +10,13 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/drain-cleaning/sewage-suction-tanker.webp";
 const COVER_ALT = "تركيب مكينة سرداب في الكويت";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "تركيب مكينة سرداب الكويت | مضخات سحب مياه السراديب",
   description:
     "خدمة تركيب مكينة سرداب في الكويت لسحب مياه السراديب وحمايتها من الغرق، توريد وتركيب وصيانة مضخات المياه بأحدث الأنواع وضمان على الخدمة 24 ساعة.",
-  alternates: { canonical: PAGE_PATH },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "تركيب مكينة سرداب الكويت | مضخات سحب مياه السراديب",
-    description:
-      "تركيب وصيانة مكائن سحب مياه السراديب في الكويت بأحدث الأنواع وضمان على الخدمة على مدار 24 ساعة.",
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "تركيب مكينة سرداب الكويت | مضخات سحب مياه السراديب",
-    description:
-      "تركيب وصيانة مكائن سحب مياه السراديب في الكويت بأحدث الأنواع وضمان على الخدمة.",
-    images: [COVER_IMAGE],
-  },
-};
+  path: PAGE_PATH,
+  image: { url: COVER_IMAGE, width: 1080, height: 1080, alt: COVER_ALT },
+});
 
 const features = [
   "توريد وتركيب مكائن السرداب",

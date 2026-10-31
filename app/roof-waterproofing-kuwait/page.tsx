@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -23,34 +24,12 @@ const DESCRIPTION =
 const COVER_IMAGE = "/roof-waterproofing/grey-roof-insulation-ac-units.webp";
 const COVER_ALT = "سطح بعد العزل بطبقة رمادية مع وحدات التكييف";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  alternates: {
-    canonical: PAGE_URL,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: TITLE,
-    description: DESCRIPTION,
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: COVER_IMAGE, width: 1024, height: 768, alt: COVER_ALT }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [COVER_IMAGE],
-  },
-};
+  path: PAGE_PATH,
+  image: { url: COVER_IMAGE, width: 1024, height: 768, alt: COVER_ALT },
+});
 
 const signs = [
   {

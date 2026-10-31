@@ -1,53 +1,21 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/about-us";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const BUSINESS_NAME = "دار الصيانة الكويتية";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "من نحن | دار الصيانة الكويتية لتسليك المجاري وعزل الأسطح",
   description:
     "تعرف على شركتنا المتخصصة في تسليك مجاري الكويت وعزل أسطح الكويت، فريق خبير وخدمة صيانة منزلية 24 ساعة بأسعار مناسبة وضمان في جميع مناطق الكويت.",
-  alternates: {
-    canonical: PAGE_PATH,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "من نحن | دار الصيانة الكويتية لتسليك المجاري وعزل الأسطح",
-    description:
-      "شركة متخصصة في تسليك المجاري وعزل الأسطح وخدمات الصيانة المنزلية 24 ساعة في جميع مناطق الكويت.",
-    siteName: BUSINESS_NAME,
-    images: [
-      {
-        url: "/hero-service.svg",
-        width: 720,
-        height: 720,
-        alt: "شركة تسليك مجاري وعزل أسطح في الكويت",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "من نحن | دار الصيانة الكويتية لتسليك المجاري وعزل الأسطح",
-    description:
-      "شركة متخصصة في تسليك المجاري وعزل الأسطح وخدمات الصيانة المنزلية 24 ساعة في جميع مناطق الكويت.",
-    images: ["/hero-service.svg"],
-  },
-};
+  path: PAGE_PATH,
+});
 
 const whyUs = [
   { title: "خبرة طويلة في الكويت", desc: "سنوات من العمل الميداني في التسليك والعزل داخل الكويت." },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import { SITE_URL } from "@/lib/areas";
@@ -6,49 +7,16 @@ import { SITE_URL } from "@/lib/areas";
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/contact-us";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const BUSINESS_NAME = "دار الصيانة الكويتية";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "تواصل معنا | دار الصيانة الكويتية على مدار 24 ساعة",
   description:
     "تواصل معنا الآن لخدمة تسليك مجاري الكويت وعزل أسطح الكويت برد سريع وخدمة طوارئ 24 ساعة في جميع المناطق. اتصل أو راسلنا واتساب على 98890031.",
-  alternates: {
-    canonical: PAGE_PATH,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "تواصل معنا | دار الصيانة الكويتية على مدار 24 ساعة",
-    description:
-      "رد سريع وخدمة طوارئ 24 ساعة لتسليك المجاري وعزل الأسطح في جميع مناطق الكويت. اتصل أو راسلنا واتساب.",
-    siteName: BUSINESS_NAME,
-    images: [
-      {
-        url: "/hero-service.svg",
-        width: 720,
-        height: 720,
-        alt: "تواصل معنا لخدمات تسليك المجاري وعزل الأسطح في الكويت",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "تواصل معنا | دار الصيانة الكويتية على مدار 24 ساعة",
-    description:
-      "رد سريع وخدمة طوارئ 24 ساعة لتسليك المجاري وعزل الأسطح في جميع مناطق الكويت.",
-    images: ["/hero-service.svg"],
-  },
-};
+  path: PAGE_PATH,
+});
 
 const whyContact = [
   { title: "رد سريع خلال دقائق", desc: "نرد على طلبك فور وصوله ونحدد موعد الوصول." },
@@ -110,15 +78,8 @@ const jsonLd = {
       name: "تواصل معنا",
       inLanguage: "ar",
       about: { "@id": `${SITE_URL}/#business` },
-    },
-    {
-      "@type": "ContactPoint",
-      telephone: PHONE_NUMBER,
-      contactType: "customer service",
-      areaServed: "KW",
-      availableLanguage: ["ar"],
-      url: WHATSAPP_URL,
-      parentOrganization: { "@id": `${SITE_URL}/#business` },
+      // الـ ContactPoint نفسه (`#contactpoint`) بيطلع من الـ layout جوه `#organization`.
+      mainEntity: { "@id": `${SITE_URL}/#organization` },
     },
     {
       "@type": "FAQPage",

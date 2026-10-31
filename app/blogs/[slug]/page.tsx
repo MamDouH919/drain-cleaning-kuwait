@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+import { articleGraph } from "@/lib/article-schema";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   SITE_URL,
-  BUSINESS_NAME,
   PHONE_NUMBER,
   PHONE_DISPLAY,
   WHATSAPP_URL,
@@ -40,37 +41,15 @@ export async function generateMetadata({
   const article = articleBySlug.get(slug);
   if (!article) return {};
 
-  const path = `/blogs/${slug}`;
-  const url = `${SITE_URL}${path}`;
-
-  return {
-    metadataBase: new URL(SITE_URL),
+  return pageMetadata({
     title: article.metaTitle,
     description: article.description,
-    alternates: { canonical: path },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large" },
-    },
-    openGraph: {
-      type: "article",
-      locale: "ar_KW",
-      url,
-      title: article.metaTitle,
-      description: article.description,
-      siteName: BUSINESS_NAME,
-      publishedTime: article.datePublished,
-      modifiedTime: article.dateModified,
-      images: [{ url: article.featuredImage, width: 1200, height: 630, alt: article.featuredAlt }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: article.metaTitle,
-      description: article.description,
-      images: [article.featuredImage],
-    },
-  };
+    path: `/blogs/${slug}`,
+    image: { url: article.featuredImage, alt: article.featuredAlt },
+    type: "article",
+    publishedTime: article.datePublished,
+    modifiedTime: article.dateModified,
+  });
 }
 
 function formatDate(iso: string) {
@@ -237,20 +216,18 @@ export default async function ArticlePage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BlogPosting",
-        "@id": `${url}/#article`,
+      ...articleGraph({
+        url,
+        type: "BlogPosting",
         headline: article.title,
         description: article.description,
-        image: `${SITE_URL}${article.featuredImage}`,
+        image: article.featuredImage,
         datePublished: article.datePublished,
         dateModified: article.dateModified,
-        inLanguage: "ar",
+        breadcrumbId: `${url}/#breadcrumb`,
         author: { "@id": AUTHOR_PROFILE_ID },
-        publisher: { "@id": `${SITE_URL}/#business` },
-        mainEntityOfPage: { "@type": "WebPage", "@id": url },
-        articleSection: article.category,
-      },
+        extra: { articleSection: article.category },
+      }),
       authorPersonNode(author),
       ...(faqs.length > 0
         ? [

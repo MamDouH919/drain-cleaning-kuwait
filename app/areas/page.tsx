@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import {
-  SITE_URL,
   PHONE_NUMBER,
   PHONE_DISPLAY,
   WHATSAPP_URL,
@@ -11,37 +11,13 @@ import {
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/areas";
-const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "مناطق الخدمة | تسليك مجاري وعزل أسطح في جميع مناطق الكويت",
   description:
     "نقدم خدمات تسليك المجاري وعزل الأسطح في جميع مناطق الكويت مثل حولي والسالمية والفروانية والجهراء والأحمدي والفحيحيل بسرعة استجابة وخدمة 24 ساعة.",
-  alternates: { canonical: PAGE_PATH },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "مناطق الخدمة | تسليك مجاري وعزل أسطح في جميع مناطق الكويت",
-    description:
-      "خدمات تسليك المجاري وعزل الأسطح في جميع مناطق الكويت بسرعة استجابة وخدمة 24 ساعة.",
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: "/hero-service.svg", width: 720, height: 720, alt: "مناطق الخدمة في الكويت" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "مناطق الخدمة | تسليك مجاري وعزل أسطح في جميع مناطق الكويت",
-    description:
-      "خدمات تسليك المجاري وعزل الأسطح في جميع مناطق الكويت بسرعة استجابة وخدمة 24 ساعة.",
-    images: ["/hero-service.svg"],
-  },
-};
+  path: PAGE_PATH,
+});
 
 const drain = serviceConfigs["drain-cleaning"];
 const roof = serviceConfigs["roof-waterproofing"];

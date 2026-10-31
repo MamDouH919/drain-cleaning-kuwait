@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
 import Social from "@/components/social";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
 import Script from "next/script";
 
 const cairo = Cairo({
@@ -82,12 +83,11 @@ export const viewport: Viewport = {
 };
 
 // Structured data
-// النود `#business` (LocalBusiness) هو مصدر بيانات الشركة الوحيد، ويُصدَّر مرة
-// واحدة من `LocalBusinessSchema` في هذا الملف. لا تُنشئ نود Organization
-// منفصلاً هنا — سيتعارض مع `#business` بنفس الاسم/الهاتف.
-// نود `#website` يبقى هنا لأن كل الصفحات تشير إليه عبر `isPartOf`. أما
-// WebPage/BreadcrumbList الخاصة بالرئيسية فمكانها `components/StructuredData.tsx`
-// حتى لا تظهر في كل صفحات الموقع.
+// نود `#business` (LocalBusiness) هو مصدر بيانات الشركة الوحيد، ويُصدَّر مرة
+// واحدة من `LocalBusinessSchema`. نود `#organization` هو الكيان القانوني فوقه،
+// ويُصدَّر من `OrganizationSchema`؛ كلاهما في هذا الملف. نود `#website` يبقى هنا
+// لأن كل الصفحات تشير إليه عبر `isPartOf`. أما WebPage/BreadcrumbList الخاصة
+// بالرئيسية فمكانها `components/StructuredData.tsx` حتى لا تظهر في كل الصفحات.
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -97,7 +97,7 @@ const structuredData = {
   description: HOME_DESCRIPTION,
   inLanguage: "ar",
   publisher: {
-    "@id": SITE_URL + "/#business"
+    "@id": SITE_URL + "/#organization"
   },
   potentialAction: {
     "@type": "SearchAction",
@@ -122,6 +122,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col pb-20 lg:pb-0">
         <LocalBusinessSchema />
+        <OrganizationSchema />
         {/* Google tag (gtag.js) */}
         <Script
           id="gtag-src"

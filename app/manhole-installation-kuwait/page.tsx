@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,35 +17,13 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/portfolio/kitchen-bathroom-drain-cleaning.webp";
 const COVER_ALT = "تركيب منهول في الكويت";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "تركيب منهول الكويت | توريد وتركيب أغطية المناهل",
   description:
     "خدمة تركيب منهول الكويت وتوريد أغطية وفتحات المناهل بمختلف المقاسات لشبكات الصرف الصحي، تركيب وصيانة بإتقان وأمان وضمان على الخدمة في جميع مناطق الكويت.",
-  alternates: { canonical: PAGE_PATH },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "تركيب منهول الكويت | توريد وتركيب أغطية المناهل",
-    description:
-      "توريد وتركيب أغطية وفتحات المناهل بمختلف المقاسات لشبكات الصرف الصحي بإتقان وأمان في جميع مناطق الكويت.",
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "تركيب منهول الكويت | توريد وتركيب أغطية المناهل",
-    description:
-      "توريد وتركيب أغطية وفتحات المناهل بمختلف المقاسات لشبكات الصرف الصحي بإتقان وأمان.",
-    images: [COVER_IMAGE],
-  },
-};
+  path: PAGE_PATH,
+  image: { url: COVER_IMAGE, width: 1000, height: 1000, alt: COVER_ALT },
+});
 
 const features = [
   "تركيب غطاء منهول حديد",

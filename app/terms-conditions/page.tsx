@@ -1,38 +1,21 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/terms-conditions";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const BUSINESS_NAME = "دار الصيانة الكويتية";
 const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "الشروط والأحكام | خدمات تسليك المجاري وعزل الأسطح في الكويت",
   description:
     "الشروط والأحكام الخاصة باستخدام موقع وخدمات تسليك المجاري وعزل الأسطح في الكويت، تعرف على شروط طلب الخدمة والأسعار والضمان والمسؤوليات.",
-  alternates: {
-    canonical: PAGE_PATH,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "الشروط والأحكام | دار الصيانة الكويتية",
-    description:
-      "شروط وأحكام استخدام خدمات تسليك المجاري وعزل الأسطح في الكويت، الأسعار والضمان والمسؤوليات.",
-    siteName: BUSINESS_NAME,
-  },
-};
+  path: PAGE_PATH,
+});
 
 const sections = [
   {
@@ -99,7 +82,7 @@ const jsonLd = {
   url: PAGE_URL,
   inLanguage: "ar",
   isPartOf: { "@id": `${SITE_URL}/#website` },
-  publisher: { "@id": `${SITE_URL}/#business` },
+  publisher: { "@id": `${SITE_URL}/#organization` },
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [

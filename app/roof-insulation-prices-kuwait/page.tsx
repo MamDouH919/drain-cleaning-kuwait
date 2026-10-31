@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/areas";
+import { articleGraph } from "@/lib/article-schema";
+import { PAGE_LAST_MODIFIED } from "@/lib/last-modified";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 const PAGE_PATH = "/roof-insulation-prices-kuwait";
@@ -12,37 +15,13 @@ const PHONE_NUMBER = "+96598890031";
 const PHONE_DISPLAY = "98890031";
 const WHATSAPP_URL = "https://wa.me/96598890031";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "اسعار عزل اسطح الكويت | أسعار واضحة بالمتر بدون رسوم خفية",
   description:
     "اسعار عزل اسطح الكويت للعزل المائي والحراري وعزل الفوم بالمتر، مع معاينة وسعر واضح قبل البدء بدون رسوم خفية، وضمان على العمل في جميع المناطق.",
-  alternates: {
-    canonical: PAGE_PATH,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "اسعار عزل اسطح الكويت | أسعار واضحة بالمتر بدون رسوم خفية",
-    description:
-      "أسعار عزل الأسطح المائي والحراري وعزل الفوم في الكويت بالمتر، سعر واضح قبل البدء وضمان على الخدمة.",
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "اسعار عزل اسطح الكويت | أسعار واضحة بالمتر بدون رسوم خفية",
-    description:
-      "أسعار عزل الأسطح المائي والحراري وعزل الفوم في الكويت بالمتر، سعر واضح قبل البدء وضمان على الخدمة.",
-    images: [COVER_IMAGE],
-  },
-};
+  path: PAGE_PATH,
+  image: { url: COVER_IMAGE, width: 640, height: 474, alt: COVER_ALT },
+});
 
 const priceList = [
   {
@@ -125,6 +104,18 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    // صفحة دليل أسعار: Article عشان المحتوى نفسه، وService عشان العرض.
+    // أول نشر 2026-07-14 (أول commit للصفحة)، وآخر تعديل من last-modified.
+    ...articleGraph({
+      url: PAGE_URL,
+      headline: "اسعار عزل اسطح الكويت", // = الـ H1
+      description:
+        "أسعار عزل الأسطح المائي والحراري وعزل الفوم في الكويت بالمتر بسعر واضح قبل البدء وبدون رسوم خفية.",
+      image: COVER_IMAGE,
+      datePublished: "2026-07-14",
+      dateModified: PAGE_LAST_MODIFIED[PAGE_PATH],
+      breadcrumbId: `${PAGE_URL}/#breadcrumb`,
+    }),
     {
       "@type": "Service",
       "@id": `${PAGE_URL}/#service`,

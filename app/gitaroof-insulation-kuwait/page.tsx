@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE_URL, PHONE_NUMBER, PHONE_DISPLAY, WHATSAPP_URL, areas } from "@/lib/areas";
@@ -9,35 +10,13 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const COVER_IMAGE = "/services/gitaroof-membrane-installation.webp";
 const COVER_ALT = "عزل أسطح جيتاروف في الكويت";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+export const metadata: Metadata = pageMetadata({
   title: "عزل أسطح جيتاروف الكويت | عزل مائي وحراري قوي",
   description:
     "خدمة عزل أسطح جيتاروف في الكويت بمادة مقاومة للماء والحرارة لحماية طويلة الأمد للمباني، فريق متخصص وضمان على الخدمة في جميع مناطق الكويت.",
-  alternates: { canonical: PAGE_PATH },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_KW",
-    url: PAGE_URL,
-    title: "عزل أسطح جيتاروف الكويت | عزل مائي وحراري قوي",
-    description:
-      "عزل أسطح بمادة الجيتاروف المقاومة للماء والحرارة لحماية طويلة الأمد للمباني في جميع مناطق الكويت.",
-    siteName: "دار الصيانة الكويتية",
-    images: [{ url: COVER_IMAGE, width: 1200, height: 630, alt: COVER_ALT }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "عزل أسطح جيتاروف الكويت | عزل مائي وحراري قوي",
-    description:
-      "عزل أسطح بمادة الجيتاروف المقاومة للماء والحرارة لحماية طويلة الأمد للمباني في الكويت.",
-    images: [COVER_IMAGE],
-  },
-};
+  path: PAGE_PATH,
+  image: { url: COVER_IMAGE, width: 640, height: 474, alt: COVER_ALT },
+});
 
 const features = [
   "عزل الأسطح بمادة الجيتاروف",

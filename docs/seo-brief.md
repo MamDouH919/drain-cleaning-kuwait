@@ -253,6 +253,22 @@ farwaniya (الفروانية)، ahmadi (الأحمدي)، fahaheel (الفحي�
 - عنوان الرئيسية: "تسليك مجاري وعزل أسطح في الكويت 24 ساعة | دار الصيانة الكويتية" (62 حرف).
 - فاضل: الأداء (HTML الرئيسية ~518KB و70 script) كمهمة لوحدها.
 
+**2026-10-31: ملاحظات Ahrefs Site Audit (schema وOG والسرعة)**
+- ContactPoint: اتشال `parentOrganization` (مش property صالحة). الـ ContactPoint الوحيد بقى جوه `#organization`
+  بـ `@id` `#contactpoint`، و`#business` بيشاور عليه، و`/contact-us` مابقاش فيها نود منفصل.
+- نود `#organization` جديد (`lib/schema.ts` + `OrganizationSchema` في الـ layout): name وurl وlogo وcontactPoint
+  وsameAs (من `SAME_AS`، واتساب بس لحد دلوقتي). `#business` بقى ليه `parentOrganization`، و`publisher` بتاع الـ WebSite
+  والمقالات والصفحات القانونية بقى `#organization`. `legalName` متحطش في الـ Organization لأنه مش متأكد.
+- Article + WebPage بـ `articleGraph()` في `lib/article-schema.ts`: صفحتين الأسعار (نشر 2026-07-14 من git)،
+  وتسليك حولي والسالمية (`datePublished` في ملف الصفحة، 2026-10-18)، ومقالات المدونة (BlogPosting، والكاتب الشخص زي ما هو).
+  الـ headline = الـ H1 بالحرف.
+- `pageMetadata()` في `lib/metadata.ts`: كل الصفحات بقت بتطلع canonical وog وtwitter كاملين بنفس قيم الـ title والـ description،
+  ومقاس og:image بيتقري من الملف نفسه (`lib/image-size.ts`). صورة افتراضية جديدة `public/og-image.jpg` (1200×630، اللوجو).
+  اتصلحت مقاسات غلط في 7 صفحات (كانت مكتوبة 1200×630 والصورة مربعة)، وصفحات من نحن والمناطق وتواصل معنا كانت صورتها SVG.
+- السرعة: كل الصفحات Static/SSG أصلًا (`x-nextjs-cache: HIT`). السبب `cf-cache-status: DYNAMIC`: Cloudflare مش بيكاش الـ HTML.
+  الحل Cache Rule في Cloudflare (مش في الكود).
+- مفتوح: لينكات السوشيال لـ `SAME_AS`، و`legalName` الموجود في `#business` من قبل، وCache Rule في Cloudflare.
+
 **الخطة الجاية (من المراجعة الشاملة 2026-10-10):**
 3–6. إعادة كتابة صفحات الخدمات والأسعار. 7. صفحات المناطق الـ 16 (تشابه 84% بين المناطق).
 8. السرعة وCore Web Vitals. 9. الـ sitemap وllms.txt والـ Local SEO.
